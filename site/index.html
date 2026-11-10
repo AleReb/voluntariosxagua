@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f5f5ee">
+    <meta name="description" content="Datos abiertos de monitoreo voluntario de ríos del Cajón del Maipo.">
+    <title>Voluntarios por el Agua | Cajón del Maipo</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#inicio" aria-label="Voluntarios por el Agua, inicio">
+        <span class="brand-mark" aria-hidden="true">V<span>×</span>A</span>
+        <span>Voluntarios<br>por el Agua</span>
+      </a>
+      <button id="menu-toggle" class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menú</button>
+      <nav id="site-nav" class="site-nav" aria-label="Navegación principal">
+        <a href="#datos">Datos</a>
+        <a href="#mapa">Estaciones</a>
+        <a href="#fotos">Fotografías</a>
+        <a href="#proyecto">El proyecto</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" id="inicio">
+        <div class="hero-copy">
+          <p class="eyebrow">Ciencia ciudadana · Cajón del Maipo</p>
+          <h1>Los ríos cuentan.<br><em>Los medimos juntos.</em></h1>
+          <p class="hero-intro">Seguimos mes a mes los signos vitales de los ríos del Cajón del Maipo. Explora las mediciones, conoce los lugares y descarga los datos.</p>
+          <a class="button button-light" href="#datos">Explorar los datos <span aria-hidden="true">↓</span></a>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <div class="sun"></div>
+          <svg viewBox="0 0 640 430" role="presentation">
+            <path class="mountain mountain-back" d="M0 235 121 88l69 93 98-140 121 161 66-74 165 174v98H0Z"></path>
+            <path class="mountain mountain-front" d="m0 282 103-101 82 73 101-121 94 102 74-54 186 147v102H0Z"></path>
+            <path class="river" d="M0 355c110-48 185 36 288-10s160-47 352 0v85H0Z"></path>
+            <path class="river-highlight" d="M0 380c111-48 180 34 286-12s161-45 354 2"></path>
+            <circle class="river-dot" cx="215" cy="369" r="7"></circle>
+            <circle class="river-dot" cx="406" cy="361" r="7"></circle>
+          </svg>
+          <span class="hero-caption">Cuenca del río Maipo</span>
+        </div>
+        <div class="hero-bottom">
+          <span>Monitoreo mensual desde abril de 2022</span>
+          <span class="scroll-hint">Desliza para explorar <span aria-hidden="true">↓</span></span>
+        </div>
+      </section>
+
+      <section class="section data-section" id="datos">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">01 / Mediciones</p>
+            <h2>Una mirada a través del tiempo</h2>
+          </div>
+          <p class="section-note">Compara los años hídricos, cambia el parámetro y elige qué estaciones mostrar.</p>
+        </div>
+        <div class="data-controls">
+          <label>Parámetro
+            <select id="parameter-select" aria-label="Elegir parámetro"></select>
+          </label>
+          <div class="download-actions">
+            <button id="download-csv" class="button button-dark" type="button">Descargar CSV</button>
+            <button id="download-json" class="button button-outline" type="button">JSON</button>
+          </div>
+        </div>
+        <fieldset class="station-filters">
+          <legend>Estaciones visibles</legend>
+          <div id="station-filters" class="filter-options"></div>
+        </fieldset>
+        <div id="chart-grid" class="chart-grid" aria-live="polite">
+          <p class="loading">Cargando las mediciones…</p>
+        </div>
+        <div class="summary-block">
+          <div>
+            <p class="eyebrow">Resumen del periodo seleccionado</p>
+            <h3 id="summary-title">Estadísticas por estación</h3>
+          </div>
+          <div id="summary-cards" class="summary-cards"></div>
+          <p class="source-note">Los resúmenes se calculan con los registros disponibles y excluyen valores vacíos. Son descriptivos; no representan una evaluación oficial de calidad del agua.</p>
+        </div>
+        <div class="disclaimer">
+          <span class="disclaimer-icon" aria-hidden="true">i</span>
+          <p><strong>Sobre los datos.</strong> Son mediciones de ciencia ciudadana realizadas con instrumentos calibrados por voluntarios, no certificados por la DGA. Considera el lugar, la fecha y las condiciones recientes al interpretarlas. Si usas estos datos o gráficos, cita a <strong>Voluntarios por el Agua</strong>.</p>
+        </div>
+      </section>
+
+      <section class="section map-section" id="mapa">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">02 / Territorio</p>
+            <h2>Estaciones de monitoreo</h2>
+          </div>
+          <p class="section-note">Siete puntos en cuatro sectores de la cuenca. Selecciona una estación para consultar sus mediciones.</p>
+        </div>
+        <div class="map-layout">
+          <div class="map-panel">
+            <div class="map-heading">
+              <span class="map-kicker">Cajón del Maipo · Chile</span>
+              <span class="map-key"><i></i> Ubicación de referencia</span>
+            </div>
+            <div id="station-map" class="station-map" role="img" aria-label="Mapa esquemático de los cuatro sectores de monitoreo"></div>
+            <p class="map-caveat">Ubicaciones aproximadas a partir de coordenadas de encuentro incluidas en el documento del proyecto; no son las coordenadas verificadas de cada punto de muestreo.</p>
+          </div>
+          <aside class="map-details">
+            <label>Parámetro
+              <select id="map-parameter" aria-label="Elegir parámetro para el mapa"></select>
+            </label>
+            <label>Año hídrico
+              <select id="map-year" aria-label="Filtrar por año hídrico"></select>
+            </label>
+            <div id="station-list" class="station-list"></div>
+            <div id="map-summary" class="map-summary" aria-live="polite">
+              <p>Selecciona una estación para ver su resumen.</p>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section photos-section" id="fotos">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">03 / El paisaje</p>
+            <h2>Un mismo lugar, mes a mes</h2>
+          </div>
+          <p class="section-note">Las fotografías repetitivas muestran cómo cambia el entorno a lo largo del tiempo.</p>
+        </div>
+        <div class="photo-controls">
+          <label>Sector
+            <select id="photo-location" aria-label="Filtrar fotografías por sector"></select>
+          </label>
+          <span id="photo-count" class="photo-count"></span>
+        </div>
+        <div id="photo-grid" class="photo-grid" aria-live="polite"></div>
+        <p class="source-note">Las imágenes se presentan con el nombre de archivo recibido; las fechas se deben confirmar si no aparecen claramente en el nombre.</p>
+      </section>
+
+      <section class="project-section" id="proyecto">
+        <div class="project-intro">
+          <p class="eyebrow">04 / Quiénes somos</p>
+          <h2>Conocer el río<br>para cuidarlo mejor.</h2>
+          <p>En Voluntarios por el Agua medimos una vez al mes los signos vitales de los ríos del Cajón del Maipo. Compartimos los datos para acercar el conocimiento de la cuenca a quienes la habitan y la visitan.</p>
+          <a class="button button-light" href="https://www.instagram.com/voluntariosxelagua/" target="_blank" rel="noreferrer">Síguenos en Instagram <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="project-content">
+          <article>
+            <span class="project-number">01</span>
+            <h3>Medición colaborativa</h3>
+            <p>Los equipos incluyen un multiparámetro, kits para dureza y alcalinidad, y tiras reactivas. La medición de bacterias se realiza ocasionalmente, según los recursos disponibles.</p>
+          </article>
+          <article>
+            <span class="project-number">02</span>
+            <h3>Datos abiertos</h3>
+            <p>El proyecto comenzó en abril de 2022. Publicamos las mediciones mensuales para que puedan consultarse, descargarse y reutilizarse dando crédito a quienes las recopilan.</p>
+          </article>
+          <article>
+            <span class="project-number">03</span>
+            <h3>Una comunidad por el agua</h3>
+            <p>Hasta fines de 2025 se monitorearon otros lugares; esta selección destaca los puntos con continuidad histórica. Para colaborar o conocer más, contáctanos por Instagram.</p>
+          </article>
+          <div class="project-links">
+            <a href="https://drive.google.com/file/d/1pqD4RiKy5rl3rv00Ap2tJssJIVzQYf--/view?usp=drive_link" target="_blank" rel="noreferrer">Informe del primer año <span aria-hidden="true">↗</span></a>
+            <a href="https://www.youtube.com/watch?v=c7v2rIcdm2U" target="_blank" rel="noreferrer">Conoce el proyecto en video <span aria-hidden="true">↗</span></a>
+            <a href="https://www.youtube.com/watch?v=FytVjKgSr1k&t=2s" target="_blank" rel="noreferrer">Mira otro registro <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <a class="brand brand-footer" href="#inicio">
+        <span class="brand-mark" aria-hidden="true">V<span>×</span>A</span>
+        <span>Voluntarios<br>por el Agua</span>
+      </a>
+      <p>Datos para conocer y cuidar los ríos del Cajón del Maipo.</p>
+      <a href="#inicio">Volver arriba ↑</a>
+    </footer>
+    <dialog id="photo-dialog" class="photo-dialog">
+      <button class="dialog-close" type="button" aria-label="Cerrar fotografía">×</button>
+      <img id="dialog-image" alt="">
+      <p id="dialog-caption"></p>
+    </dialog>
+  </body>
+</html>

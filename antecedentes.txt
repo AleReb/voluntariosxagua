@@ -1,0 +1,15 @@
+Hola Alejando,
+Ahora describí mejor el sitio web. Pero capaz que sea bueno que te explico cómo lo imagino..
+
+Es un poco como esto (https://rio-aconcagua.shinyapps.io/rio-aconcagua-river-health/), pero con ideas de lo que hiciste para Aconcagua Aire https://cmasudd.github.io/aireaconcagua/
+
+Aqui están los datos de los 7 puntos. Puedes ver los coordinados en el documento.
+
+Quiero 4 partes del sitio web.
+Landing page con los datos en series de tiempo, calculao de promedio y min y max y norma
+Mapas de los puntos
+Fotos repetitiva
+Info sobre el proyecto
+
+Muchas gracias,
+Zoe
