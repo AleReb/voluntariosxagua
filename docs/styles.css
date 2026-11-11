@@ -105,7 +105,7 @@ select { min-width: 210px; height: 41px; padding: 0 36px 0 12px; border: 1px sol
 .map-key { display: inline-flex; gap: 7px; align-items: center; }
 .map-key i { width: 9px; height: 9px; border: 2px solid #fff; border-radius: 50%; background: #a9603e; box-shadow: 0 0 0 1px #a9603e; }
 .station-map { min-height: 385px; margin-top: 10px; }
-.station-map svg { width: 100%; height: auto; }
+
 .map-grid { stroke: #e2e5dd; stroke-width: 1; stroke-dasharray: 3 6; }
 .map-label { fill: #52635a; font-family: var(--sans); font-size: 11px; font-weight: 600; }
 .map-coordinate { fill: #89938b; font-family: var(--sans); font-size: 9px; }
