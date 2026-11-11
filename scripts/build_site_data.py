@@ -23,13 +23,13 @@ PKG_REL_NS = "http://schemas.openxmlformats.org/package/2006/relationships"
 NS = {"main": MAIN_NS, "rel": REL_NS}
 
 SHEET_STATIONS = {
-    "Canelo_Maipo": ("canelo-maipo", "Canelo", "Maipo", -33.576468, -70.452054),
-    "El Manzano_Maipo": ("manzano-maipo", "El Manzano", "Maipo", -33.601013, -70.359791),
-    "El Manzano_Colorado": ("manzano-colorado", "El Manzano", "Colorado", -33.601013, -70.359791),
-    "SanGab_Maipo": ("san-gabriel-maipo", "San Gabriel", "Maipo", -33.786392, -70.229894),
-    "San Gab_Yeso": ("san-gabriel-yeso", "San Gabriel", "Yeso", -33.786392, -70.229894),
-    "BM_estero": ("banos-morales-estero", "Baños Morales", "Estero", -33.826691, -70.064452),
-    "BañosMorales_Volcán": ("banos-morales-volcan", "Baños Morales", "Volcán", -33.826691, -70.064452),
+    "Canelo_Maipo": ("canelo-maipo", "Canelo", "Maipo", -33.581603, -70.451175),
+    "El Manzano_Maipo": ("manzano-maipo", "El Manzano", "Maipo", -33.596058, -70.373595),
+    "El Manzano_Colorado": ("manzano-colorado", "El Manzano", "Colorado", -33.596058, -70.373595),
+    "SanGab_Maipo": ("san-gabriel-maipo", "San Gabriel", "Maipo", -33.785561, -70.233058),
+    "San Gab_Yeso": ("san-gabriel-yeso", "San Gabriel", "Yeso", -33.785490, -70.233003),
+    "BM_estero": ("banos-morales-estero", "Baños Morales", "Estero", -33.826398, -70.064294),
+    "BañosMorales_Volcán": ("banos-morales-volcan", "Baños Morales", "Volcán", -33.826415, -70.064776),
 }
 
 PARAMETERS = [
