@@ -57,6 +57,17 @@ function populateSelects() {
     `<option value="${escapeHtml(location)}">${escapeHtml(location)}</option>`).join("")}`;
 }
 
+function renderParameterPicker() {
+  const current = selectedParameter();
+  $("#parameter-buttons").innerHTML = appData.parameters.map((parameter) => `
+    <button type="button" data-parameter="${escapeHtml(parameter.id)}" aria-pressed="${parameter.id === current}">
+      <span>${escapeHtml(parameter.label)}</span>${parameter.unit ? `<small>${escapeHtml(parameter.unit)}</small>` : ""}
+    </button>`).join("");
+  const parameter = parameterById(current);
+  const count = appData.records.filter((record) => visibleStations.has(record.stationId) && metric(record, current) !== null).length;
+  $("#parameter-context").textContent = `${parameter.label}${parameter.unit ? ` · ${parameter.unit}` : " · sin unidad"} — ${count} mediciones disponibles en las estaciones seleccionadas.`;
+}
+
 function renderFilters() {
   $("#station-filters").innerHTML = appData.stations.map((station, index) => `
     <label class="filter-option">
@@ -115,15 +126,21 @@ function renderCharts() {
       </circle>`).join("");
       return `<path class="chart-line" d="${line}" stroke="${COLORS[stationIndex]}">${escapeHtml(station.site)} · ${escapeHtml(station.river)}</path>${points}`;
     }).join("");
+    const tableRows = series.flatMap(({ station, records: stationRecords }) => stationRecords.map((record) =>
+      `<tr><td>${escapeHtml(record.date)}</td><td>${escapeHtml(station.site)} · ${escapeHtml(station.river)}</td><td>${formatValue(metric(record, parameter.id))}${parameter.unit ? ` ${escapeHtml(parameter.unit)}` : ""}</td></tr>`)).join("");
     return `<article class="chart-card">
       <h3>Año hídrico ${YEAR_LABEL(year)}</h3>
       <p>${escapeHtml(parameter.label)}${parameter.unit ? ` · ${escapeHtml(parameter.unit)}` : ""}</p>
       <svg viewBox="0 0 ${width} ${height}" role="img" aria-label="${escapeHtml(parameter.label)} durante el año hídrico ${YEAR_LABEL(year)}">
         ${grid}${xLabels}${paths || `<text class="chart-empty" x="${width / 2}" y="${height / 2}" text-anchor="middle">Sin mediciones para mostrar</text>`}
       </svg>
+      <details class="chart-values"><summary>Ver valores medidos (${values.length})</summary>
+        ${values.length ? `<div class="chart-table-wrap"><table><thead><tr><th>Fecha</th><th>Estación</th><th>Valor${parameter.unit ? ` (${escapeHtml(parameter.unit)})` : ""}</th></tr></thead><tbody>${tableRows}</tbody></table></div>` : "<p>No hay mediciones para la selección actual.</p>"}
+      </details>
     </article>`;
   }).join("");
   renderSummary(parameter);
+  renderParameterPicker();
   $("#reference-note").textContent = parameter.id === "ph" ? "Referencia indicada por el proyecto: pH 6,5–8,7." : parameter.id === "conductivity" ? "Referencia indicada por el proyecto: conductividad menor a 1900 µS/cm." : "El proyecto no proporcionó un valor de referencia para este parámetro.";
 }
 
@@ -238,6 +255,14 @@ function downloadCsv() {
 
 function attachEvents() {
   $("#parameter-select").addEventListener("change", renderCharts);
+  $("#parameter-buttons").addEventListener("click", (event) => {
+    const button = event.target.closest("[data-parameter]");
+    if (!button) return;
+    const id = button.dataset.parameter;
+    $("#parameter-select").value = id;
+    renderCharts();
+    [...$("#parameter-buttons").querySelectorAll("[data-parameter]")].find((item) => item.dataset.parameter === id)?.focus();
+  });
   $("#station-filters").addEventListener("change", (event) => {
     if (event.target.matches("input[type=checkbox]")) {
       if (event.target.checked) visibleStations.add(event.target.value);

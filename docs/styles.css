@@ -228,3 +228,22 @@ select { min-width: 210px; height: 41px; padding: 0 36px 0 12px; border: 1px sol
 .photo-navigation { display: flex; align-items: center; justify-content: space-between; padding: 0 11px 11px; color: var(--muted); font-size: 12px; }
 .photo-navigation button { min-width: 44px; min-height: 40px; border: 1px solid #aebbb3; background: white; color: #172f2b; cursor: pointer; font-size: 20px; }
 .photo-navigation button:disabled { opacity: .4; cursor: default; }
+
+.parameter-picker { margin-top: 24px; padding: 18px; border: 1px solid #cbdacf; background: #f2f7f1; }
+.parameter-picker > p:first-child { margin: 0 0 10px; color: #254c40; font-size: 14px; font-weight: 700; }
+.parameter-buttons { display: flex; flex-wrap: wrap; gap: 8px; }
+.parameter-buttons button { display: inline-flex; align-items: baseline; gap: 6px; min-height: 40px; padding: 8px 12px; border: 1px solid #a9bdb0; border-radius: 4px; background: #fff; color: #173e33; font-size: 13px; font-weight: 600; cursor: pointer; }
+.parameter-buttons button:hover { border-color: #16483e; }
+.parameter-buttons button[aria-pressed="true"] { border-color: #16483e; background: #16483e; color: white; }
+.parameter-buttons small { font-size: 11px; font-weight: 400; }
+.parameter-context { margin: 12px 0 0; color: #355a4d; font-size: 13px; }
+.chart-instructions { margin: 0 0 14px; color: #4b6257; font-size: 13px; }
+.chart-values { margin-top: 12px; border-top: 1px solid var(--line); color: #244d40; font-size: 13px; }
+.chart-values summary { padding: 10px 0; font-weight: 700; cursor: pointer; }
+.chart-table-wrap { max-height: 260px; overflow: auto; }
+.chart-values table { width: 100%; border-collapse: collapse; font-size: 12px; text-align: left; }
+.chart-values th, .chart-values td { padding: 7px 6px; border-bottom: 1px solid var(--line); }
+.chart-values th { position: sticky; top: 0; background: #f2f7f1; }
+.summary-card dl { font-size: 13px; }
+.summary-card h4 { font-size: 13px; }
+#reference-note { padding: 10px 12px; border-left: 3px solid #a9603e; background: #f7f3e9; color: #42564b; font-size: 13px; }

@@ -61,7 +61,7 @@
           <p class="section-note">Compara los años hídricos, cambia el parámetro y elige qué estaciones mostrar.</p>
         </div>
         <div class="data-controls">
-          <label>Parámetro
+          <label>Parámetro seleccionado
             <select id="parameter-select" aria-label="Elegir parámetro"></select>
           </label>
           <div class="download-actions">
@@ -69,16 +69,22 @@
             <button id="download-json" class="button button-outline" type="button">JSON</button>
           </div>
         </div>
+        <div class="parameter-picker" aria-label="Parámetros disponibles">
+          <p>Elige qué quieres explorar</p>
+          <div id="parameter-buttons" class="parameter-buttons"></div>
+          <p id="parameter-context" class="parameter-context" aria-live="polite"></p>
+        </div>
         <fieldset class="station-filters">
           <legend>Estaciones visibles</legend>
           <div id="station-filters" class="filter-options"></div>
         </fieldset>
+        <p class="chart-instructions">Cada color representa una estación. Revisa los valores exactos en la tabla bajo cada gráfico; el año hídrico va de abril a marzo.</p>
         <div id="chart-grid" class="chart-grid" aria-live="polite">
           <p class="loading">Cargando las mediciones…</p>
         </div>
         <div class="summary-block">
           <div>
-            <p class="eyebrow">Resumen del periodo seleccionado</p>
+            <p class="eyebrow">Resumen de todos los años disponibles</p>
             <h3 id="summary-title">Estadísticas por estación</h3>
           </div>
           <div id="summary-cards" class="summary-cards"></div>
