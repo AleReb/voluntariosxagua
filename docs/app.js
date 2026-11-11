@@ -6,6 +6,7 @@ let appData;
 let visibleStations = new Set();
 let selectedMapStation = null;
 let mapPeriod = "all";
+const photoPositions = new Map();
 
 const $ = (selector) => document.querySelector(selector);
 const escapeHtml = (value) => String(value).replace(/[&<>"']/g, (char) => ({
@@ -51,13 +52,24 @@ function populateSelects() {
   $("#map-year").innerHTML = `<option value="all">Todos los años</option>${years.map((year) =>
     `<option value="${year}">${YEAR_LABEL(year)}</option>`).join("")}`;
 
-  const locations = [...new Set(appData.stations.map((station) => station.site))];
+  const locations = [...new Set(appData.photos.map((photo) => photo.location))].sort((a, b) => a.localeCompare(b, "es"));
   $("#photo-location").innerHTML = `<option value="all">Todos los sectores</option>${locations.map((location) =>
     `<option value="${escapeHtml(location)}">${escapeHtml(location)}</option>`).join("")}`;
 }
 
+function renderParameterPicker() {
+  const current = selectedParameter();
+  $("#parameter-buttons").innerHTML = appData.parameters.map((parameter) => `
+    <button type="button" data-parameter="${escapeHtml(parameter.id)}" aria-pressed="${parameter.id === current}">
+      <span>${escapeHtml(parameter.label)}</span>${parameter.unit ? `<small>${escapeHtml(parameter.unit)}</small>` : ""}
+    </button>`).join("");
+  const parameter = parameterById(current);
+  const count = appData.records.filter((record) => visibleStations.has(record.stationId) && metric(record, current) !== null).length;
+  $("#parameter-context").textContent = `${parameter.label}${parameter.unit ? ` · ${parameter.unit}` : " · sin unidad"} — ${count} mediciones disponibles en las estaciones seleccionadas.`;
+}
+
 function renderFilters() {
-  $("#station-filters").querySelector(".filter-options").innerHTML = appData.stations.map((station, index) => `
+  $("#station-filters").innerHTML = appData.stations.map((station, index) => `
     <label class="filter-option">
       <input type="checkbox" value="${station.id}" ${visibleStations.has(station.id) ? "checked" : ""}>
       <span class="filter-dot" style="background:${COLORS[index]}"></span>
@@ -114,15 +126,22 @@ function renderCharts() {
       </circle>`).join("");
       return `<path class="chart-line" d="${line}" stroke="${COLORS[stationIndex]}">${escapeHtml(station.site)} · ${escapeHtml(station.river)}</path>${points}`;
     }).join("");
+    const tableRows = series.flatMap(({ station, records: stationRecords }) => stationRecords.map((record) =>
+      `<tr><td>${escapeHtml(record.date)}</td><td>${escapeHtml(station.site)} · ${escapeHtml(station.river)}</td><td>${formatValue(metric(record, parameter.id))}${parameter.unit ? ` ${escapeHtml(parameter.unit)}` : ""}</td></tr>`)).join("");
     return `<article class="chart-card">
       <h3>Año hídrico ${YEAR_LABEL(year)}</h3>
       <p>${escapeHtml(parameter.label)}${parameter.unit ? ` · ${escapeHtml(parameter.unit)}` : ""}</p>
       <svg viewBox="0 0 ${width} ${height}" role="img" aria-label="${escapeHtml(parameter.label)} durante el año hídrico ${YEAR_LABEL(year)}">
         ${grid}${xLabels}${paths || `<text class="chart-empty" x="${width / 2}" y="${height / 2}" text-anchor="middle">Sin mediciones para mostrar</text>`}
       </svg>
+      <details class="chart-values"><summary>Ver valores medidos (${values.length})</summary>
+        ${values.length ? `<div class="chart-table-wrap"><table><thead><tr><th>Fecha</th><th>Estación</th><th>Valor${parameter.unit ? ` (${escapeHtml(parameter.unit)})` : ""}</th></tr></thead><tbody>${tableRows}</tbody></table></div>` : "<p>No hay mediciones para la selección actual.</p>"}
+      </details>
     </article>`;
   }).join("");
   renderSummary(parameter);
+  renderParameterPicker();
+  $("#reference-note").textContent = parameter.id === "ph" ? "Referencia indicada por el proyecto: pH 6,5–8,7." : parameter.id === "conductivity" ? "Referencia indicada por el proyecto: conductividad menor a 1900 µS/cm." : "El proyecto no proporcionó un valor de referencia para este parámetro.";
 }
 
 function renderSummary(parameter) {
@@ -141,42 +160,18 @@ function renderSummary(parameter) {
 }
 
 function renderMap() {
-  const groups = new Map();
-  for (const station of appData.stations) {
-    if (!groups.has(station.site)) groups.set(station.site, { ...station.location, site: station.site, count: 0 });
-    groups.get(station.site).count += 1;
+  if (!window.stationMap && window.L) {
+    window.stationMap = L.map("station-map").setView([-33.70, -70.27], 10);
+    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      maxZoom: 19, attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(window.stationMap);
+    appData.stations.forEach((station, index) => {
+      const marker = L.circleMarker([station.location.lat, station.location.lon], {
+        radius: 9, color: COLORS[index], fillOpacity: 0.85
+      }).addTo(window.stationMap).bindTooltip(`${station.site} · ${station.river}`);
+      marker.on("click", () => { selectedMapStation = station.id; renderMap(); });
+    });
   }
-  const locations = [...groups.values()];
-  const lonValues = locations.map((location) => location.lon);
-  const latValues = locations.map((location) => location.lat);
-  const minLon = Math.min(...lonValues) - 0.02;
-  const maxLon = Math.max(...lonValues) + 0.02;
-  const minLat = Math.min(...latValues) - 0.02;
-  const maxLat = Math.max(...latValues) + 0.02;
-  const width = 700, height = 390, margin = 52;
-  const project = (location) => ({
-    x: margin + (location.lon - minLon) / (maxLon - minLon) * (width - margin * 2),
-    y: height - margin - (location.lat - minLat) / (maxLat - minLat) * (height - margin * 2),
-  });
-  const grid = Array.from({ length: 5 }, (_, index) => {
-    const offsetX = margin + index * (width - margin * 2) / 4;
-    const offsetY = margin + index * (height - margin * 2) / 4;
-    const longitude = minLon + index * (maxLon - minLon) / 4;
-    const latitude = maxLat - index * (maxLat - minLat) / 4;
-    return `<line class="map-grid" x1="${offsetX}" y1="${margin}" x2="${offsetX}" y2="${height - margin}"></line>
-      <line class="map-grid" x1="${margin}" y1="${offsetY}" x2="${width - margin}" y2="${offsetY}"></line>
-      <text class="map-coordinate" x="${offsetX}" y="${height - 18}" text-anchor="middle">${longitude.toFixed(2)}° O</text>
-      <text class="map-coordinate" x="6" y="${offsetY + 3}">${latitude.toFixed(2)}° S</text>`;
-  }).join("");
-  const markers = locations.map((location) => {
-    const point = project(location);
-    return `<circle class="map-marker-halo" cx="${point.x}" cy="${point.y}" r="20"></circle>
-      <circle class="map-marker" cx="${point.x}" cy="${point.y}" r="12"></circle>
-      <text class="map-marker-count" x="${point.x}" y="${point.y}">${location.count}</text>
-      <text class="map-label" x="${point.x + 17}" y="${point.y - 7}">${escapeHtml(location.site)}</text>`;
-  }).join("");
-  $("#station-map").innerHTML = `<svg viewBox="0 0 ${width} ${height}" aria-hidden="true">${grid}${markers}</svg>`;
-
   $("#station-list").innerHTML = appData.stations.map((station) => {
     const index = appData.stations.findIndex((entry) => entry.id === station.id);
     return `<button class="station-button" type="button" data-station="${station.id}" aria-pressed="${selectedMapStation === station.id}">
@@ -215,22 +210,27 @@ function photoDate(filename) {
 }
 
 function renderPhotos() {
-  const location = $("#photo-location").value;
-  const images = appData.photos.filter((photo) => location === "all" || photo.location === location);
-  $("#photo-count").textContent = `${images.length} fotografías`;
-  $("#photo-grid").innerHTML = images.length ? images.map((photo) => `
-    <button class="photo-card" type="button" data-photo="${escapeHtml(photo.path)}" data-caption="${escapeHtml(photo.filename)}">
-      <img src="${encodeURI(photo.path)}" loading="lazy" alt="Fotografía de ${escapeHtml(photo.location)}: ${escapeHtml(photo.filename)}">
-      <span class="photo-caption"><strong>${escapeHtml(photo.location)}</strong><small>${escapeHtml(photoDate(photo.filename) || photo.filename)}</small></span>
-    </button>`).join("") : `<p class="photo-empty">No hay fotografías disponibles para este sector.</p>`;
-  $("#photo-grid").querySelectorAll("[data-photo]").forEach((button) => {
-    button.addEventListener("click", () => {
-      $("#dialog-image").src = encodeURI(button.dataset.photo);
-      $("#dialog-image").alt = `${button.dataset.caption}, ${location}`;
-      $("#dialog-caption").textContent = `${location === "all" ? "Fotografía" : location} · ${button.dataset.caption}`;
-      $("#photo-dialog").showModal();
-    });
-  });
+  const selected = $("#photo-location").value;
+  const locations = [...new Set(appData.photos.map((photo) => photo.location))]
+    .filter((location) => selected === "all" || selected === location)
+    .sort((a, b) => a.localeCompare(b, "es"));
+  $("#photo-count").textContent = `${locations.length} ${locations.length === 1 ? "sector" : "sectores"}`;
+  $("#photo-grid").innerHTML = locations.map((location) => {
+    const images = appData.photos.filter((photo) => photo.location === location);
+    const index = (photoPositions.get(location) || 0) % images.length;
+    const photo = images[index];
+    return `<article class="photo-carousel" aria-label="Fotografías de ${escapeHtml(location)}">
+      <button class="photo-card" type="button" data-open-location="${escapeHtml(location)}" aria-label="Ampliar fotografía de ${escapeHtml(location)}">
+        <img src="${escapeHtml(encodeURI(photo.path))}" loading="lazy" alt="${escapeHtml(location)}: ${escapeHtml(photo.filename)}">
+        <span class="photo-caption"><strong>${escapeHtml(location)}</strong><small>${escapeHtml(photo.filename)}</small></span>
+      </button>
+      <div class="photo-navigation">
+        <button type="button" data-photo-step="-1" data-location="${escapeHtml(location)}" aria-label="Fotografía anterior de ${escapeHtml(location)}" ${images.length < 2 ? "disabled" : ""}>←</button>
+        <span aria-live="polite">${index + 1} / ${images.length}</span>
+        <button type="button" data-photo-step="1" data-location="${escapeHtml(location)}" aria-label="Fotografía siguiente de ${escapeHtml(location)}" ${images.length < 2 ? "disabled" : ""}>→</button>
+      </div>
+    </article>`;
+  }).join("") || `<p class="photo-empty">No hay fotografías disponibles para este sector.</p>`;
 }
 
 function downloadFile(filename, content, type) {
@@ -255,6 +255,14 @@ function downloadCsv() {
 
 function attachEvents() {
   $("#parameter-select").addEventListener("change", renderCharts);
+  $("#parameter-buttons").addEventListener("click", (event) => {
+    const button = event.target.closest("[data-parameter]");
+    if (!button) return;
+    const id = button.dataset.parameter;
+    $("#parameter-select").value = id;
+    renderCharts();
+    [...$("#parameter-buttons").querySelectorAll("[data-parameter]")].find((item) => item.dataset.parameter === id)?.focus();
+  });
   $("#station-filters").addEventListener("change", (event) => {
     if (event.target.matches("input[type=checkbox]")) {
       if (event.target.checked) visibleStations.add(event.target.value);
@@ -268,6 +276,27 @@ function attachEvents() {
     renderMapSummary();
   });
   $("#photo-location").addEventListener("change", renderPhotos);
+  $("#photo-grid").addEventListener("click", (event) => {
+    const step = event.target.closest("[data-photo-step]");
+    if (step) {
+      const location = step.dataset.location;
+      const count = appData.photos.filter((photo) => photo.location === location).length;
+      photoPositions.set(location, ((photoPositions.get(location) || 0) + Number(step.dataset.photoStep) + count) % count);
+      renderPhotos();
+      const button = [...$("#photo-grid").querySelectorAll("[data-photo-step]")].find((item) => item.dataset.location === location && item.dataset.photoStep === step.dataset.photoStep);
+      button?.focus();
+      return;
+    }
+    const open = event.target.closest("[data-open-location]");
+    if (!open) return;
+    const location = open.dataset.openLocation;
+    const images = appData.photos.filter((photo) => photo.location === location);
+    const photo = images[photoPositions.get(location) || 0];
+    $("#dialog-image").src = encodeURI(photo.path);
+    $("#dialog-image").alt = `${location}: ${photo.filename}`;
+    $("#dialog-caption").textContent = `${location} · ${photo.filename}`;
+    $("#photo-dialog").showModal();
+  });
   $("#download-csv").addEventListener("click", downloadCsv);
   $("#download-json").addEventListener("click", () =>
     downloadFile("voluntarios-por-el-agua-datos.json", JSON.stringify(appData.records, null, 2), "application/json"));

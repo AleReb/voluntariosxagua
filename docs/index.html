@@ -6,7 +6,9 @@
     <meta name="theme-color" content="#f5f5ee">
     <meta name="description" content="Datos abiertos de monitoreo voluntario de ríos del Cajón del Maipo.">
     <title>Voluntarios por el Agua | Cajón del Maipo</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
     <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
     <script src="app.js" defer></script>
   </head>
   <body>
@@ -59,7 +61,7 @@
           <p class="section-note">Compara los años hídricos, cambia el parámetro y elige qué estaciones mostrar.</p>
         </div>
         <div class="data-controls">
-          <label>Parámetro
+          <label>Parámetro seleccionado
             <select id="parameter-select" aria-label="Elegir parámetro"></select>
           </label>
           <div class="download-actions">
@@ -67,19 +69,26 @@
             <button id="download-json" class="button button-outline" type="button">JSON</button>
           </div>
         </div>
+        <div class="parameter-picker" aria-label="Parámetros disponibles">
+          <p>Elige qué quieres explorar</p>
+          <div id="parameter-buttons" class="parameter-buttons"></div>
+          <p id="parameter-context" class="parameter-context" aria-live="polite"></p>
+        </div>
         <fieldset class="station-filters">
           <legend>Estaciones visibles</legend>
           <div id="station-filters" class="filter-options"></div>
         </fieldset>
+        <p class="chart-instructions">Cada color representa una estación. Revisa los valores exactos en la tabla bajo cada gráfico; el año hídrico va de abril a marzo.</p>
         <div id="chart-grid" class="chart-grid" aria-live="polite">
           <p class="loading">Cargando las mediciones…</p>
         </div>
         <div class="summary-block">
           <div>
-            <p class="eyebrow">Resumen del periodo seleccionado</p>
+            <p class="eyebrow">Resumen de todos los años disponibles</p>
             <h3 id="summary-title">Estadísticas por estación</h3>
           </div>
           <div id="summary-cards" class="summary-cards"></div>
+          <p id="reference-note" class="source-note"></p>
           <p class="source-note">Los resúmenes se calculan con los registros disponibles y excluyen valores vacíos. Son descriptivos; no representan una evaluación oficial de calidad del agua.</p>
         </div>
         <div class="disclaimer">
@@ -100,10 +109,10 @@
           <div class="map-panel">
             <div class="map-heading">
               <span class="map-kicker">Cajón del Maipo · Chile</span>
-              <span class="map-key"><i></i> Ubicación de referencia</span>
+              <span class="map-key"><i></i> Puntos de muestreo</span>
             </div>
-            <div id="station-map" class="station-map" role="img" aria-label="Mapa esquemático de los cuatro sectores de monitoreo"></div>
-            <p class="map-caveat">Ubicaciones aproximadas a partir de coordenadas de encuentro incluidas en el documento del proyecto; no son las coordenadas verificadas de cada punto de muestreo.</p>
+            <div id="station-map" class="station-map" aria-label="Mapa de los sectores de monitoreo"></div>
+            <p class="map-caveat">Coordenadas de muestreo del documento, convertidas suponiendo UTM zona 19 sur y datum WGS 84. Los dos puntos de El Manzano comparten coordenadas en el documento; usa la lista para elegir cada río.</p>
           </div>
           <aside class="map-details">
             <label>Parámetro
@@ -126,7 +135,7 @@
             <p class="eyebrow">03 / El paisaje</p>
             <h2>Un mismo lugar, mes a mes</h2>
           </div>
-          <p class="section-note">Las fotografías repetitivas muestran cómo cambia el entorno a lo largo del tiempo.</p>
+          <p class="section-note">Recorre las fotografías de cada sector para observar cómo cambia el entorno a lo largo del tiempo.</p>
         </div>
         <div class="photo-controls">
           <label>Sector
