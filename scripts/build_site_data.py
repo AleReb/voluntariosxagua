@@ -12,7 +12,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 WORKBOOK = ROOT / "abril2022anov2026_VPA.xlsx"
-SITE = ROOT / "site"
+SITE = ROOT / "docs"
 DATA_DIR = SITE / "data"
 PHOTO_SOURCE = ROOT / "fotos"
 PHOTO_OUTPUT = SITE / "fotos"

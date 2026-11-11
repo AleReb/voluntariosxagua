@@ -31,7 +31,7 @@ jobs:
       - name: Subir sitio estático
         uses: actions/upload-pages-artifact@v3
         with:
-          path: site
+          path: docs
   deploy:
     environment:
       name: github-pages

@@ -9,7 +9,7 @@ herramienta pública, fácil de explorar y que el equipo pueda actualizar cada m
 Se inspira en el sitio de salud del río Aconcagua y en la presentación de datos de
 Aconcagua Aire.
 
-Hay una primera versión estática del sitio en `site/`. Está pensada para
+Hay una primera versión estática del sitio en `docs/`. Está pensada para
 publicarse con GitHub Pages y lee los datos de la planilla y las fotografías
 mediante un generador local, sin depender de un servidor o base de datos.
 
@@ -31,18 +31,18 @@ Se requiere Python 3; no hay paquetes adicionales que instalar.
 2. Inicia un servidor local:
 
    ```sh
-   python3 -m http.server 8000 --directory site
+   python3 -m http.server 8000 --directory docs
    ```
 
    Abre <http://localhost:8000>.
 
 Los archivos de datos JSON y las copias de las fotos se generan dentro de
-`site/` y están excluidos de Git; el archivo Excel y `fotos/` son las fuentes.
+`docs/` y están excluidos de Git; el archivo Excel y `fotos/` son las fuentes.
 El generador omite HEIC y TIFF porque no todos los navegadores los muestran.
 
 Para publicar, crea un repositorio en GitHub con estos archivos y sube la rama
 `main` o `master`. El workflow
-`.github/workflows/pages.yml` genera los datos y despliega únicamente `site/`
+`.github/workflows/pages.yml` genera los datos y despliega únicamente `docs/`
 con GitHub Pages al hacer push (también se puede ejecutar manualmente desde
 Actions). En la configuración del repositorio, habilita **Settings → Pages →
 Build and deployment → Source: GitHub Actions**. Los documentos originales y la
@@ -130,7 +130,8 @@ su fuente deben confirmarse antes de presentarlas como tales.
 
 ## Archivos y fuentes
 
-- `site/`: código de la web estática (HTML, CSS y JavaScript).
+- `docs/`: código de la web estática (HTML, CSS y JavaScript) y salida para
+  publicación desde la carpeta `docs` de GitHub Pages.
 - `scripts/build_site_data.py`: convierte la planilla XLSX a JSON y prepara
   copias web de las fotos.
 - `.github/workflows/pages.yml`: publicación automática con GitHub Pages.
