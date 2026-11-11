@@ -6,7 +6,9 @@
     <meta name="theme-color" content="#f5f5ee">
     <meta name="description" content="Datos abiertos de monitoreo voluntario de ríos del Cajón del Maipo.">
     <title>Voluntarios por el Agua | Cajón del Maipo</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
     <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
     <script src="app.js" defer></script>
   </head>
   <body>
@@ -80,6 +82,7 @@
             <h3 id="summary-title">Estadísticas por estación</h3>
           </div>
           <div id="summary-cards" class="summary-cards"></div>
+          <p id="reference-note" class="source-note"></p>
           <p class="source-note">Los resúmenes se calculan con los registros disponibles y excluyen valores vacíos. Son descriptivos; no representan una evaluación oficial de calidad del agua.</p>
         </div>
         <div class="disclaimer">
@@ -102,7 +105,7 @@
               <span class="map-kicker">Cajón del Maipo · Chile</span>
               <span class="map-key"><i></i> Ubicación de referencia</span>
             </div>
-            <div id="station-map" class="station-map" role="img" aria-label="Mapa esquemático de los cuatro sectores de monitoreo"></div>
+            <div id="station-map" class="station-map" aria-label="Mapa de los sectores de monitoreo"></div>
             <p class="map-caveat">Ubicaciones aproximadas a partir de coordenadas de encuentro incluidas en el documento del proyecto; no son las coordenadas verificadas de cada punto de muestreo.</p>
           </div>
           <aside class="map-details">

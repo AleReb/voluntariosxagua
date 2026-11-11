@@ -218,3 +218,6 @@ select { min-width: 210px; height: 41px; padding: 0 36px 0 12px; border: 1px sol
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
 }
+
+/* Leaflet necesita una altura explícita también en pantallas pequeñas. */
+.station-map { height: 385px; }

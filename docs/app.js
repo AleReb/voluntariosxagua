@@ -57,7 +57,7 @@ function populateSelects() {
 }
 
 function renderFilters() {
-  $("#station-filters").querySelector(".filter-options").innerHTML = appData.stations.map((station, index) => `
+  $("#station-filters").innerHTML = appData.stations.map((station, index) => `
     <label class="filter-option">
       <input type="checkbox" value="${station.id}" ${visibleStations.has(station.id) ? "checked" : ""}>
       <span class="filter-dot" style="background:${COLORS[index]}"></span>
@@ -123,6 +123,7 @@ function renderCharts() {
     </article>`;
   }).join("");
   renderSummary(parameter);
+  $("#reference-note").textContent = parameter.id === "ph" ? "Referencia indicada por el proyecto: pH 6,5–8,7." : parameter.id === "conductivity" ? "Referencia indicada por el proyecto: conductividad menor a 1900 µS/cm." : "El proyecto no proporcionó un valor de referencia para este parámetro.";
 }
 
 function renderSummary(parameter) {
@@ -141,42 +142,18 @@ function renderSummary(parameter) {
 }
 
 function renderMap() {
-  const groups = new Map();
-  for (const station of appData.stations) {
-    if (!groups.has(station.site)) groups.set(station.site, { ...station.location, site: station.site, count: 0 });
-    groups.get(station.site).count += 1;
+  if (!window.stationMap && window.L) {
+    window.stationMap = L.map("station-map").setView([-33.70, -70.27], 10);
+    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      maxZoom: 19, attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(window.stationMap);
+    appData.stations.forEach((station, index) => {
+      const marker = L.circleMarker([station.location.lat, station.location.lon], {
+        radius: 9, color: COLORS[index], fillOpacity: 0.85
+      }).addTo(window.stationMap).bindTooltip(`${station.site} · ${station.river}`);
+      marker.on("click", () => { selectedMapStation = station.id; renderMap(); });
+    });
   }
-  const locations = [...groups.values()];
-  const lonValues = locations.map((location) => location.lon);
-  const latValues = locations.map((location) => location.lat);
-  const minLon = Math.min(...lonValues) - 0.02;
-  const maxLon = Math.max(...lonValues) + 0.02;
-  const minLat = Math.min(...latValues) - 0.02;
-  const maxLat = Math.max(...latValues) + 0.02;
-  const width = 700, height = 390, margin = 52;
-  const project = (location) => ({
-    x: margin + (location.lon - minLon) / (maxLon - minLon) * (width - margin * 2),
-    y: height - margin - (location.lat - minLat) / (maxLat - minLat) * (height - margin * 2),
-  });
-  const grid = Array.from({ length: 5 }, (_, index) => {
-    const offsetX = margin + index * (width - margin * 2) / 4;
-    const offsetY = margin + index * (height - margin * 2) / 4;
-    const longitude = minLon + index * (maxLon - minLon) / 4;
-    const latitude = maxLat - index * (maxLat - minLat) / 4;
-    return `<line class="map-grid" x1="${offsetX}" y1="${margin}" x2="${offsetX}" y2="${height - margin}"></line>
-      <line class="map-grid" x1="${margin}" y1="${offsetY}" x2="${width - margin}" y2="${offsetY}"></line>
-      <text class="map-coordinate" x="${offsetX}" y="${height - 18}" text-anchor="middle">${longitude.toFixed(2)}° O</text>
-      <text class="map-coordinate" x="6" y="${offsetY + 3}">${latitude.toFixed(2)}° S</text>`;
-  }).join("");
-  const markers = locations.map((location) => {
-    const point = project(location);
-    return `<circle class="map-marker-halo" cx="${point.x}" cy="${point.y}" r="20"></circle>
-      <circle class="map-marker" cx="${point.x}" cy="${point.y}" r="12"></circle>
-      <text class="map-marker-count" x="${point.x}" y="${point.y}">${location.count}</text>
-      <text class="map-label" x="${point.x + 17}" y="${point.y - 7}">${escapeHtml(location.site)}</text>`;
-  }).join("");
-  $("#station-map").innerHTML = `<svg viewBox="0 0 ${width} ${height}" aria-hidden="true">${grid}${markers}</svg>`;
-
   $("#station-list").innerHTML = appData.stations.map((station) => {
     const index = appData.stations.findIndex((entry) => entry.id === station.id);
     return `<button class="station-button" type="button" data-station="${station.id}" aria-pressed="${selectedMapStation === station.id}">
