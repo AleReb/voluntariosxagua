@@ -6,6 +6,7 @@ let appData;
 let visibleStations = new Set();
 let selectedMapStation = null;
 let mapPeriod = "all";
+const photoPositions = new Map();
 
 const $ = (selector) => document.querySelector(selector);
 const escapeHtml = (value) => String(value).replace(/[&<>"']/g, (char) => ({
@@ -51,7 +52,7 @@ function populateSelects() {
   $("#map-year").innerHTML = `<option value="all">Todos los años</option>${years.map((year) =>
     `<option value="${year}">${YEAR_LABEL(year)}</option>`).join("")}`;
 
-  const locations = [...new Set(appData.stations.map((station) => station.site))];
+  const locations = [...new Set(appData.photos.map((photo) => photo.location))].sort((a, b) => a.localeCompare(b, "es"));
   $("#photo-location").innerHTML = `<option value="all">Todos los sectores</option>${locations.map((location) =>
     `<option value="${escapeHtml(location)}">${escapeHtml(location)}</option>`).join("")}`;
 }
@@ -192,22 +193,27 @@ function photoDate(filename) {
 }
 
 function renderPhotos() {
-  const location = $("#photo-location").value;
-  const images = appData.photos.filter((photo) => location === "all" || photo.location === location);
-  $("#photo-count").textContent = `${images.length} fotografías`;
-  $("#photo-grid").innerHTML = images.length ? images.map((photo) => `
-    <button class="photo-card" type="button" data-photo="${escapeHtml(photo.path)}" data-caption="${escapeHtml(photo.filename)}">
-      <img src="${encodeURI(photo.path)}" loading="lazy" alt="Fotografía de ${escapeHtml(photo.location)}: ${escapeHtml(photo.filename)}">
-      <span class="photo-caption"><strong>${escapeHtml(photo.location)}</strong><small>${escapeHtml(photoDate(photo.filename) || photo.filename)}</small></span>
-    </button>`).join("") : `<p class="photo-empty">No hay fotografías disponibles para este sector.</p>`;
-  $("#photo-grid").querySelectorAll("[data-photo]").forEach((button) => {
-    button.addEventListener("click", () => {
-      $("#dialog-image").src = encodeURI(button.dataset.photo);
-      $("#dialog-image").alt = `${button.dataset.caption}, ${location}`;
-      $("#dialog-caption").textContent = `${location === "all" ? "Fotografía" : location} · ${button.dataset.caption}`;
-      $("#photo-dialog").showModal();
-    });
-  });
+  const selected = $("#photo-location").value;
+  const locations = [...new Set(appData.photos.map((photo) => photo.location))]
+    .filter((location) => selected === "all" || selected === location)
+    .sort((a, b) => a.localeCompare(b, "es"));
+  $("#photo-count").textContent = `${locations.length} ${locations.length === 1 ? "sector" : "sectores"}`;
+  $("#photo-grid").innerHTML = locations.map((location) => {
+    const images = appData.photos.filter((photo) => photo.location === location);
+    const index = (photoPositions.get(location) || 0) % images.length;
+    const photo = images[index];
+    return `<article class="photo-carousel" aria-label="Fotografías de ${escapeHtml(location)}">
+      <button class="photo-card" type="button" data-open-location="${escapeHtml(location)}" aria-label="Ampliar fotografía de ${escapeHtml(location)}">
+        <img src="${escapeHtml(encodeURI(photo.path))}" loading="lazy" alt="${escapeHtml(location)}: ${escapeHtml(photo.filename)}">
+        <span class="photo-caption"><strong>${escapeHtml(location)}</strong><small>${escapeHtml(photo.filename)}</small></span>
+      </button>
+      <div class="photo-navigation">
+        <button type="button" data-photo-step="-1" data-location="${escapeHtml(location)}" aria-label="Fotografía anterior de ${escapeHtml(location)}" ${images.length < 2 ? "disabled" : ""}>←</button>
+        <span aria-live="polite">${index + 1} / ${images.length}</span>
+        <button type="button" data-photo-step="1" data-location="${escapeHtml(location)}" aria-label="Fotografía siguiente de ${escapeHtml(location)}" ${images.length < 2 ? "disabled" : ""}>→</button>
+      </div>
+    </article>`;
+  }).join("") || `<p class="photo-empty">No hay fotografías disponibles para este sector.</p>`;
 }
 
 function downloadFile(filename, content, type) {
@@ -245,6 +251,27 @@ function attachEvents() {
     renderMapSummary();
   });
   $("#photo-location").addEventListener("change", renderPhotos);
+  $("#photo-grid").addEventListener("click", (event) => {
+    const step = event.target.closest("[data-photo-step]");
+    if (step) {
+      const location = step.dataset.location;
+      const count = appData.photos.filter((photo) => photo.location === location).length;
+      photoPositions.set(location, ((photoPositions.get(location) || 0) + Number(step.dataset.photoStep) + count) % count);
+      renderPhotos();
+      const button = [...$("#photo-grid").querySelectorAll("[data-photo-step]")].find((item) => item.dataset.location === location && item.dataset.photoStep === step.dataset.photoStep);
+      button?.focus();
+      return;
+    }
+    const open = event.target.closest("[data-open-location]");
+    if (!open) return;
+    const location = open.dataset.openLocation;
+    const images = appData.photos.filter((photo) => photo.location === location);
+    const photo = images[photoPositions.get(location) || 0];
+    $("#dialog-image").src = encodeURI(photo.path);
+    $("#dialog-image").alt = `${location}: ${photo.filename}`;
+    $("#dialog-caption").textContent = `${location} · ${photo.filename}`;
+    $("#photo-dialog").showModal();
+  });
   $("#download-csv").addEventListener("click", downloadCsv);
   $("#download-json").addEventListener("click", () =>
     downloadFile("voluntarios-por-el-agua-datos.json", JSON.stringify(appData.records, null, 2), "application/json"));
