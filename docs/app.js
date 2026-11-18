@@ -1,13 +1,14 @@
-// IPCC AR6 line palette adapted for white backgrounds; seventh hue is an extension.
+// Seven unmodified colours from Paul Tol's Dark qualitative scheme.
+// Source and selection rationale: README.md, "Paleta de estaciones".
 // Keys make the encoding independent of station ordering or future data sources.
 const STATION_STYLES = {
-  "canelo-maipo": { color: "#000000", dash: "" },
-  "guayacan-maipo": { color: "#477fab", dash: "8 3" },
-  "san-gabriel-maipo": { color: "#a86a00", dash: "2 4" },
-  "guayacan-colorado": { color: "#767676", dash: "10 3 2 3" },
-  "san-gabriel-yeso": { color: "#003466", dash: "12 4" },
-  "banos-morales-volcan": { color: "#004f00", dash: "5 3" },
-  "banos-morales-estero": { color: "#882255", dash: "2 3 8 3" },
+  "canelo-maipo": { color: "#117788", dash: "" },
+  "guayacan-maipo": { color: "#775500", dash: "8 3" },
+  "san-gabriel-maipo": { color: "#882288", dash: "2 4" },
+  "guayacan-colorado": { color: "#cc4466", dash: "10 3 2 3" },
+  "san-gabriel-yeso": { color: "#4477bb", dash: "12 4" },
+  "banos-morales-volcan": { color: "#228833", dash: "5 3" },
+  "banos-morales-estero": { color: "#444444", dash: "2 3 8 3" },
 };
 const stationStyle = (station) => STATION_STYLES[station.id];
 const isMaipo = (station) => station.river === "Maipo";
@@ -213,8 +214,14 @@ function renderMap() {
       maxZoom: 19, attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(window.stationMap);
     appData.stations.forEach((station) => {
-      const marker = L.circleMarker([station.location.lat, station.location.lon], {
-        radius: 9, color: stationStyle(station).color, fillOpacity: 0.85
+      const marker = L.marker([station.location.lat, station.location.lon], {
+        icon: L.divIcon({
+          className: "station-map-icon",
+          html: `<svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">${stationPoint(station, 12, 12, 8)}</svg>`,
+          iconSize: [24, 24],
+          iconAnchor: [12, 12],
+        }),
+        title: `${station.site} · ${station.river}`,
       }).addTo(window.stationMap).bindTooltip(`${station.site} · ${station.river}`);
       marker.on("click", () => { selectedMapStation = station.id; renderMap(); });
     });

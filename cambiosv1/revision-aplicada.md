@@ -7,21 +7,28 @@ Se revisaron `cambiosv1.md`, los comentarios del Word revisado, las imágenes ad
 - Se conserva el logo original, sin redibujarlo ni recolorearlo, en cabecera, portada y pie.
 - El JPEG está en CMYK con perfil ICC. Su fondo convertido a sRGB es aproximadamente `#45bccc`; esta es la referencia turquesa usada en la interfaz, junto con amarillo y fondos claros. Se utilizan tonos oscuros para texto y botones.
 - El turquesa y amarillo del logo no se emplean como líneas sobre blanco porque tienen menor contraste. El color de una estación identifica su ubicación, no calidad, riesgo ni cumplimiento normativo.
-- La guía IPCC recomienda colores accesibles para gráficos de líneas (página impresa 9, página 13 del PDF) y evitar escalas arcoíris. Ofrece seis colores; aquí se adapta esa selección para siete estaciones, sin afirmar que exista una paleta oficial IPCC de siete colores.
+- La guía IPCC recomienda colores accesibles para gráficos de líneas (página impresa 9, página 11 del PDF) y evitar escalas arcoíris. La página 13 del PDF trata escalas para magnitudes continuas. La adaptación inicial de seis colores más una extensión se reemplazó por una selección de siete colores originales de Dark, de Paul Tol; la fuente y la justificación están en [el README](../README.md#paleta-de-estaciones).
 
 ## Clave de estaciones
 
 | Estación | Color | Símbolo | Trazo |
 | --- | --- | --- | --- |
-| Canelo · Maipo | `#000000` | Triángulo | Continuo |
-| Guayacán · Maipo | `#477fab` | Triángulo | Guiones |
-| San Gabriel · Maipo | `#a86a00` | Triángulo | Punteado |
-| Guayacán · Colorado | `#767676` | Círculo | Guion y punto |
-| San Gabriel · Yeso | `#003466` | Círculo | Guiones largos |
-| Baños Morales · Volcán | `#004f00` | Círculo | Guiones cortos |
-| Baños Morales · Estero | `#882255` | Círculo | Punto y guion largo |
+| Canelo · Maipo | `#117788` | Triángulo | Continuo |
+| Guayacán · Maipo | `#775500` | Triángulo | Guiones |
+| San Gabriel · Maipo | `#882288` | Triángulo | Punteado |
+| Guayacán · Colorado | `#cc4466` | Círculo | Guion y punto |
+| San Gabriel · Yeso | `#4477bb` | Círculo | Guiones largos |
+| Baños Morales · Volcán | `#228833` | Círculo | Guiones cortos |
+| Baños Morales · Estero | `#444444` | Círculo | Punto y guion largo |
 
-Se mantienen el negro, azul oscuro y verde oscuro de la guía. El azul claro, ocre y gris se oscurecen para fondo blanco; el frambuesa es una extensión. Los siete colores superan 3:1 frente a blanco (mínimo calculado 4,29:1). Esto comprueba contraste, no garantiza distinguir todos los pares con cualquier tipo de daltonismo: por eso cada estación conserva además su trazo y las del Maipo comparten triángulo. Los nombres acompañan las claves en filtros, resúmenes y lista del mapa.
+Se conservan los valores originales de una única paleta. El petróleo y el ocre
+acompañan al turquesa y amarillo del logo sobre fondo blanco. Los siete colores
+superan 4,5:1 frente a blanco (mínimo calculado 4,53:1). Esto comprueba contraste,
+no garantiza distinguir todos los pares con cualquier tipo de daltonismo:
+cada estación conserva además su trazo y las del Maipo comparten triángulo.
+Los nombres acompañan las claves en filtros, resúmenes y lista del mapa.
+Los marcadores del mapa comparten color y símbolo con los gráficos y tienen
+borde blanco; el contraste calculado sobre blanco no se extrapola al mapa.
 
 ## Cambios funcionales y contenido
 
@@ -36,5 +43,15 @@ Se mantienen el negro, azul oscuro y verde oscuro de la guía. El azul claro, oc
 - La conexión con KoboCollect queda para la siguiente etapa.
 
 ## Verificación
+
+Revisión de paleta: contraste calculado para los siete colores (4,53:1 a 9,74:1
+sobre blanco), correspondencia con los siete identificadores y siete trazos únicos.
+Comprobación en Chromium de cinco gráficos, quince series iniciales del Maipo y
+siete marcadores del mapa. Inspección visual de la
+[muestra de colores y simulaciones](paleta-estaciones.svg). Las simulaciones
+aproximadas muestran tonos cercanos en algunos pares; se mantienen los trazos,
+símbolos y nombres como claves adicionales.
+
+Verificación previa de la implementación general:
 
 Generación correcta de siete estaciones, 394 mediciones y 163 imágenes. Comparación del XLSX con el original: únicamente cambia `xl/workbook.xml`, por los dos nombres de hojas. Comprobaciones en Chrome: cinco años hídricos, siete filtros, triángulos del Maipo, selección individual y rápida, selección vacía, los nueve parámetros, resumen del mapa, filtro y visor de fotos, menú móvil, ajuste a 390 px y carga de imágenes. Inspección visual de la portada a 1440 px. Sin publicación remota ni conexión a servicios externos.

@@ -182,4 +182,44 @@ Cambios aplicados en `docs/` y el generador, sin conexión a KoboCollect:
 - Fotografías repetitivas solo de Guayacán, San Gabriel y Baños Morales; resúmenes en Otros. Se conserva el material fuente de los demás sectores sin publicarlo.
 - Se incorpora el resumen de Guayacán hasta noviembre de 2026 del Word revisado. Las dos fotos individuales nuevas mencionadas en el mensaje no vienen como archivos separados: aparecen en el resumen, no se reconstruyeron desde él. Los otros dos resúmenes disponibles siguen siendo los originales recibidos en `fotos/`.
 
-Los criterios y las adaptaciones de colores están documentados en [cambiosv1/revision-aplicada.md](cambiosv1/revision-aplicada.md).
+Los criterios de diseño están documentados en [cambiosv1/revision-aplicada.md](cambiosv1/revision-aplicada.md).
+
+
+## Paleta de estaciones
+
+Se seleccionaron siete colores originales de **Dark, de Paul Tol**, como alternativa
+adicional a las referencias de `cambiosv1/cambiosv1.md`:
+[Paul Tol — Qualitative colour schemes, figura 6](https://sronpersonalpages.nl/~pault/#fig:scheme_dark).
+Se usa una sola familia, sin oscurecer colores ni mezclar paletas.
+
+El azul petróleo y el ocre acompañan al turquesa y amarillo del logo con tonos
+legibles sobre blanco. Los tres puntos del Maipo usan petróleo, ocre y púrpura
+para diferenciarlos también dentro del grupo. El logo conserva sus colores.
+
+| Estación | Color | Símbolo | Trazo | Contraste sobre blanco |
+| --- | --- | --- | --- | --- |
+| Canelo · Maipo | Petróleo `#117788` | Triángulo | Continuo | 5,23:1 |
+| Guayacán · Maipo | Ocre `#775500` | Triángulo | Guiones | 6,81:1 |
+| San Gabriel · Maipo | Púrpura `#882288` | Triángulo | Punteado | 7,98:1 |
+| Guayacán · Colorado | Rosa `#CC4466` | Círculo | Guion y punto | 4,58:1 |
+| San Gabriel · Yeso | Azul `#4477BB` | Círculo | Guiones largos | 4,56:1 |
+| Baños Morales · Volcán | Verde `#228833` | Círculo | Guiones cortos | 4,53:1 |
+| Baños Morales · Estero | Gris `#444444` | Círculo | Punto y guion largo | 9,74:1 |
+
+La fuente prioriza contraste sobre blanco y advierte una menor separación entre
+algunos tonos con daltonismo y en escala de grises. No se garantiza accesibilidad
+solo por color: se conservan trazos únicos, símbolos y nombres, además de los
+filtros para comparar pocas series y las tablas de valores. El mapa usa los mismos
+colores y símbolos, con borde blanco para separar los marcadores del fondo.
+Los contrastes de la tabla se calcularon mediante luminancia relativa sRGB;
+no miden la diferencia entre pares de colores ni el contraste sobre el mapa.
+
+La [muestra de la paleta](cambiosv1/paleta-estaciones.svg) presenta los siete
+colores y trazos junto con simulaciones aproximadas de protanopia, deuteranopia
+y escala de grises. Las dos simulaciones de daltonismo siguen las fórmulas
+publicadas por Tol. Permiten revisar las limitaciones; no certifican accesibilidad.
+
+La guía IPCC sigue siendo referencia para evitar escalas arcoíris y distinguir
+categorías de magnitudes. La tabla de líneas está en la **página 11 del PDF
+(9 impresa)**; la página 13 (11 impresa) describe escalas secuenciales y divergentes.
+La selección actual no se presenta como una paleta oficial del IPCC.
