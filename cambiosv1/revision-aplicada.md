@@ -32,6 +32,12 @@ borde blanco; el contraste calculado sobre blanco no se extrapola al mapa.
 
 ## Cambios funcionales y contenido
 
+La revisión documental completa, incluidos los requisitos aún pendientes, está
+en [cambiosv1.md](cambiosv1.md). Esta lista de cambios aplicados no significa que
+se hayan completado todos los requisitos del Word.
+
+- El disclaimer está aplicado parcialmente: el aviso «Sobre los datos» resume el texto del Word. Falta incluir el contexto de hora, el esfuerzo de precisión y la intención de seguir protocolos de datos abiertos de UNESCO, además de hacerlo accesible junto a la descarga. CSV y JSON descargan todos los registros, sin filtros; la descarga por sitio sigue pendiente.
+- También siguen pendientes el formulario de contacto, los puntos de encuentro y la línea de tiempo del mapa (actualmente hay un selector de año hídrico). El video de Vimeo requiere la URL que no se incluyó en el Word.
 - Se corrige un selector inexistente que detenía la carga de los filtros y de las secciones siguientes.
 - Inicialmente se muestran las tres estaciones del Maipo. Se pueden combinar los grupos Río Maipo (3), Colorado y Yeso (2) y Volcán y Estero Morales (2), o mostrar todas juntas. Las casillas individuales permiten afinar la selección; los grupos indican selección parcial y se muestra un contador de estaciones visibles. Se mantienen Todas, Solo río Maipo y Ninguna.
 - Se cambia El Manzano a Guayacán en las hojas del Excel, los datos generados y las etiquetas públicas. Las hojas usan `Guayacan_` y los identificadores `guayacan-` para mantener rutas sencillas. Se conserva cada valor de medición y el resto del contenido del XLSX.
