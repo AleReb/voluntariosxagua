@@ -56,7 +56,7 @@ la descarga por sitio descrita en el Word y explicar el alcance de la descarga.
 | Video de Vimeo desde el minuto 20. | Pendiente: el Word lo menciona sin entregar la URL. |
 | Puntos de encuentro con coordenadas y altitud. | Pendiente: no aparecen en la web. Son distintos de las estaciones de muestreo. |
 | Fotografías del equipo y los instrumentos al final, y logo destacado arriba. | Aplicado. |
-| Actualización mensual con datos recibidos en KoboCollect después del primer domingo. | Pendiente de integración: actualmente se genera el sitio desde el Excel local. La carga automática de fotos también queda para una etapa posterior. |
+| Actualización mensual con datos recibidos en KoboCollect después del primer domingo. | Integración preparada: descarga diaria de KoboToolbox, copia normalizada en el repositorio y unión con el Excel para la web. Falta subir y verificar el workflow actualizado. Ver `data/kobo/README.md`. La carga automática de fotos sigue pendiente. |
 
 ### Puntos de encuentro solicitados
 

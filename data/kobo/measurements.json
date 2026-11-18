@@ -1,0 +1,4628 @@
+{
+  "schemaVersion": 1,
+  "asset": "aMh8DJzqhNkKhKNt3GDSiS",
+  "server": "https://eu.kobotoolbox.org",
+  "count": 77,
+  "records": [
+    {
+      "koboId": 822779303,
+      "date": "2026-01-04",
+      "stationId": "banos-morales-estero",
+      "validationStatus": "not_reviewed",
+      "samples": {
+        "waterTemp": [
+          15.7,
+          15.5,
+          15.5
+        ],
+        "ph": [
+          8.95,
+          8.95,
+          8.99
+        ],
+        "conductivity": [
+          498.0,
+          491.0,
+          494.0
+        ],
+        "tds": [
+          326.0,
+          324.0,
+          325.0
+        ],
+        "salinity": [
+          217.0,
+          216.0,
+          218.0
+        ],
+        "orp": [
+          206.6,
+          206.0,
+          207.0
+        ],
+        "turbidity": [
+          35.5,
+          34.1,
+          35.6
+        ],
+        "hardness": [
+          200.0
+        ],
+        "alkalinity": [
+          null
+        ]
+      },
+      "values": {
+        "waterTemp": 15.566667,
+        "ph": 8.963333,
+        "conductivity": 494.333333,
+        "tds": 325.0,
+        "salinity": 217.0,
+        "orp": 206.533333,
+        "turbidity": 35.066667,
+        "hardness": 200.0,
+        "alkalinity": null
+      }
+    },
+    {
+      "koboId": 822768919,
+      "date": "2026-01-04",
+      "stationId": "banos-morales-volcan",
+      "validationStatus": "not_reviewed",
+      "samples": {
+        "waterTemp": [
+          11.6,
+          12.2,
+          12.0
+        ],
+        "ph": [
+          8.84,
+          8.9,
+          8.87
+        ],
+        "conductivity": [
+          1020.0,
+          1090.0,
+          1008.0
+        ],
+        "tds": [
+          675.0,
+          669.0,
+          667.0
+        ],
+        "salinity": [
+          480.0,
+          478.0,
+          477.0
+        ],
+        "orp": [
+          210.1,
+          210.2,
+          212.2
+        ],
+        "turbidity": [
+          177.4,
+          180.7,
+          176.6
+        ],
+        "hardness": [
+          500.0
+        ],
+        "alkalinity": [
+          null
+        ]
+      },
+      "values": {
+        "waterTemp": 11.933333,
+        "ph": 8.87,
+        "conductivity": 1039.333333,
+        "tds": 670.333333,
+        "salinity": 478.333333,
+        "orp": 210.833333,
+        "turbidity": 178.233333,
+        "hardness": 500.0,
+        "alkalinity": null
+      }
+    },
+    {
+      "koboId": 822795371,
+      "date": "2026-01-04",
+      "stationId": "canelo-maipo",
+      "validationStatus": "not_reviewed",
+      "samples": {
+        "waterTemp": [
+          16.0,
+          15.3,
+          15.1
+        ],
+        "ph": [
+          8.23,
+          8.29,
+          8.25
+        ],
+        "conductivity": [
+          878.0,
+          875.0,
+          878.0
+        ],
+        "tds": [
+          579.0,
+          578.0,
+          580.0
+        ],
+        "salinity": [
+          407.0,
+          403.0,
+          405.0
+        ],
+        "orp": [
+          165.0,
+          165.0,
+          165.0
+        ],
+        "turbidity": [
+          null,
+          null,
+          null
+        ],
+        "hardness": [
+          300.0
+        ],
+        "alkalinity": [
+          null
+        ]
+      },
+      "values": {
+        "waterTemp": 15.466667,
+        "ph": 8.256667,
+        "conductivity": 877.0,
+        "tds": 579.0,
+        "salinity": 405.0,
+        "orp": 165.0,
+        "turbidity": null,
+        "hardness": 300.0,
+        "alkalinity": null
+      }
+    },
+    {
+      "koboId": 822792555,
+      "date": "2026-01-04",
+      "stationId": "guayacan-colorado",
+      "validationStatus": "not_reviewed",
+      "samples": {
+        "waterTemp": [
+          15.1,
+          14.4,
+          14.0
+        ],
+        "ph": [
+          8.37,
+          8.36,
+          8.29
+        ],
+        "conductivity": [
+          596.0,
+          601.0,
+          611.0
+        ],
+        "tds": [
+          394.0,
+          397.0,
+          403.0
+        ],
+        "salinity": [
+          263.0,
+          271.0,
+          275.0
+        ],
+        "orp": [
+          111.0,
+          112.8,
+          112.9
+        ],
+        "turbidity": [
+          null,
+          null,
+          null
+        ],
+        "hardness": [
+          210.0
+        ],
+        "alkalinity": [
+          null
+        ]
+      },
+      "values": {
+        "waterTemp": 14.5,
+        "ph": 8.34,
+        "conductivity": 602.666667,
+        "tds": 398.0,
+        "salinity": 269.666667,
+        "orp": 112.233333,
+        "turbidity": null,
+        "hardness": 210.0,
+        "alkalinity": null
+      }
+    },
+    {
+      "koboId": 822789827,
+      "date": "2026-01-04",
+      "stationId": "guayacan-maipo",
+      "validationStatus": "not_reviewed",
+      "samples": {
+        "waterTemp": [
+          15.0,
+          14.8,
+          14.7
+        ],
+        "ph": [
+          8.28,
+          8.29,
+          8.26
+        ],
+        "conductivity": [
+          1087.0,
+          1089.0,
+          1088.0
+        ],
+        "tds": [
+          718.0,
+          718.0,
+          719.0
+        ],
+        "salinity": [
+          512.0,
+          512.0,
+          513.0
+        ],
+        "orp": [
+          89.1,
+          90.7,
+          92.5
+        ],
+        "turbidity": [
+          null,
+          null,
+          null
+        ],
+        "hardness": [
+          340.0
+        ],
+        "alkalinity": [
+          null
+        ]
+      },
+      "values": {
+        "waterTemp": 14.833333,
+        "ph": 8.276667,
+        "conductivity": 1088.0,
+        "tds": 718.333333,
+        "salinity": 512.333333,
+        "orp": 90.766667,
+        "turbidity": null,
+        "hardness": 340.0,
+        "alkalinity": null
+      }
+    },
+    {
+      "koboId": 822783741,
+      "date": "2026-01-04",
+      "stationId": "san-gabriel-maipo",
+      "validationStatus": "not_reviewed",
+      "samples": {
+        "waterTemp": [
+          14.5,
+          13.3,
+          12.8
+        ],
+        "ph": [
+          8.49,
+          8.5,
+          8.62
+        ],
+        "conductivity": [
+          1988.0,
+          1980.0,
+          2000.0
+        ],
+        "tds": [
+          1300.0,
+          1315.0,
+          1340.0
+        ],
+        "salinity": [
+          988.0,
+          1000.0,
+          1002.0
+        ],
+        "orp": [
+          202.3,
+          203.6,
+          205.7
+        ],
+        "turbidity": [
+          null,
+          null,
+          null
+        ],
+        "hardness": [
+          290.0
+        ],
+        "alkalinity": [
+          null
+        ]
+      },
+      "values": {
+        "waterTemp": 13.533333,
+        "ph": 8.536667,
+        "conductivity": 1989.333333,
+        "tds": 1318.333333,
+        "salinity": 996.666667,
+        "orp": 203.866667,
+        "turbidity": null,
+        "hardness": 290.0,
+        "alkalinity": null
+      }
+    },
+    {
+      "koboId": 822786270,
+      "date": "2026-01-04",
+      "stationId": "san-gabriel-yeso",
+      "validationStatus": "not_reviewed",
+      "samples": {
+        "waterTemp": [
+          17.5,
+          17.0,
+          16.8
+        ],
+        "ph": [
+          9.22,
+          8.9,
+          8.85
+        ],
+        "conductivity": [
+          2610.0,
+          2860.0,
+          2290.0
+        ],
+        "tds": [
+          628.0,
+          635.0,
+          640.0
+        ],
+        "salinity": [
+          439.0,
+          446.0,
+          448.0
+        ],
+        "orp": [
+          207.0,
+          208.6,
+          210.0
+        ],
+        "turbidity": [
+          null,
+          null,
+          null
+        ],
+        "hardness": [
+          180.0
+        ],
+        "alkalinity": [
+          null
+        ]
+      },
+      "values": {
+        "waterTemp": 17.1,
+        "ph": 8.99,
+        "conductivity": 2586.666667,
+        "tds": 634.333333,
+        "salinity": 444.333333,
+        "orp": 208.533333,
+        "turbidity": null,
+        "hardness": 180.0,
+        "alkalinity": null
+      }
+    },
+    {
+      "koboId": 822849292,
+      "date": "2026-02-01",
+      "stationId": "banos-morales-estero",
+      "validationStatus": "not_reviewed",
+      "samples": {
+        "waterTemp": [
+          14.2,
+          13.6,
+          13.6
+        ],
+        "ph": [
+          8.46,
+          8.48,
+          8.5
+        ],
+        "conductivity": [
+          603.0,
+          605.0,
+          604.0
+        ],
+        "tds": [
+          401.0,
+          404.0,
+          403.0
+        ],
+        "salinity": [
+          273.0,
+          275.0,
+          275.0
+        ],
+        "orp": [
+          226.6,
+          225.0,
+          225.8
+        ],
+        "turbidity": [
+          15.23,
+          16.43,
+          12.99
+        ],
+        "hardness": [
+          250.0
+        ],
+        "alkalinity": [
+          null
+        ]
+      },
+      "values": {
+        "waterTemp": 13.8,
+        "ph": 8.48,
+        "conductivity": 604.0,
+        "tds": 402.666667,
+        "salinity": 274.333333,
+        "orp": 225.8,
+        "turbidity": 14.883333,
+        "hardness": 250.0,
+        "alkalinity": null
+      }
+    },
+    {
+      "koboId": 822847267,
+      "date": "2026-02-01",
+      "stationId": "banos-morales-volcan",
+      "validationStatus": "not_reviewed",
+      "samples": {
+        "waterTemp": [
+          13.1,
+          13.1,
+          12.8
+        ],
+        "ph": [
+          8.38,
+          8.35,
+          8.39
+        ],
+        "conductivity": [
+          1100.0,
+          1085.0,
+          1094.0
+        ],
+        "tds": [
+          730.0,
+          722.0,
+          723.0
+        ],
+        "salinity": [
+          520.0,
+          515.0,
+          516.0
+        ],
+        "orp": [
+          212.2,
+          211.2,
+          213.5
+        ],
+        "turbidity": [
+          42.3,
+          37.1,
+          33.7
+        ],
+        "hardness": [
+          370.0
+        ],
+        "alkalinity": [
+          null
+        ]
+      },
+      "values": {
+        "waterTemp": 13.0,
+        "ph": 8.373333,
+        "conductivity": 1093.0,
+        "tds": 725.0,
+        "salinity": 517.0,
+        "orp": 212.3,
+        "turbidity": 37.7,
+        "hardness": 370.0,
+        "alkalinity": null
+      }
+    },
+    {
+      "koboId": 822856543,
+      "date": "2026-02-01",
+      "stationId": "canelo-maipo",
+      "validationStatus": "not_reviewed",
+      "samples": {
+        "waterTemp": [
+          14.7,
+          14.3,
+          14.2
+        ],
+        "ph": [
+          8.42,
+          8.44,
+          8.43
+        ],
+        "conductivity": [
+          1058.0,
+          1076.0,
+          1081.0
+        ],
+        "tds": [
+          699.0,
+          711.0,
+          714.0
+        ],
+        "salinity": [
+          499.0,
+          507.0,
+          509.0
+        ],
+        "orp": [
+          180.9,
+          179.0,
+          172.7
+        ],
+        "turbidity": [
+          null,
+          null,
+          null
+        ],
+        "hardness": [
+          370.0
+        ],
+        "alkalinity": [
+          null
+        ]
+      },
+      "values": {
+        "waterTemp": 14.4,
+        "ph": 8.43,
+        "conductivity": 1071.666667,
+        "tds": 708.0,
+        "salinity": 505.0,
+        "orp": 177.533333,
+        "turbidity": null,
+        "hardness": 370.0,
+        "alkalinity": null
+      }
+    },
+    {
+      "koboId": 822854925,
+      "date": "2026-02-01",
+      "stationId": "guayacan-colorado",
+      "validationStatus": "not_reviewed",
+      "samples": {
+        "waterTemp": [
+          15.8,
+          15.5,
+          14.9
+        ],
+        "ph": [
+          8.34,
+          8.31,
+          8.35
+        ],
+        "conductivity": [
+          769.0,
+          798.0,
+          792.0
+        ],
+        "tds": [
+          512.0,
+          525.0,
+          522.0
+        ],
+        "salinity": [
+          360.0,
+          366.0,
+          363.0
+        ],
+        "orp": [
+          230.2,
+          230.7,
+          229.4
+        ],
+        "turbidity": [
+          null,
+          null,
+          null
+        ],
+        "hardness": [
+          270.0
+        ],
+        "alkalinity": [
+          null
+        ]
+      },
+      "values": {
+        "waterTemp": 15.4,
+        "ph": 8.333333,
+        "conductivity": 786.333333,
+        "tds": 519.666667,
+        "salinity": 363.0,
+        "orp": 230.1,
+        "turbidity": null,
+        "hardness": 270.0,
+        "alkalinity": null
+      }
+    },
+    {
+      "koboId": 822854181,
+      "date": "2026-02-01",
+      "stationId": "guayacan-maipo",
+      "validationStatus": "not_reviewed",
+      "samples": {
+        "waterTemp": [
+          15.9,
+          15.5,
+          15.2
+        ],
+        "ph": [
+          8.41,
+          8.24,
+          8.32
+        ],
+        "conductivity": [
+          1214.0,
+          1240.0,
+          1215.0
+        ],
+        "tds": [
+          809.0,
+          819.0,
+          806.0
+        ],
+        "salinity": [
+          579.0,
+          582.0,
+          575.0
+        ],
+        "orp": [
+          220.8,
+          220.9,
+          219.3
+        ],
+        "turbidity": [
+          null,
+          null,
+          null
+        ],
+        "hardness": [
+          360.0
+        ],
+        "alkalinity": [
+          null
+        ]
+      },
+      "values": {
+        "waterTemp": 15.533333,
+        "ph": 8.323333,
+        "conductivity": 1223.0,
+        "tds": 811.333333,
+        "salinity": 578.666667,
+        "orp": 220.333333,
+        "turbidity": null,
+        "hardness": 360.0,
+        "alkalinity": null
+      }
+    },
+    {
+      "koboId": 822851379,
+      "date": "2026-02-01",
+      "stationId": "san-gabriel-maipo",
+      "validationStatus": "not_reviewed",
+      "samples": {
+        "waterTemp": [
+          13.2,
+          13.3,
+          12.9
+        ],
+        "ph": [
+          8.28,
+          8.36,
+          8.39
+        ],
+        "conductivity": [
+          1230.0,
+          1271.0,
+          1278.0
+        ],
+        "tds": [
+          825.0,
+          848.0,
+          848.0
+        ],
+        "salinity": [
+          606.0,
+          619.0,
+          620.0
+        ],
+        "orp": [
+          189.3,
+          190.6,
+          193.4
+        ],
+        "turbidity": [
+          null,
+          null,
+          null
+        ],
+        "hardness": [
+          350.0
+        ],
+        "alkalinity": [
+          null
+        ]
+      },
+      "values": {
+        "waterTemp": 13.133333,
+        "ph": 8.343333,
+        "conductivity": 1259.666667,
+        "tds": 840.333333,
+        "salinity": 615.0,
+        "orp": 191.1,
+        "turbidity": null,
+        "hardness": 350.0,
+        "alkalinity": null
+      }
+    },
+    {
+      "koboId": 822852596,
+      "date": "2026-02-01",
+      "stationId": "san-gabriel-yeso",
+      "validationStatus": "not_reviewed",
+      "samples": {
+        "waterTemp": [
+          15.6,
+          15.1,
+          15.0
+        ],
+        "ph": [
+          8.53,
+          8.5,
+          8.42
+        ],
+        "conductivity": [
+          802.0,
+          806.0,
+          810.0
+        ],
+        "tds": [
+          531.0,
+          532.0,
+          534.0
+        ],
+        "salinity": [
+          372.0,
+          371.0,
+          373.0
+        ],
+        "orp": [
+          222.5,
+          223.3,
+          224.8
+        ],
+        "turbidity": [
+          null,
+          null,
+          null
+        ],
+        "hardness": [
+          340.0
+        ],
+        "alkalinity": [
+          null
+        ]
+      },
+      "values": {
+        "waterTemp": 15.233333,
+        "ph": 8.483333,
+        "conductivity": 806.0,
+        "tds": 532.333333,
+        "salinity": 372.0,
+        "orp": 223.533333,
+        "turbidity": null,
+        "hardness": 340.0,
+        "alkalinity": null
+      }
+    },
+    {
+      "koboId": 822859641,
+      "date": "2026-03-01",
+      "stationId": "banos-morales-estero",
+      "validationStatus": "not_reviewed",
+      "samples": {
+        "waterTemp": [
+          14.1,
+          14.1,
+          14.9
+        ],
+        "ph": [
+          8.42,
+          8.41,
+          8.42
+        ],
+        "conductivity": [
+          650.0,
+          645.0,
+          636.0
+        ],
+        "tds": [
+          417.0,
+          429.0,
+          432.0
+        ],
+        "salinity": [
+          293.0,
+          286.0,
+          295.0
+        ],
+        "orp": [
+          196.6,
+          198.1,
+          199.2
+        ],
+        "turbidity": [
+          13.58,
+          13.05,
+          17.84
+        ],
+        "hardness": [
+          250.0
+        ],
+        "alkalinity": [
+          null
+        ]
+      },
+      "values": {
+        "waterTemp": 14.366667,
+        "ph": 8.416667,
+        "conductivity": 643.666667,
+        "tds": 426.0,
+        "salinity": 291.333333,
+        "orp": 197.966667,
+        "turbidity": 14.823333,
+        "hardness": 250.0,
+        "alkalinity": null
+      }
+    },
+    {
+      "koboId": 822858640,
+      "date": "2026-03-01",
+      "stationId": "banos-morales-volcan",
+      "validationStatus": "not_reviewed",
+      "samples": {
+        "waterTemp": [
+          13.3,
+          14.0,
+          13.5
+        ],
+        "ph": [
+          8.3,
+          8.33,
+          8.3
+        ],
+        "conductivity": [
+          1190.0,
+          1202.0,
+          1204.0
+        ],
+        "tds": [
+          796.0,
+          793.0,
+          804.0
+        ],
+        "salinity": [
+          549.0,
+          564.0,
+          574.0
+        ],
+        "orp": [
+          207.0,
+          207.5,
+          207.7
+        ],
+        "turbidity": [
+          18.76,
+          18.51,
+          17.95
+        ],
+        "hardness": [
+          390.0
+        ],
+        "alkalinity": [
+          null
+        ]
+      },
+      "values": {
+        "waterTemp": 13.6,
+        "ph": 8.31,
+        "conductivity": 1198.666667,
+        "tds": 797.666667,
+        "salinity": 562.333333,
+        "orp": 207.4,
+        "turbidity": 18.406667,
+        "hardness": 390.0,
+        "alkalinity": null
+      }
+    },
+    {
+      "koboId": 822867286,
+      "date": "2026-03-01",
+      "stationId": "canelo-maipo",
+      "validationStatus": "not_reviewed",
+      "samples": {
+        "waterTemp": [
+          16.4,
+          15.5,
+          15.2
+        ],
+        "ph": [
+          8.36,
+          8.25,
+          8.32
+        ],
+        "conductivity": [
+          1191.0,
+          1171.0,
+          1187.0
+        ],
+        "tds": [
+          780.0,
+          774.0,
+          785.0
+        ],
+        "salinity": [
+          548.0,
+          554.0,
+          560.0
+        ],
+        "orp": [
+          220.1,
+          217.2,
+          215.4
+        ],
+        "turbidity": [
+          null,
+          null,
+          null
+        ],
+        "hardness": [
+          330.0
+        ],
+        "alkalinity": [
+          null
+        ]
+      },
+      "values": {
+        "waterTemp": 15.7,
+        "ph": 8.31,
+        "conductivity": 1183.0,
+        "tds": 779.666667,
+        "salinity": 554.0,
+        "orp": 217.566667,
+        "turbidity": null,
+        "hardness": 330.0,
+        "alkalinity": null
+      }
+    },
+    {
+      "koboId": 822866116,
+      "date": "2026-03-01",
+      "stationId": "guayacan-colorado",
+      "validationStatus": "not_reviewed",
+      "samples": {
+        "waterTemp": [
+          15.0,
+          14.2,
+          13.5
+        ],
+        "ph": [
+          8.5,
+          8.45,
+          8.44
+        ],
+        "conductivity": [
+          820.0,
+          829.0,
+          829.0
+        ],
+        "tds": [
+          543.0,
+          549.0,
+          547.0
+        ],
+        "salinity": [
+          382.0,
+          383.0,
+          382.0
+        ],
+        "orp": [
+          225.7,
+          224.4,
+          225.0
+        ],
+        "turbidity": [
+          null,
+          null,
+          null
+        ],
+        "hardness": [
+          280.0
+        ],
+        "alkalinity": [
+          null
+        ]
+      },
+      "values": {
+        "waterTemp": 14.233333,
+        "ph": 8.463333,
+        "conductivity": 826.0,
+        "tds": 546.333333,
+        "salinity": 382.333333,
+        "orp": 225.033333,
+        "turbidity": null,
+        "hardness": 280.0,
+        "alkalinity": null
+      }
+    },
+    {
+      "koboId": 822864233,
+      "date": "2026-03-01",
+      "stationId": "guayacan-maipo",
+      "validationStatus": "not_reviewed",
+      "samples": {
+        "waterTemp": [
+          16.2,
+          15.7,
+          15.6
+        ],
+        "ph": [
+          8.3,
+          8.42,
+          8.45
+        ],
+        "conductivity": [
+          1368.0,
+          1368.0,
+          1379.0
+        ],
+        "tds": [
+          905.0,
+          907.0,
+          913.0
+        ],
+        "salinity": [
+          660.0,
+          662.0,
+          665.0
+        ],
+        "orp": [
+          217.1,
+          216.4,
+          216.7
+        ],
+        "turbidity": [
+          null,
+          null,
+          null
+        ],
+        "hardness": [
+          410.0
+        ],
+        "alkalinity": [
+          null
+        ]
+      },
+      "values": {
+        "waterTemp": 15.833333,
+        "ph": 8.39,
+        "conductivity": 1371.666667,
+        "tds": 908.333333,
+        "salinity": 662.333333,
+        "orp": 216.733333,
+        "turbidity": null,
+        "hardness": 410.0,
+        "alkalinity": null
+      }
+    },
+    {
+      "koboId": 822861674,
+      "date": "2026-03-01",
+      "stationId": "san-gabriel-maipo",
+      "validationStatus": "not_reviewed",
+      "samples": {
+        "waterTemp": [
+          14.1,
+          13.0,
+          12.7
+        ],
+        "ph": [
+          8.83,
+          8.61,
+          8.7
+        ],
+        "conductivity": [
+          1360.0,
+          1400.0,
+          1385.0
+        ],
+        "tds": [
+          902.0,
+          929.0,
+          920.0
+        ],
+        "salinity": [
+          659.0,
+          678.0,
+          672.0
+        ],
+        "orp": [
+          122.0,
+          125.2,
+          128.7
+        ],
+        "turbidity": [
+          null,
+          null,
+          null
+        ],
+        "hardness": [
+          280.0
+        ],
+        "alkalinity": [
+          null
+        ]
+      },
+      "values": {
+        "waterTemp": 13.266667,
+        "ph": 8.713333,
+        "conductivity": 1381.666667,
+        "tds": 917.0,
+        "salinity": 669.666667,
+        "orp": 125.3,
+        "turbidity": null,
+        "hardness": 280.0,
+        "alkalinity": null
+      }
+    },
+    {
+      "koboId": 822862772,
+      "date": "2026-03-01",
+      "stationId": "san-gabriel-yeso",
+      "validationStatus": "not_reviewed",
+      "samples": {
+        "waterTemp": [
+          15.6,
+          15.0,
+          14.8
+        ],
+        "ph": [
+          8.8,
+          8.76,
+          8.68
+        ],
+        "conductivity": [
+          926.0,
+          966.0,
+          9.64
+        ],
+        "tds": [
+          632.0,
+          639.0,
+          634.0
+        ],
+        "salinity": [
+          440.0,
+          447.0,
+          440.0
+        ],
+        "orp": [
+          159.0,
+          152.2,
+          164.0
+        ],
+        "turbidity": [
+          null,
+          null,
+          null
+        ],
+        "hardness": [
+          380.0
+        ],
+        "alkalinity": [
+          null
+        ]
+      },
+      "values": {
+        "waterTemp": 15.133333,
+        "ph": 8.746667,
+        "conductivity": 633.88,
+        "tds": 635.0,
+        "salinity": 442.333333,
+        "orp": 158.4,
+        "turbidity": null,
+        "hardness": 380.0,
+        "alkalinity": null
+      }
+    },
+    {
+      "koboId": 822869439,
+      "date": "2026-04-05",
+      "stationId": "banos-morales-estero",
+      "validationStatus": "not_reviewed",
+      "samples": {
+        "waterTemp": [
+          9.7,
+          9.7,
+          9.7
+        ],
+        "ph": [
+          8.53,
+          8.5,
+          8.49
+        ],
+        "conductivity": [
+          null,
+          null,
+          null
+        ],
+        "tds": [
+          null,
+          null,
+          null
+        ],
+        "salinity": [
+          null,
+          null,
+          null
+        ],
+        "orp": [
+          201.5,
+          205.2,
+          206.2
+        ],
+        "turbidity": [
+          0.38,
+          0.98,
+          1.62
+        ],
+        "hardness": [
+          370.0
+        ],
+        "alkalinity": [
+          null
+        ]
+      },
+      "values": {
+        "waterTemp": 9.7,
+        "ph": 8.506667,
+        "conductivity": null,
+        "tds": null,
+        "salinity": null,
+        "orp": 204.3,
+        "turbidity": 0.993333,
+        "hardness": 370.0,
+        "alkalinity": null
+      }
+    },
+    {
+      "koboId": 822868832,
+      "date": "2026-04-05",
+      "stationId": "banos-morales-volcan",
+      "validationStatus": "not_reviewed",
+      "samples": {
+        "waterTemp": [
+          8.6,
+          9.4,
+          9.6
+        ],
+        "ph": [
+          8.48,
+          8.39,
+          8.39
+        ],
+        "conductivity": [
+          null,
+          null,
+          null
+        ],
+        "tds": [
+          null,
+          null,
+          null
+        ],
+        "salinity": [
+          null,
+          null,
+          null
+        ],
+        "orp": [
+          170.0,
+          174.9,
+          177.1
+        ],
+        "turbidity": [
+          10.5,
+          10.22,
+          10.58
+        ],
+        "hardness": [
+          520.0
+        ],
+        "alkalinity": [
+          null
+        ]
+      },
+      "values": {
+        "waterTemp": 9.2,
+        "ph": 8.42,
+        "conductivity": null,
+        "tds": null,
+        "salinity": null,
+        "orp": 174.0,
+        "turbidity": 10.433333,
+        "hardness": 520.0,
+        "alkalinity": null
+      }
+    },
+    {
+      "koboId": 822874278,
+      "date": "2026-04-05",
+      "stationId": "canelo-maipo",
+      "validationStatus": "not_reviewed",
+      "samples": {
+        "waterTemp": [
+          14.6,
+          14.3,
+          14.0
+        ],
+        "ph": [
+          8.39,
+          8.4,
+          8.37
+        ],
+        "conductivity": [
+          1640.0,
+          1636.0,
+          1618.0
+        ],
+        "tds": [
+          1054.0,
+          1085.0,
+          1071.0
+        ],
+        "salinity": [
+          809.0,
+          804.0,
+          798.0
+        ],
+        "orp": [
+          241.3,
+          240.8,
+          240.8
+        ],
+        "turbidity": [
+          null,
+          null,
+          null
+        ],
+        "hardness": [
+          400.0
+        ],
+        "alkalinity": [
+          null
+        ]
+      },
+      "values": {
+        "waterTemp": 14.3,
+        "ph": 8.386667,
+        "conductivity": 1631.333333,
+        "tds": 1070.0,
+        "salinity": 803.666667,
+        "orp": 240.966667,
+        "turbidity": null,
+        "hardness": 400.0,
+        "alkalinity": null
+      }
+    },
+    {
+      "koboId": 822873411,
+      "date": "2026-04-05",
+      "stationId": "guayacan-colorado",
+      "validationStatus": "not_reviewed",
+      "samples": {
+        "waterTemp": [
+          14.8,
+          14.8,
+          14.6
+        ],
+        "ph": [
+          8.54,
+          8.53,
+          8.52
+        ],
+        "conductivity": [
+          1214.0,
+          1203.0,
+          1199.0
+        ],
+        "tds": [
+          800.0,
+          793.0,
+          792.0
+        ],
+        "salinity": [
+          570.0,
+          577.0,
+          575.0
+        ],
+        "orp": [
+          230.8,
+          228.4,
+          226.7
+        ],
+        "turbidity": [
+          null,
+          null,
+          null
+        ],
+        "hardness": [
+          370.0
+        ],
+        "alkalinity": [
+          null
+        ]
+      },
+      "values": {
+        "waterTemp": 14.733333,
+        "ph": 8.53,
+        "conductivity": 1205.333333,
+        "tds": 795.0,
+        "salinity": 574.0,
+        "orp": 228.633333,
+        "turbidity": null,
+        "hardness": 370.0,
+        "alkalinity": null
+      }
+    },
+    {
+      "koboId": 822872758,
+      "date": "2026-04-05",
+      "stationId": "guayacan-maipo",
+      "validationStatus": "not_reviewed",
+      "samples": {
+        "waterTemp": [
+          13.8,
+          13.3,
+          13.1
+        ],
+        "ph": [
+          8.43,
+          8.47,
+          8.48
+        ],
+        "conductivity": [
+          1643.0,
+          1638.0,
+          1653.0
+        ],
+        "tds": [
+          1085.0,
+          1083.0,
+          1090.0
+        ],
+        "salinity": [
+          805.0,
+          806.0,
+          810.0
+        ],
+        "orp": [
+          224.3,
+          229.5,
+          227.2
+        ],
+        "turbidity": [
+          null,
+          null,
+          null
+        ],
+        "hardness": [
+          490.0
+        ],
+        "alkalinity": [
+          null
+        ]
+      },
+      "values": {
+        "waterTemp": 13.4,
+        "ph": 8.46,
+        "conductivity": 1644.666667,
+        "tds": 1086.0,
+        "salinity": 807.0,
+        "orp": 227.0,
+        "turbidity": null,
+        "hardness": 490.0,
+        "alkalinity": null
+      }
+    },
+    {
+      "koboId": 822870756,
+      "date": "2026-04-05",
+      "stationId": "san-gabriel-maipo",
+      "validationStatus": "not_reviewed",
+      "samples": {
+        "waterTemp": [
+          11.3,
+          10.9,
+          10.8
+        ],
+        "ph": [
+          8.43,
+          8.41,
+          831.0
+        ],
+        "conductivity": [
+          1635.0,
+          1638.0,
+          1657.0
+        ],
+        "tds": [
+          1088.0,
+          1087.0,
+          1097.0
+        ],
+        "salinity": [
+          807.0,
+          808.0,
+          813.0
+        ],
+        "orp": [
+          157.3,
+          158.2,
+          159.8
+        ],
+        "turbidity": [
+          null,
+          null,
+          null
+        ],
+        "hardness": [
+          330.0
+        ],
+        "alkalinity": [
+          null
+        ]
+      },
+      "values": {
+        "waterTemp": 11.0,
+        "ph": 282.613333,
+        "conductivity": 1643.333333,
+        "tds": 1090.666667,
+        "salinity": 809.333333,
+        "orp": 158.433333,
+        "turbidity": null,
+        "hardness": 330.0,
+        "alkalinity": null
+      }
+    },
+    {
+      "koboId": 822871982,
+      "date": "2026-04-05",
+      "stationId": "san-gabriel-yeso",
+      "validationStatus": "not_reviewed",
+      "samples": {
+        "waterTemp": [
+          15.7,
+          15.3,
+          14.8
+        ],
+        "ph": [
+          8.65,
+          8.42,
+          8.38
+        ],
+        "conductivity": [
+          937.0,
+          920.0,
+          941.0
+        ],
+        "tds": [
+          622.0,
+          613.0,
+          621.0
+        ],
+        "salinity": [
+          435.0,
+          428.0,
+          435.0
+        ],
+        "orp": [
+          187.0,
+          187.3,
+          187.0
+        ],
+        "turbidity": [
+          null,
+          null,
+          null
+        ],
+        "hardness": [
+          300.0
+        ],
+        "alkalinity": [
+          null
+        ]
+      },
+      "values": {
+        "waterTemp": 15.266667,
+        "ph": 8.483333,
+        "conductivity": 932.666667,
+        "tds": 618.666667,
+        "salinity": 432.666667,
+        "orp": 187.1,
+        "turbidity": null,
+        "hardness": 300.0,
+        "alkalinity": null
+      }
+    },
+    {
+      "koboId": 822876263,
+      "date": "2026-05-03",
+      "stationId": "banos-morales-estero",
+      "validationStatus": "not_reviewed",
+      "samples": {
+        "waterTemp": [
+          8.5,
+          8.3,
+          68.0
+        ],
+        "ph": [
+          8.4,
+          8.47,
+          8.5
+        ],
+        "conductivity": [
+          920.0,
+          946.0,
+          981.0
+        ],
+        "tds": [
+          614.0,
+          623.0,
+          590.0
+        ],
+        "salinity": [
+          428.0,
+          435.0,
+          411.0
+        ],
+        "orp": [
+          306.5,
+          304.0,
+          301.0
+        ],
+        "turbidity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "hardness": [
+          380.0
+        ],
+        "alkalinity": [
+          null
+        ]
+      },
+      "values": {
+        "waterTemp": 28.266667,
+        "ph": 8.456667,
+        "conductivity": 949.0,
+        "tds": 609.0,
+        "salinity": 424.666667,
+        "orp": 303.833333,
+        "turbidity": 0.0,
+        "hardness": 380.0,
+        "alkalinity": null
+      }
+    },
+    {
+      "koboId": 822875696,
+      "date": "2026-05-03",
+      "stationId": "banos-morales-volcan",
+      "validationStatus": "not_reviewed",
+      "samples": {
+        "waterTemp": [
+          8.6,
+          8.3,
+          7.1
+        ],
+        "ph": [
+          8.35,
+          8.32,
+          8.0
+        ],
+        "conductivity": [
+          1466.0,
+          1449.0,
+          1770.0
+        ],
+        "tds": [
+          964.0,
+          957.0,
+          870.0
+        ],
+        "salinity": [
+          703.0,
+          696.0,
+          700.0
+        ],
+        "orp": [
+          308.9,
+          294.5,
+          288.9
+        ],
+        "turbidity": [
+          13.34,
+          19.6,
+          13.84
+        ],
+        "hardness": [
+          520.0
+        ],
+        "alkalinity": [
+          null
+        ]
+      },
+      "values": {
+        "waterTemp": 8.0,
+        "ph": 8.223333,
+        "conductivity": 1561.666667,
+        "tds": 930.333333,
+        "salinity": 699.666667,
+        "orp": 297.433333,
+        "turbidity": 15.593333,
+        "hardness": 520.0,
+        "alkalinity": null
+      }
+    },
+    {
+      "koboId": 822880007,
+      "date": "2026-05-03",
+      "stationId": "canelo-maipo",
+      "validationStatus": "not_reviewed",
+      "samples": {
+        "waterTemp": [
+          12.2,
+          12.1,
+          11.6
+        ],
+        "ph": [
+          8.53,
+          8.51,
+          8.56
+        ],
+        "conductivity": [
+          1731.0,
+          1715.0,
+          1737.0
+        ],
+        "tds": [
+          1141.0,
+          1139.0,
+          1149.0
+        ],
+        "salinity": [
+          848.0,
+          851.0,
+          854.0
+        ],
+        "orp": [
+          237.3,
+          236.7,
+          236.7
+        ],
+        "turbidity": [
+          null,
+          null,
+          null
+        ],
+        "hardness": [
+          530.0
+        ],
+        "alkalinity": [
+          null
+        ]
+      },
+      "values": {
+        "waterTemp": 11.966667,
+        "ph": 8.533333,
+        "conductivity": 1727.666667,
+        "tds": 1143.0,
+        "salinity": 851.0,
+        "orp": 236.9,
+        "turbidity": null,
+        "hardness": 530.0,
+        "alkalinity": null
+      }
+    },
+    {
+      "koboId": 822879339,
+      "date": "2026-05-03",
+      "stationId": "guayacan-colorado",
+      "validationStatus": "not_reviewed",
+      "samples": {
+        "waterTemp": [
+          13.1,
+          12.8,
+          12.2
+        ],
+        "ph": [
+          8.66,
+          8.63,
+          8.68
+        ],
+        "conductivity": [
+          1321.0,
+          1385.0,
+          1390.0
+        ],
+        "tds": [
+          873.0,
+          918.0,
+          922.0
+        ],
+        "salinity": [
+          637.0,
+          671.0,
+          661.0
+        ],
+        "orp": [
+          209.7,
+          209.0,
+          207.3
+        ],
+        "turbidity": [
+          null,
+          null,
+          null
+        ],
+        "hardness": [
+          330.0
+        ],
+        "alkalinity": [
+          null
+        ]
+      },
+      "values": {
+        "waterTemp": 12.7,
+        "ph": 8.656667,
+        "conductivity": 1365.333333,
+        "tds": 904.333333,
+        "salinity": 656.333333,
+        "orp": 208.666667,
+        "turbidity": null,
+        "hardness": 330.0,
+        "alkalinity": null
+      }
+    },
+    {
+      "koboId": 822878875,
+      "date": "2026-05-03",
+      "stationId": "guayacan-maipo",
+      "validationStatus": "not_reviewed",
+      "samples": {
+        "waterTemp": [
+          12.8,
+          12.4,
+          12.1
+        ],
+        "ph": [
+          8.51,
+          8.58,
+          8.57
+        ],
+        "conductivity": [
+          1769.0,
+          1796.0,
+          1813.0
+        ],
+        "tds": [
+          1174.0,
+          1186.0,
+          1197.0
+        ],
+        "salinity": [
+          873.0,
+          883.0,
+          889.0
+        ],
+        "orp": [
+          215.6,
+          215.2,
+          214.0
+        ],
+        "turbidity": [
+          null,
+          null,
+          null
+        ],
+        "hardness": [
+          460.0
+        ],
+        "alkalinity": [
+          null
+        ]
+      },
+      "values": {
+        "waterTemp": 12.433333,
+        "ph": 8.553333,
+        "conductivity": 1792.666667,
+        "tds": 1185.666667,
+        "salinity": 881.666667,
+        "orp": 214.933333,
+        "turbidity": null,
+        "hardness": 460.0,
+        "alkalinity": null
+      }
+    },
+    {
+      "koboId": 822877066,
+      "date": "2026-05-03",
+      "stationId": "san-gabriel-maipo",
+      "validationStatus": "not_reviewed",
+      "samples": {
+        "waterTemp": [
+          9.5,
+          9.6,
+          9.5
+        ],
+        "ph": [
+          8.74,
+          8.66,
+          8.63
+        ],
+        "conductivity": [
+          1792.0,
+          1767.0,
+          1785.0
+        ],
+        "tds": [
+          1186.0,
+          1163.0,
+          1178.0
+        ],
+        "salinity": [
+          881.0,
+          861.0,
+          874.0
+        ],
+        "orp": [
+          154.2,
+          154.0,
+          155.2
+        ],
+        "turbidity": [
+          null,
+          null,
+          null
+        ],
+        "hardness": [
+          340.0
+        ],
+        "alkalinity": [
+          null
+        ]
+      },
+      "values": {
+        "waterTemp": 9.533333,
+        "ph": 8.676667,
+        "conductivity": 1781.333333,
+        "tds": 1175.666667,
+        "salinity": 872.0,
+        "orp": 154.466667,
+        "turbidity": null,
+        "hardness": 340.0,
+        "alkalinity": null
+      }
+    },
+    {
+      "koboId": 822878356,
+      "date": "2026-05-03",
+      "stationId": "san-gabriel-yeso",
+      "validationStatus": "not_reviewed",
+      "samples": {
+        "waterTemp": [
+          13.5,
+          13.2,
+          13.1
+        ],
+        "ph": [
+          8.82,
+          8.74,
+          8.64
+        ],
+        "conductivity": [
+          943.0,
+          949.0,
+          935.0
+        ],
+        "tds": [
+          623.0,
+          627.0,
+          619.0
+        ],
+        "salinity": [
+          435.0,
+          437.0,
+          432.0
+        ],
+        "orp": [
+          166.0,
+          169.0,
+          172.0
+        ],
+        "turbidity": [
+          null,
+          null,
+          null
+        ],
+        "hardness": [
+          280.0
+        ],
+        "alkalinity": [
+          null
+        ]
+      },
+      "values": {
+        "waterTemp": 13.266667,
+        "ph": 8.733333,
+        "conductivity": 942.333333,
+        "tds": 623.0,
+        "salinity": 434.666667,
+        "orp": 169.0,
+        "turbidity": null,
+        "hardness": 280.0,
+        "alkalinity": null
+      }
+    },
+    {
+      "koboId": 822882738,
+      "date": "2026-06-07",
+      "stationId": "banos-morales-estero",
+      "validationStatus": "not_reviewed",
+      "samples": {
+        "waterTemp": [
+          6.8,
+          7.1,
+          7.3
+        ],
+        "ph": [
+          8.47,
+          8.49,
+          8.46
+        ],
+        "conductivity": [
+          846.0,
+          857.0,
+          857.0
+        ],
+        "tds": [
+          559.0,
+          566.0,
+          566.0
+        ],
+        "salinity": [
+          391.0,
+          394.0,
+          396.0
+        ],
+        "orp": [
+          294.2,
+          284.3,
+          274.7
+        ],
+        "turbidity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "hardness": [
+          440.0
+        ],
+        "alkalinity": [
+          null
+        ]
+      },
+      "values": {
+        "waterTemp": 7.066667,
+        "ph": 8.473333,
+        "conductivity": 853.333333,
+        "tds": 563.666667,
+        "salinity": 393.666667,
+        "orp": 284.4,
+        "turbidity": 0.0,
+        "hardness": 440.0,
+        "alkalinity": null
+      }
+    },
+    {
+      "koboId": 822881650,
+      "date": "2026-06-07",
+      "stationId": "banos-morales-volcan",
+      "validationStatus": "not_reviewed",
+      "samples": {
+        "waterTemp": [
+          5.5,
+          5.3,
+          5.4
+        ],
+        "ph": [
+          8.46,
+          8.38,
+          8.35
+        ],
+        "conductivity": [
+          1363.0,
+          1350.0,
+          1356.0
+        ],
+        "tds": [
+          899.0,
+          893.0,
+          894.0
+        ],
+        "salinity": [
+          654.0,
+          650.0,
+          648.0
+        ],
+        "orp": [
+          292.5,
+          290.8,
+          286.8
+        ],
+        "turbidity": [
+          11.16,
+          7.19,
+          8.08
+        ],
+        "hardness": [
+          640.0
+        ],
+        "alkalinity": [
+          null
+        ]
+      },
+      "values": {
+        "waterTemp": 5.4,
+        "ph": 8.396667,
+        "conductivity": 1356.333333,
+        "tds": 895.333333,
+        "salinity": 650.666667,
+        "orp": 290.033333,
+        "turbidity": 8.81,
+        "hardness": 640.0,
+        "alkalinity": null
+      }
+    },
+    {
+      "koboId": 822886063,
+      "date": "2026-06-07",
+      "stationId": "canelo-maipo",
+      "validationStatus": "not_reviewed",
+      "samples": {
+        "waterTemp": [
+          12.5,
+          10.9,
+          10.2
+        ],
+        "ph": [
+          8.42,
+          8.47,
+          8.51
+        ],
+        "conductivity": [
+          2000.0,
+          2010.0,
+          2020.0
+        ],
+        "tds": [
+          1340.0,
+          1330.0,
+          1330.0
+        ],
+        "salinity": [
+          1010.0,
+          1010.0,
+          1010.0
+        ],
+        "orp": [
+          202.1,
+          197.9,
+          197.5
+        ],
+        "turbidity": [
+          null,
+          null,
+          null
+        ],
+        "hardness": [
+          440.0
+        ],
+        "alkalinity": [
+          null
+        ]
+      },
+      "values": {
+        "waterTemp": 11.2,
+        "ph": 8.466667,
+        "conductivity": 2010.0,
+        "tds": 1333.333333,
+        "salinity": 1010.0,
+        "orp": 199.166667,
+        "turbidity": null,
+        "hardness": 440.0,
+        "alkalinity": null
+      }
+    },
+    {
+      "koboId": 822885360,
+      "date": "2026-06-07",
+      "stationId": "guayacan-colorado",
+      "validationStatus": "not_reviewed",
+      "samples": {
+        "waterTemp": [
+          11.7,
+          11.3,
+          10.6
+        ],
+        "ph": [
+          8.64,
+          8.61,
+          8.58
+        ],
+        "conductivity": [
+          1330.0,
+          1316.0,
+          1477.0
+        ],
+        "tds": [
+          887.0,
+          881.0,
+          943.0
+        ],
+        "salinity": [
+          646.0,
+          645.0,
+          701.0
+        ],
+        "orp": [
+          145.5,
+          146.8,
+          147.7
+        ],
+        "turbidity": [
+          null,
+          null,
+          null
+        ],
+        "hardness": [
+          310.0
+        ],
+        "alkalinity": [
+          null
+        ]
+      },
+      "values": {
+        "waterTemp": 11.2,
+        "ph": 8.61,
+        "conductivity": 1374.333333,
+        "tds": 903.666667,
+        "salinity": 664.0,
+        "orp": 146.666667,
+        "turbidity": null,
+        "hardness": 310.0,
+        "alkalinity": null
+      }
+    },
+    {
+      "koboId": 822884778,
+      "date": "2026-06-07",
+      "stationId": "guayacan-maipo",
+      "validationStatus": "not_reviewed",
+      "samples": {
+        "waterTemp": [
+          12.0,
+          11.2,
+          11.5
+        ],
+        "ph": [
+          8.55,
+          8.57,
+          8.55
+        ],
+        "conductivity": [
+          2140.0,
+          2140.0,
+          2160.0
+        ],
+        "tds": [
+          1410.0,
+          1410.0,
+          1410.0
+        ],
+        "salinity": [
+          1070.0,
+          1060.0,
+          1070.0
+        ],
+        "orp": [
+          139.9,
+          141.9,
+          156.4
+        ],
+        "turbidity": [
+          null,
+          null,
+          null
+        ],
+        "hardness": [
+          480.0
+        ],
+        "alkalinity": [
+          null
+        ]
+      },
+      "values": {
+        "waterTemp": 11.566667,
+        "ph": 8.556667,
+        "conductivity": 2146.666667,
+        "tds": 1410.0,
+        "salinity": 1066.666667,
+        "orp": 146.066667,
+        "turbidity": null,
+        "hardness": 480.0,
+        "alkalinity": null
+      }
+    },
+    {
+      "koboId": 822883642,
+      "date": "2026-06-07",
+      "stationId": "san-gabriel-maipo",
+      "validationStatus": "not_reviewed",
+      "samples": {
+        "waterTemp": [
+          4.7,
+          4.7,
+          4.7
+        ],
+        "ph": [
+          8.7,
+          8.9,
+          8.9
+        ],
+        "conductivity": [
+          2180.0,
+          2240.0,
+          2340.0
+        ],
+        "tds": [
+          1420.0,
+          1420.0,
+          1430.0
+        ],
+        "salinity": [
+          1080.0,
+          1080.0,
+          1090.0
+        ],
+        "orp": [
+          179.9,
+          172.7,
+          174.2
+        ],
+        "turbidity": [
+          null,
+          null,
+          null
+        ],
+        "hardness": [
+          460.0
+        ],
+        "alkalinity": [
+          null
+        ]
+      },
+      "values": {
+        "waterTemp": 4.7,
+        "ph": 8.833333,
+        "conductivity": 2253.333333,
+        "tds": 1423.333333,
+        "salinity": 1083.333333,
+        "orp": 175.6,
+        "turbidity": null,
+        "hardness": 460.0,
+        "alkalinity": null
+      }
+    },
+    {
+      "koboId": 822884122,
+      "date": "2026-06-07",
+      "stationId": "san-gabriel-yeso",
+      "validationStatus": "not_reviewed",
+      "samples": {
+        "waterTemp": [
+          6.5,
+          6.5,
+          6.2
+        ],
+        "ph": [
+          9.16,
+          9.14,
+          9.21
+        ],
+        "conductivity": [
+          941.0,
+          938.0,
+          939.0
+        ],
+        "tds": [
+          623.0,
+          619.0,
+          621.0
+        ],
+        "salinity": [
+          434.0,
+          431.0,
+          433.0
+        ],
+        "orp": [
+          185.6,
+          189.6,
+          192.4
+        ],
+        "turbidity": [
+          null,
+          null,
+          null
+        ],
+        "hardness": [
+          410.0
+        ],
+        "alkalinity": [
+          null
+        ]
+      },
+      "values": {
+        "waterTemp": 6.4,
+        "ph": 9.17,
+        "conductivity": 939.333333,
+        "tds": 621.0,
+        "salinity": 432.666667,
+        "orp": 189.2,
+        "turbidity": null,
+        "hardness": 410.0,
+        "alkalinity": null
+      }
+    },
+    {
+      "koboId": 822887556,
+      "date": "2026-07-05",
+      "stationId": "banos-morales-estero",
+      "validationStatus": "not_reviewed",
+      "samples": {
+        "waterTemp": [
+          5.7,
+          4.8,
+          5.2
+        ],
+        "ph": [
+          8.43,
+          8.39,
+          8.44
+        ],
+        "conductivity": [
+          949.0,
+          959.0,
+          922.0
+        ],
+        "tds": [
+          627.0,
+          632.0,
+          611.0
+        ],
+        "salinity": [
+          442.0,
+          440.0,
+          428.0
+        ],
+        "orp": [
+          261.1,
+          256.3,
+          254.3
+        ],
+        "turbidity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "hardness": [
+          420.0
+        ],
+        "alkalinity": [
+          null
+        ]
+      },
+      "values": {
+        "waterTemp": 5.233333,
+        "ph": 8.42,
+        "conductivity": 943.333333,
+        "tds": 623.333333,
+        "salinity": 436.666667,
+        "orp": 257.233333,
+        "turbidity": 0.0,
+        "hardness": 420.0,
+        "alkalinity": null
+      }
+    },
+    {
+      "koboId": 822886916,
+      "date": "2026-07-05",
+      "stationId": "banos-morales-volcan",
+      "validationStatus": "not_reviewed",
+      "samples": {
+        "waterTemp": [
+          3.0,
+          4.1,
+          4.1
+        ],
+        "ph": [
+          8.41,
+          8.34,
+          8.31
+        ],
+        "conductivity": [
+          1540.0,
+          1530.0,
+          1503.0
+        ],
+        "tds": [
+          1020.0,
+          1002.0,
+          484.0
+        ],
+        "salinity": [
+          740.0,
+          749.0,
+          717.0
+        ],
+        "orp": [
+          278.4,
+          259.5,
+          251.6
+        ],
+        "turbidity": [
+          7.29,
+          3.17,
+          4.91
+        ],
+        "hardness": [
+          510.0
+        ],
+        "alkalinity": [
+          null
+        ]
+      },
+      "values": {
+        "waterTemp": 3.733333,
+        "ph": 8.353333,
+        "conductivity": 1524.333333,
+        "tds": 835.333333,
+        "salinity": 735.333333,
+        "orp": 263.166667,
+        "turbidity": 5.123333,
+        "hardness": 510.0,
+        "alkalinity": null
+      }
+    },
+    {
+      "koboId": 822891096,
+      "date": "2026-07-05",
+      "stationId": "canelo-maipo",
+      "validationStatus": "not_reviewed",
+      "samples": {
+        "waterTemp": [
+          7.0,
+          6.7,
+          6.6
+        ],
+        "ph": [
+          8.6,
+          8.63,
+          8.63
+        ],
+        "conductivity": [
+          1548.0,
+          1580.0,
+          1571.0
+        ],
+        "tds": [
+          1028.0,
+          1041.0,
+          1040.0
+        ],
+        "salinity": [
+          766.0,
+          773.0,
+          773.0
+        ],
+        "orp": [
+          162.2,
+          161.0,
+          159.5
+        ],
+        "turbidity": [
+          null,
+          null,
+          null
+        ],
+        "hardness": [
+          300.0
+        ],
+        "alkalinity": [
+          null
+        ]
+      },
+      "values": {
+        "waterTemp": 6.766667,
+        "ph": 8.62,
+        "conductivity": 1566.333333,
+        "tds": 1036.333333,
+        "salinity": 770.666667,
+        "orp": 160.9,
+        "turbidity": null,
+        "hardness": 300.0,
+        "alkalinity": null
+      }
+    },
+    {
+      "koboId": 822889871,
+      "date": "2026-07-05",
+      "stationId": "guayacan-colorado",
+      "validationStatus": "not_reviewed",
+      "samples": {
+        "waterTemp": [
+          6.8,
+          6.5,
+          6.6
+        ],
+        "ph": [
+          8.52,
+          8.54,
+          8.55
+        ],
+        "conductivity": [
+          2140.0,
+          2160.0,
+          2130.0
+        ],
+        "tds": [
+          1410.0,
+          1430.0,
+          1400.0
+        ],
+        "salinity": [
+          1070.0,
+          1080.0,
+          1060.0
+        ],
+        "orp": [
+          173.2,
+          160.2,
+          160.6
+        ],
+        "turbidity": [
+          null,
+          null,
+          null
+        ],
+        "hardness": [
+          420.0
+        ],
+        "alkalinity": [
+          null
+        ]
+      },
+      "values": {
+        "waterTemp": 6.633333,
+        "ph": 8.536667,
+        "conductivity": 2143.333333,
+        "tds": 1413.333333,
+        "salinity": 1070.0,
+        "orp": 164.666667,
+        "turbidity": null,
+        "hardness": 420.0,
+        "alkalinity": null
+      }
+    },
+    {
+      "koboId": 822889616,
+      "date": "2026-07-05",
+      "stationId": "guayacan-maipo",
+      "validationStatus": "not_reviewed",
+      "samples": {
+        "waterTemp": [
+          8.3,
+          7.7,
+          7.5
+        ],
+        "ph": [
+          8.53,
+          8.6,
+          8.6
+        ],
+        "conductivity": [
+          2040.0,
+          2050.0,
+          2080.0
+        ],
+        "tds": [
+          1330.0,
+          1350.0,
+          1370.0
+        ],
+        "salinity": [
+          1010.0,
+          1020.0,
+          1040.0
+        ],
+        "orp": [
+          167.4,
+          166.8,
+          174.8
+        ],
+        "turbidity": [
+          null,
+          null,
+          null
+        ],
+        "hardness": [
+          380.0
+        ],
+        "alkalinity": [
+          null
+        ]
+      },
+      "values": {
+        "waterTemp": 7.833333,
+        "ph": 8.576667,
+        "conductivity": 2056.666667,
+        "tds": 1350.0,
+        "salinity": 1023.333333,
+        "orp": 169.666667,
+        "turbidity": null,
+        "hardness": 380.0,
+        "alkalinity": null
+      }
+    },
+    {
+      "koboId": 822888288,
+      "date": "2026-07-05",
+      "stationId": "san-gabriel-maipo",
+      "validationStatus": "not_reviewed",
+      "samples": {
+        "waterTemp": [
+          8.0,
+          7.8,
+          7.6
+        ],
+        "ph": [
+          8.17,
+          8.25,
+          8.33
+        ],
+        "conductivity": [
+          2080.0,
+          2090.0,
+          2050.0
+        ],
+        "tds": [
+          1350.0,
+          1350.0,
+          1340.0
+        ],
+        "salinity": [
+          1020.0,
+          1020.0,
+          1020.0
+        ],
+        "orp": [
+          120.0,
+          121.5,
+          123.8
+        ],
+        "turbidity": [
+          null,
+          null,
+          null
+        ],
+        "hardness": [
+          380.0
+        ],
+        "alkalinity": [
+          null
+        ]
+      },
+      "values": {
+        "waterTemp": 7.8,
+        "ph": 8.25,
+        "conductivity": 2073.333333,
+        "tds": 1346.666667,
+        "salinity": 1020.0,
+        "orp": 121.766667,
+        "turbidity": null,
+        "hardness": 380.0,
+        "alkalinity": null
+      }
+    },
+    {
+      "koboId": 822888941,
+      "date": "2026-07-05",
+      "stationId": "san-gabriel-yeso",
+      "validationStatus": "not_reviewed",
+      "samples": {
+        "waterTemp": [
+          10.5,
+          10.2,
+          10.0
+        ],
+        "ph": [
+          8.31,
+          8.31,
+          8.19
+        ],
+        "conductivity": [
+          704.0,
+          708.0,
+          703.0
+        ],
+        "tds": [
+          463.0,
+          468.0,
+          468.0
+        ],
+        "salinity": [
+          316.0,
+          319.0,
+          319.0
+        ],
+        "orp": [
+          154.2,
+          155.5,
+          158.7
+        ],
+        "turbidity": [
+          null,
+          null,
+          null
+        ],
+        "hardness": [
+          260.0
+        ],
+        "alkalinity": [
+          null
+        ]
+      },
+      "values": {
+        "waterTemp": 10.233333,
+        "ph": 8.27,
+        "conductivity": 705.0,
+        "tds": 466.333333,
+        "salinity": 318.0,
+        "orp": 156.133333,
+        "turbidity": null,
+        "hardness": 260.0,
+        "alkalinity": null
+      }
+    },
+    {
+      "koboId": 822892757,
+      "date": "2026-08-09",
+      "stationId": "banos-morales-estero",
+      "validationStatus": "not_reviewed",
+      "samples": {
+        "waterTemp": [
+          5.7,
+          5.6,
+          5.6
+        ],
+        "ph": [
+          8.45,
+          8.27,
+          8.28
+        ],
+        "conductivity": [
+          1088.0,
+          1100.0,
+          1100.0
+        ],
+        "tds": [
+          714.0,
+          727.0,
+          725.0
+        ],
+        "salinity": [
+          510.0,
+          518.0,
+          516.0
+        ],
+        "orp": [
+          303.0,
+          301.0,
+          298.0
+        ],
+        "turbidity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "hardness": [
+          360.0
+        ],
+        "alkalinity": [
+          246.0
+        ]
+      },
+      "values": {
+        "waterTemp": 5.633333,
+        "ph": 8.333333,
+        "conductivity": 1096.0,
+        "tds": 722.0,
+        "salinity": 514.666667,
+        "orp": 300.666667,
+        "turbidity": 0.0,
+        "hardness": 360.0,
+        "alkalinity": 246.0
+      }
+    },
+    {
+      "koboId": 822891981,
+      "date": "2026-08-09",
+      "stationId": "banos-morales-volcan",
+      "validationStatus": "not_reviewed",
+      "samples": {
+        "waterTemp": [
+          6.4,
+          6.2,
+          6.1
+        ],
+        "ph": [
+          8.26,
+          8.25,
+          8.2
+        ],
+        "conductivity": [
+          1415.0,
+          1475.0,
+          1508.0
+        ],
+        "tds": [
+          932.0,
+          972.0,
+          993.0
+        ],
+        "salinity": [
+          680.0,
+          709.0,
+          721.0
+        ],
+        "orp": [
+          283.0,
+          289.0,
+          290.0
+        ],
+        "turbidity": [
+          14.93,
+          18.66,
+          20.4
+        ],
+        "hardness": [
+          450.0
+        ],
+        "alkalinity": [
+          189.0
+        ]
+      },
+      "values": {
+        "waterTemp": 6.233333,
+        "ph": 8.236667,
+        "conductivity": 1466.0,
+        "tds": 965.666667,
+        "salinity": 703.333333,
+        "orp": 287.333333,
+        "turbidity": 17.996667,
+        "hardness": 450.0,
+        "alkalinity": 189.0
+      }
+    },
+    {
+      "koboId": 822897787,
+      "date": "2026-08-09",
+      "stationId": "canelo-maipo",
+      "validationStatus": "not_reviewed",
+      "samples": {
+        "waterTemp": [
+          7.5,
+          7.4,
+          7.1
+        ],
+        "ph": [
+          8.3,
+          8.4,
+          8.43
+        ],
+        "conductivity": [
+          1573.0,
+          null,
+          1641.0
+        ],
+        "tds": [
+          1036.0,
+          null,
+          1081.0
+        ],
+        "salinity": [
+          1030.0,
+          1030.0,
+          802.0
+        ],
+        "orp": [
+          167.4,
+          167.1,
+          167.3
+        ],
+        "turbidity": [
+          null,
+          null,
+          null
+        ],
+        "hardness": [
+          290.0
+        ],
+        "alkalinity": [
+          null
+        ]
+      },
+      "values": {
+        "waterTemp": 7.333333,
+        "ph": 8.376667,
+        "conductivity": 1607.0,
+        "tds": 1058.5,
+        "salinity": 954.0,
+        "orp": 167.266667,
+        "turbidity": null,
+        "hardness": 290.0,
+        "alkalinity": null
+      }
+    },
+    {
+      "koboId": 822897262,
+      "date": "2026-08-09",
+      "stationId": "guayacan-colorado",
+      "validationStatus": "not_reviewed",
+      "samples": {
+        "waterTemp": [
+          8.7,
+          7.9,
+          7.6
+        ],
+        "ph": [
+          8.52,
+          8.45,
+          8.54
+        ],
+        "conductivity": [
+          1053.0,
+          1075.0,
+          1056.0
+        ],
+        "tds": [
+          695.0,
+          707.0,
+          696.0
+        ],
+        "salinity": [
+          496.0,
+          504.0,
+          496.0
+        ],
+        "orp": [
+          159.8,
+          160.0,
+          160.6
+        ],
+        "turbidity": [
+          null,
+          null,
+          null
+        ],
+        "hardness": [
+          170.0
+        ],
+        "alkalinity": [
+          null
+        ]
+      },
+      "values": {
+        "waterTemp": 8.066667,
+        "ph": 8.503333,
+        "conductivity": 1061.333333,
+        "tds": 699.333333,
+        "salinity": 498.666667,
+        "orp": 160.133333,
+        "turbidity": null,
+        "hardness": 170.0,
+        "alkalinity": null
+      }
+    },
+    {
+      "koboId": 822896616,
+      "date": "2026-08-09",
+      "stationId": "guayacan-maipo",
+      "validationStatus": "not_reviewed",
+      "samples": {
+        "waterTemp": [
+          8.7,
+          8.0,
+          7.7
+        ],
+        "ph": [
+          8.5,
+          8.5,
+          8.47
+        ],
+        "conductivity": [
+          1561.0,
+          1555.0,
+          1547.0
+        ],
+        "tds": [
+          1028.0,
+          1023.0,
+          1039.0
+        ],
+        "salinity": [
+          764.0,
+          760.0,
+          771.0
+        ],
+        "orp": [
+          154.6,
+          156.2,
+          155.6
+        ],
+        "turbidity": [
+          null,
+          null,
+          null
+        ],
+        "hardness": [
+          280.0
+        ],
+        "alkalinity": [
+          null
+        ]
+      },
+      "values": {
+        "waterTemp": 8.133333,
+        "ph": 8.49,
+        "conductivity": 1554.333333,
+        "tds": 1030.0,
+        "salinity": 765.0,
+        "orp": 155.466667,
+        "turbidity": null,
+        "hardness": 280.0,
+        "alkalinity": null
+      }
+    },
+    {
+      "koboId": 822893630,
+      "date": "2026-08-09",
+      "stationId": "san-gabriel-maipo",
+      "validationStatus": "not_reviewed",
+      "samples": {
+        "waterTemp": [
+          5.8,
+          5.7,
+          5.6
+        ],
+        "ph": [
+          8.31,
+          8.41,
+          8.34
+        ],
+        "conductivity": [
+          1739.0,
+          1732.0,
+          1734.0
+        ],
+        "tds": [
+          1141.0,
+          1141.0,
+          1141.0
+        ],
+        "salinity": [
+          849.0,
+          847.0,
+          840.0
+        ],
+        "orp": [
+          186.7,
+          189.2,
+          190.9
+        ],
+        "turbidity": [
+          null,
+          null,
+          null
+        ],
+        "hardness": [
+          360.0
+        ],
+        "alkalinity": [
+          129.0
+        ]
+      },
+      "values": {
+        "waterTemp": 5.7,
+        "ph": 8.353333,
+        "conductivity": 1735.0,
+        "tds": 1141.0,
+        "salinity": 845.333333,
+        "orp": 188.933333,
+        "turbidity": null,
+        "hardness": 360.0,
+        "alkalinity": 129.0
+      }
+    },
+    {
+      "koboId": 822895625,
+      "date": "2026-08-09",
+      "stationId": "san-gabriel-yeso",
+      "validationStatus": "not_reviewed",
+      "samples": {
+        "waterTemp": [
+          7.8,
+          7.3,
+          7.1
+        ],
+        "ph": [
+          8.92,
+          8.81,
+          8.75
+        ],
+        "conductivity": [
+          829.0,
+          826.0,
+          833.0
+        ],
+        "tds": [
+          545.0,
+          546.0,
+          544.0
+        ],
+        "salinity": [
+          380.0,
+          380.0,
+          382.0
+        ],
+        "orp": [
+          217.1,
+          221.3,
+          222.0
+        ],
+        "turbidity": [
+          null,
+          null,
+          null
+        ],
+        "hardness": [
+          330.0
+        ],
+        "alkalinity": [
+          96.0
+        ]
+      },
+      "values": {
+        "waterTemp": 7.4,
+        "ph": 8.826667,
+        "conductivity": 829.333333,
+        "tds": 545.0,
+        "salinity": 380.666667,
+        "orp": 220.133333,
+        "turbidity": null,
+        "hardness": 330.0,
+        "alkalinity": 96.0
+      }
+    },
+    {
+      "koboId": 822898102,
+      "date": "2026-09-06",
+      "stationId": "banos-morales-estero",
+      "validationStatus": "not_reviewed",
+      "samples": {
+        "waterTemp": [
+          9.8,
+          8.8,
+          8.8
+        ],
+        "ph": [
+          null,
+          null,
+          null
+        ],
+        "conductivity": [
+          null,
+          null,
+          null
+        ],
+        "tds": [
+          null,
+          null,
+          null
+        ],
+        "salinity": [
+          null,
+          null,
+          null
+        ],
+        "orp": [
+          null,
+          null,
+          null
+        ],
+        "turbidity": [
+          238.0,
+          0.02,
+          0.29
+        ],
+        "hardness": [
+          300.0
+        ],
+        "alkalinity": [
+          240.0
+        ]
+      },
+      "values": {
+        "waterTemp": 9.133333,
+        "ph": null,
+        "conductivity": null,
+        "tds": null,
+        "salinity": null,
+        "orp": null,
+        "turbidity": 79.436667,
+        "hardness": 300.0,
+        "alkalinity": 240.0
+      }
+    },
+    {
+      "koboId": 822898012,
+      "date": "2026-09-06",
+      "stationId": "banos-morales-volcan",
+      "validationStatus": "not_reviewed",
+      "samples": {
+        "waterTemp": [
+          8.4,
+          8.6,
+          8.1
+        ],
+        "ph": [
+          null,
+          null,
+          null
+        ],
+        "conductivity": [
+          null,
+          null,
+          null
+        ],
+        "tds": [
+          null,
+          null,
+          null
+        ],
+        "salinity": [
+          null,
+          null,
+          null
+        ],
+        "orp": [
+          null,
+          null,
+          null
+        ],
+        "turbidity": [
+          18.9,
+          21.8,
+          21.9
+        ],
+        "hardness": [
+          460.0
+        ],
+        "alkalinity": [
+          180.0
+        ]
+      },
+      "values": {
+        "waterTemp": 8.366667,
+        "ph": null,
+        "conductivity": null,
+        "tds": null,
+        "salinity": null,
+        "orp": null,
+        "turbidity": 20.866667,
+        "hardness": 460.0,
+        "alkalinity": 180.0
+      }
+    },
+    {
+      "koboId": 822900179,
+      "date": "2026-09-06",
+      "stationId": "canelo-maipo",
+      "validationStatus": "not_reviewed",
+      "samples": {
+        "waterTemp": [
+          9.1,
+          9.3,
+          9.6
+        ],
+        "ph": [
+          8.65,
+          8.62,
+          848.0
+        ],
+        "conductivity": [
+          1577.0,
+          1514.0,
+          1546.0
+        ],
+        "tds": [
+          1042.0,
+          1009.0,
+          1021.0
+        ],
+        "salinity": [
+          774.0,
+          735.0,
+          743.0
+        ],
+        "orp": [
+          173.2,
+          173.3,
+          171.7
+        ],
+        "turbidity": [
+          null,
+          null,
+          null
+        ],
+        "hardness": [
+          260.0
+        ],
+        "alkalinity": [
+          210.0
+        ]
+      },
+      "values": {
+        "waterTemp": 9.333333,
+        "ph": 288.423333,
+        "conductivity": 1545.666667,
+        "tds": 1024.0,
+        "salinity": 750.666667,
+        "orp": 172.733333,
+        "turbidity": null,
+        "hardness": 260.0,
+        "alkalinity": 210.0
+      }
+    },
+    {
+      "koboId": 822899805,
+      "date": "2026-09-06",
+      "stationId": "guayacan-colorado",
+      "validationStatus": "not_reviewed",
+      "samples": {
+        "waterTemp": [
+          9.8,
+          9.8,
+          9.6
+        ],
+        "ph": [
+          8.73,
+          875.0,
+          8.74
+        ],
+        "conductivity": [
+          1193.0,
+          1196.0,
+          1201.0
+        ],
+        "tds": [
+          788.0,
+          782.0,
+          794.0
+        ],
+        "salinity": [
+          562.0,
+          561.0,
+          565.0
+        ],
+        "orp": [
+          178.5,
+          178.0,
+          178.0
+        ],
+        "turbidity": [
+          null,
+          null,
+          null
+        ],
+        "hardness": [
+          280.0
+        ],
+        "alkalinity": [
+          150.0
+        ]
+      },
+      "values": {
+        "waterTemp": 9.733333,
+        "ph": 297.49,
+        "conductivity": 1196.666667,
+        "tds": 788.0,
+        "salinity": 562.666667,
+        "orp": 178.166667,
+        "turbidity": null,
+        "hardness": 280.0,
+        "alkalinity": 150.0
+      }
+    },
+    {
+      "koboId": 822899402,
+      "date": "2026-09-06",
+      "stationId": "guayacan-maipo",
+      "validationStatus": "not_reviewed",
+      "samples": {
+        "waterTemp": [
+          10.3,
+          10.1,
+          9.8
+        ],
+        "ph": [
+          8.77,
+          8.75,
+          8.71
+        ],
+        "conductivity": [
+          1471.0,
+          1451.0,
+          1476.0
+        ],
+        "tds": [
+          972.0,
+          960.0,
+          973.0
+        ],
+        "salinity": [
+          708.0,
+          700.0,
+          707.0
+        ],
+        "orp": [
+          191.5,
+          191.0,
+          189.7
+        ],
+        "turbidity": [
+          null,
+          null,
+          null
+        ],
+        "hardness": [
+          250.0
+        ],
+        "alkalinity": [
+          114.0
+        ]
+      },
+      "values": {
+        "waterTemp": 10.066667,
+        "ph": 8.743333,
+        "conductivity": 1466.0,
+        "tds": 968.333333,
+        "salinity": 705.0,
+        "orp": 190.733333,
+        "turbidity": null,
+        "hardness": 250.0,
+        "alkalinity": 114.0
+      }
+    },
+    {
+      "koboId": 822898649,
+      "date": "2026-09-06",
+      "stationId": "san-gabriel-maipo",
+      "validationStatus": "not_reviewed",
+      "samples": {
+        "waterTemp": [
+          8.3,
+          7.5,
+          7.5
+        ],
+        "ph": [
+          8.32,
+          8.47,
+          8.39
+        ],
+        "conductivity": [
+          1605.0,
+          1059.0,
+          1636.0
+        ],
+        "tds": [
+          1055.0,
+          1077.0,
+          1083.0
+        ],
+        "salinity": [
+          786.0,
+          790.0,
+          805.0
+        ],
+        "orp": [
+          80.3,
+          81.3,
+          84.5
+        ],
+        "turbidity": [
+          null,
+          null,
+          null
+        ],
+        "hardness": [
+          null
+        ],
+        "alkalinity": [
+          210.0
+        ]
+      },
+      "values": {
+        "waterTemp": 7.766667,
+        "ph": 8.393333,
+        "conductivity": 1433.333333,
+        "tds": 1071.666667,
+        "salinity": 793.666667,
+        "orp": 82.033333,
+        "turbidity": null,
+        "hardness": null,
+        "alkalinity": 210.0
+      }
+    },
+    {
+      "koboId": 822898929,
+      "date": "2026-09-06",
+      "stationId": "san-gabriel-yeso",
+      "validationStatus": "not_reviewed",
+      "samples": {
+        "waterTemp": [
+          9.3,
+          8.8,
+          8.3
+        ],
+        "ph": [
+          8.78,
+          8.65,
+          8.6
+        ],
+        "conductivity": [
+          725.0,
+          728.0,
+          727.0
+        ],
+        "tds": [
+          479.0,
+          477.0,
+          479.0
+        ],
+        "salinity": [
+          326.0,
+          326.0,
+          326.0
+        ],
+        "orp": [
+          190.9,
+          191.9,
+          191.5
+        ],
+        "turbidity": [
+          null,
+          null,
+          null
+        ],
+        "hardness": [
+          null
+        ],
+        "alkalinity": [
+          174.0
+        ]
+      },
+      "values": {
+        "waterTemp": 8.8,
+        "ph": 8.676667,
+        "conductivity": 726.666667,
+        "tds": 478.333333,
+        "salinity": 326.0,
+        "orp": 191.433333,
+        "turbidity": null,
+        "hardness": null,
+        "alkalinity": 174.0
+      }
+    },
+    {
+      "koboId": 830199512,
+      "date": "2026-10-04",
+      "stationId": "banos-morales-estero",
+      "validationStatus": "not_reviewed",
+      "samples": {
+        "waterTemp": [
+          7.7,
+          7.5,
+          7.6
+        ],
+        "ph": [
+          8.4,
+          8.4,
+          8.4
+        ],
+        "conductivity": [
+          770.0,
+          770.0,
+          750.0
+        ],
+        "tds": [
+          390.0,
+          380.0,
+          380.0
+        ],
+        "salinity": [
+          null,
+          null,
+          null
+        ],
+        "orp": [
+          null,
+          null,
+          null
+        ],
+        "turbidity": [
+          8.14,
+          6.4,
+          4.46
+        ],
+        "hardness": [
+          300.0
+        ],
+        "alkalinity": [
+          225.0
+        ]
+      },
+      "values": {
+        "waterTemp": 7.6,
+        "ph": 8.4,
+        "conductivity": 763.333333,
+        "tds": 383.333333,
+        "salinity": null,
+        "orp": null,
+        "turbidity": 6.333333,
+        "hardness": 300.0,
+        "alkalinity": 225.0
+      }
+    },
+    {
+      "koboId": 830199684,
+      "date": "2026-10-04",
+      "stationId": "banos-morales-volcan",
+      "validationStatus": "not_reviewed",
+      "samples": {
+        "waterTemp": [
+          7.2,
+          7.2,
+          7.2
+        ],
+        "ph": [
+          8.2,
+          8.2,
+          8.4
+        ],
+        "conductivity": [
+          1750.0,
+          1750.0,
+          1740.0
+        ],
+        "tds": [
+          880.0,
+          870.0,
+          870.0
+        ],
+        "salinity": [
+          null,
+          null,
+          null
+        ],
+        "orp": [
+          null,
+          null,
+          null
+        ],
+        "turbidity": [
+          21.8,
+          20.0,
+          20.3
+        ],
+        "hardness": [
+          null
+        ],
+        "alkalinity": [
+          180.0
+        ]
+      },
+      "values": {
+        "waterTemp": 7.2,
+        "ph": 8.266667,
+        "conductivity": 1746.666667,
+        "tds": 873.333333,
+        "salinity": null,
+        "orp": null,
+        "turbidity": 20.7,
+        "hardness": null,
+        "alkalinity": 180.0
+      }
+    },
+    {
+      "koboId": 830200687,
+      "date": "2026-10-04",
+      "stationId": "canelo-maipo",
+      "validationStatus": "not_reviewed",
+      "samples": {
+        "waterTemp": [
+          9.8,
+          9.8,
+          9.8
+        ],
+        "ph": [
+          8.65,
+          8.74,
+          8.71
+        ],
+        "conductivity": [
+          1535.0,
+          1515.0,
+          1477.0
+        ],
+        "tds": [
+          1013.0,
+          1000.0,
+          976.0
+        ],
+        "salinity": [
+          738.0,
+          727.0,
+          710.0
+        ],
+        "orp": [
+          164.5,
+          164.1,
+          162.9
+        ],
+        "turbidity": [
+          null,
+          null,
+          null
+        ],
+        "hardness": [
+          270.0
+        ],
+        "alkalinity": [
+          135.0
+        ]
+      },
+      "values": {
+        "waterTemp": 9.8,
+        "ph": 8.7,
+        "conductivity": 1509.0,
+        "tds": 996.333333,
+        "salinity": 725.0,
+        "orp": 163.833333,
+        "turbidity": null,
+        "hardness": 270.0,
+        "alkalinity": 135.0
+      }
+    },
+    {
+      "koboId": 830200447,
+      "date": "2026-10-04",
+      "stationId": "guayacan-colorado",
+      "validationStatus": "not_reviewed",
+      "samples": {
+        "waterTemp": [
+          10.5,
+          10.4,
+          10.2
+        ],
+        "ph": [
+          8.65,
+          8.6,
+          8.58
+        ],
+        "conductivity": [
+          692.0,
+          690.0,
+          687.0
+        ],
+        "tds": [
+          458.0,
+          455.0,
+          454.0
+        ],
+        "salinity": [
+          312.0,
+          310.0,
+          308.0
+        ],
+        "orp": [
+          163.3,
+          166.2,
+          166.5
+        ],
+        "turbidity": [
+          null,
+          null,
+          null
+        ],
+        "hardness": [
+          120.0
+        ],
+        "alkalinity": [
+          90.0
+        ]
+      },
+      "values": {
+        "waterTemp": 10.366667,
+        "ph": 8.61,
+        "conductivity": 689.666667,
+        "tds": 455.666667,
+        "salinity": 310.0,
+        "orp": 165.333333,
+        "turbidity": null,
+        "hardness": 120.0,
+        "alkalinity": 90.0
+      }
+    },
+    {
+      "koboId": 830200336,
+      "date": "2026-10-04",
+      "stationId": "guayacan-maipo",
+      "validationStatus": "not_reviewed",
+      "samples": {
+        "waterTemp": [
+          10.2,
+          10.0,
+          9.8
+        ],
+        "ph": [
+          8.83,
+          8.8,
+          8.82
+        ],
+        "conductivity": [
+          1350.0,
+          1354.0,
+          1352.0
+        ],
+        "tds": [
+          892.0,
+          890.0,
+          892.0
+        ],
+        "salinity": [
+          648.0,
+          648.0,
+          648.0
+        ],
+        "orp": [
+          172.1,
+          175.6,
+          177.1
+        ],
+        "turbidity": [
+          null,
+          null,
+          null
+        ],
+        "hardness": [
+          230.0
+        ],
+        "alkalinity": [
+          108.0
+        ]
+      },
+      "values": {
+        "waterTemp": 10.0,
+        "ph": 8.816667,
+        "conductivity": 1352.0,
+        "tds": 891.333333,
+        "salinity": 648.0,
+        "orp": 174.933333,
+        "turbidity": null,
+        "hardness": 230.0,
+        "alkalinity": 108.0
+      }
+    },
+    {
+      "koboId": 830200002,
+      "date": "2026-10-04",
+      "stationId": "san-gabriel-maipo",
+      "validationStatus": "not_reviewed",
+      "samples": {
+        "waterTemp": [
+          9.3,
+          9.0,
+          8.7
+        ],
+        "ph": [
+          8.63,
+          8.62,
+          8.5
+        ],
+        "conductivity": [
+          1452.0,
+          1457.0,
+          1460.0
+        ],
+        "tds": [
+          1960.0,
+          1963.0,
+          966.0
+        ],
+        "salinity": [
+          699.0,
+          700.0,
+          672.0
+        ],
+        "orp": [
+          186.1,
+          187.5,
+          190.2
+        ],
+        "turbidity": [
+          null,
+          null,
+          null
+        ],
+        "hardness": [
+          null
+        ],
+        "alkalinity": [
+          123.0
+        ]
+      },
+      "values": {
+        "waterTemp": 9.0,
+        "ph": 8.583333,
+        "conductivity": 1456.333333,
+        "tds": 1629.666667,
+        "salinity": 690.333333,
+        "orp": 187.933333,
+        "turbidity": null,
+        "hardness": null,
+        "alkalinity": 123.0
+      }
+    },
+    {
+      "koboId": 830200162,
+      "date": "2026-10-04",
+      "stationId": "san-gabriel-yeso",
+      "validationStatus": "not_reviewed",
+      "samples": {
+        "waterTemp": [
+          9.6,
+          9.5,
+          9.5
+        ],
+        "ph": [
+          8.68,
+          8.67,
+          8.51
+        ],
+        "conductivity": [
+          702.0,
+          688.0,
+          688.0
+        ],
+        "tds": [
+          472.0,
+          454.0,
+          454.0
+        ],
+        "salinity": [
+          315.0,
+          310.0,
+          310.0
+        ],
+        "orp": [
+          192.5,
+          195.2,
+          197.8
+        ],
+        "turbidity": [
+          null,
+          null,
+          null
+        ],
+        "hardness": [
+          null
+        ],
+        "alkalinity": [
+          93.0
+        ]
+      },
+      "values": {
+        "waterTemp": 9.533333,
+        "ph": 8.62,
+        "conductivity": 692.666667,
+        "tds": 460.0,
+        "salinity": 311.666667,
+        "orp": 195.166667,
+        "turbidity": null,
+        "hardness": null,
+        "alkalinity": 93.0
+      }
+    },
+    {
+      "koboId": 835226531,
+      "date": "2026-11-01",
+      "stationId": "banos-morales-estero",
+      "validationStatus": "not_reviewed",
+      "samples": {
+        "waterTemp": [
+          8.4,
+          8.3,
+          8.3
+        ],
+        "ph": [
+          8.3,
+          8.3,
+          8.3
+        ],
+        "conductivity": [
+          660.0,
+          630.0,
+          620.0
+        ],
+        "tds": [
+          330.0,
+          310.0,
+          300.0
+        ],
+        "salinity": [
+          null,
+          null,
+          null
+        ],
+        "orp": [
+          null,
+          null,
+          null
+        ],
+        "turbidity": [
+          44.6,
+          41.5,
+          44.1
+        ],
+        "hardness": [
+          130.0
+        ],
+        "alkalinity": [
+          192.0
+        ]
+      },
+      "values": {
+        "waterTemp": 8.333333,
+        "ph": 8.3,
+        "conductivity": 636.666667,
+        "tds": 313.333333,
+        "salinity": null,
+        "orp": null,
+        "turbidity": 43.4,
+        "hardness": 130.0,
+        "alkalinity": 192.0
+      }
+    },
+    {
+      "koboId": 835226122,
+      "date": "2026-11-01",
+      "stationId": "banos-morales-volcan",
+      "validationStatus": "not_reviewed",
+      "samples": {
+        "waterTemp": [
+          7.7,
+          7.8,
+          8.1
+        ],
+        "ph": [
+          8.1,
+          8.2,
+          8.1
+        ],
+        "conductivity": [
+          1790.0,
+          1770.0,
+          1740.0
+        ],
+        "tds": [
+          880.0,
+          880.0,
+          860.0
+        ],
+        "salinity": [
+          null,
+          null,
+          null
+        ],
+        "orp": [
+          null,
+          null,
+          null
+        ],
+        "turbidity": [
+          57.7,
+          66.1,
+          70.3
+        ],
+        "hardness": [
+          440.0
+        ],
+        "alkalinity": [
+          165.0
+        ]
+      },
+      "values": {
+        "waterTemp": 7.866667,
+        "ph": 8.133333,
+        "conductivity": 1766.666667,
+        "tds": 873.333333,
+        "salinity": null,
+        "orp": null,
+        "turbidity": 64.7,
+        "hardness": 440.0,
+        "alkalinity": 165.0
+      }
+    },
+    {
+      "koboId": 835269708,
+      "date": "2026-11-01",
+      "stationId": "canelo-maipo",
+      "validationStatus": "not_reviewed",
+      "samples": {
+        "waterTemp": [
+          13.6,
+          13.4,
+          13.9
+        ],
+        "ph": [
+          8.36,
+          8.37,
+          8.45
+        ],
+        "conductivity": [
+          1030.0,
+          1021.0,
+          1009.0
+        ],
+        "tds": [
+          681.0,
+          673.0,
+          667.0
+        ],
+        "salinity": [
+          485.0,
+          479.0,
+          476.0
+        ],
+        "orp": [
+          176.0,
+          175.0,
+          173.1
+        ],
+        "turbidity": [
+          null,
+          null,
+          null
+        ],
+        "hardness": [
+          200.0
+        ],
+        "alkalinity": [
+          120.0
+        ]
+      },
+      "values": {
+        "waterTemp": 13.633333,
+        "ph": 8.393333,
+        "conductivity": 1020.0,
+        "tds": 673.666667,
+        "salinity": 480.0,
+        "orp": 174.7,
+        "turbidity": null,
+        "hardness": 200.0,
+        "alkalinity": 120.0
+      }
+    },
+    {
+      "koboId": 835270278,
+      "date": "2026-11-01",
+      "stationId": "guayacan-colorado",
+      "validationStatus": "not_reviewed",
+      "samples": {
+        "waterTemp": [
+          14.8,
+          14.6,
+          14.5
+        ],
+        "ph": [
+          8.51,
+          8.43,
+          8.47
+        ],
+        "conductivity": [
+          543.0,
+          536.0,
+          537.0
+        ],
+        "tds": [
+          357.0,
+          353.0,
+          350.0
+        ],
+        "salinity": [
+          238.0,
+          333.0,
+          234.0
+        ],
+        "orp": [
+          187.6,
+          187.8,
+          187.4
+        ],
+        "turbidity": [
+          null,
+          null,
+          null
+        ],
+        "hardness": [
+          110.0
+        ],
+        "alkalinity": [
+          75.0
+        ]
+      },
+      "values": {
+        "waterTemp": 14.633333,
+        "ph": 8.47,
+        "conductivity": 538.666667,
+        "tds": 353.333333,
+        "salinity": 268.333333,
+        "orp": 187.6,
+        "turbidity": null,
+        "hardness": 110.0,
+        "alkalinity": 75.0
+      }
+    },
+    {
+      "koboId": 835270026,
+      "date": "2026-11-01",
+      "stationId": "guayacan-maipo",
+      "validationStatus": "not_reviewed",
+      "samples": {
+        "waterTemp": [
+          13.5,
+          13.2,
+          13.1
+        ],
+        "ph": [
+          8.43,
+          8.45,
+          8.42
+        ],
+        "conductivity": [
+          1030.0,
+          1029.0,
+          1029.0
+        ],
+        "tds": [
+          677.0,
+          679.0,
+          679.0
+        ],
+        "salinity": [
+          484.0,
+          484.0,
+          484.0
+        ],
+        "orp": [
+          184.3,
+          184.7,
+          181.7
+        ],
+        "turbidity": [
+          null,
+          null,
+          null
+        ],
+        "hardness": [
+          200.0
+        ],
+        "alkalinity": [
+          93.0
+        ]
+      },
+      "values": {
+        "waterTemp": 13.266667,
+        "ph": 8.433333,
+        "conductivity": 1029.333333,
+        "tds": 678.333333,
+        "salinity": 484.0,
+        "orp": 183.566667,
+        "turbidity": null,
+        "hardness": 200.0,
+        "alkalinity": 93.0
+      }
+    },
+    {
+      "koboId": 835527836,
+      "date": "2026-11-01",
+      "stationId": "san-gabriel-maipo",
+      "validationStatus": "not_reviewed",
+      "samples": {
+        "waterTemp": [
+          12.1,
+          11.5,
+          11.0
+        ],
+        "ph": [
+          8.84,
+          8.84,
+          8.85
+        ],
+        "conductivity": [
+          935.0,
+          962.0,
+          945.0
+        ],
+        "tds": [
+          611.0,
+          638.0,
+          630.0
+        ],
+        "salinity": [
+          436.0,
+          447.0,
+          442.0
+        ],
+        "orp": [
+          185.2,
+          187.1,
+          188.5
+        ],
+        "turbidity": [
+          null,
+          null,
+          null
+        ],
+        "hardness": [
+          270.0
+        ],
+        "alkalinity": [
+          90.0
+        ]
+      },
+      "values": {
+        "waterTemp": 11.533333,
+        "ph": 8.843333,
+        "conductivity": 947.333333,
+        "tds": 626.333333,
+        "salinity": 441.666667,
+        "orp": 186.933333,
+        "turbidity": null,
+        "hardness": 270.0,
+        "alkalinity": 90.0
+      }
+    },
+    {
+      "koboId": 835527956,
+      "date": "2026-11-01",
+      "stationId": "san-gabriel-yeso",
+      "validationStatus": "not_reviewed",
+      "samples": {
+        "waterTemp": [
+          13.1,
+          12.7,
+          12.6
+        ],
+        "ph": [
+          9.06,
+          8.97,
+          8.98
+        ],
+        "conductivity": [
+          309.0,
+          308.0,
+          304.0
+        ],
+        "tds": [
+          203.0,
+          203.0,
+          200.0
+        ],
+        "salinity": [
+          128.0,
+          128.0,
+          127.0
+        ],
+        "orp": [
+          217.9,
+          222.8,
+          224.6
+        ],
+        "turbidity": [
+          null,
+          null,
+          null
+        ],
+        "hardness": [
+          160.0
+        ],
+        "alkalinity": [
+          87.0
+        ]
+      },
+      "values": {
+        "waterTemp": 12.8,
+        "ph": 9.003333,
+        "conductivity": 307.0,
+        "tds": 202.0,
+        "salinity": 127.666667,
+        "orp": 221.766667,
+        "turbidity": null,
+        "hardness": 160.0,
+        "alkalinity": 87.0
+      }
+    }
+  ]
+}

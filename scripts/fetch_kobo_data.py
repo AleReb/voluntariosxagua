@@ -9,6 +9,8 @@ from urllib.error import HTTPError, URLError
 from urllib.parse import urljoin, urlsplit
 from urllib.request import HTTPRedirectHandler, Request, build_opener
 
+from kobo_data import save_snapshot
+
 SERVER = "https://eu.kobotoolbox.org"
 ASSET = "aMh8DJzqhNkKhKNt3GDSiS"
 OUTPUT = Path(__file__).resolve().parents[1] / ".kobo"
@@ -70,7 +72,8 @@ def main():
     temporary = OUTPUT / "submissions.json.tmp"
     temporary.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     temporary.replace(OUTPUT / "submissions.json")
-    print(f"Descarga completa: {len(records)} registros. No se publicaron datos en la web.")
+    save_snapshot(records)
+    print(f"Descarga completa: {len(records)} registros. Respaldo de mediciones listo en data/kobo/measurements.json.")
 
 
 if __name__ == "__main__":

@@ -11,12 +11,13 @@ Aconcagua Aire.
 
 Hay una primera versión estática del sitio en `docs/`. Está pensada para
 publicarse con GitHub Pages y lee los datos de la planilla y las fotografías
-mediante un generador local, sin depender de un servidor o base de datos.
+mediante un generador local. GitHub Actions sincroniza las mediciones de Kobo y
+publica el resultado estático, sin servidor de aplicación ni base de datos.
 
 Esta versión inicial implementa las cuatro secciones descritas abajo. Las
 coordenadas del mapa se convierten desde las UTM del documento suponiendo zona
 19 sur y datum WGS 84; esa referencia y las ubicaciones requieren validación.
-Los valores proceden de la planilla disponible.
+Los valores proceden de la planilla histórica y del respaldo normalizado de Kobo.
 
 La versión indicada en el footer es **v1**. El pie incluye **Webmaster: Alejandro
 Rebolledo**, con enlace de correo a [arebolledo@udd.cl](mailto:arebolledo@udd.cl).
@@ -44,7 +45,8 @@ Se requiere Python 3; no hay paquetes adicionales que instalar.
    Abre <http://localhost:8000>.
 
 Los archivos de datos JSON y las copias de las fotos se generan dentro de
-`docs/` y están excluidos de Git; el archivo Excel y `fotos/` son las fuentes.
+`docs/` y están excluidos de Git; el archivo Excel, `data/kobo/measurements.json`
+y `fotos/` son las fuentes versionadas.
 El generador omite HEIC y TIFF porque no todos los navegadores los muestran.
 
 Para publicar, crea un repositorio en GitHub con estos archivos y sube la rama
@@ -56,58 +58,33 @@ Build and deployment → Source: GitHub Actions**. Los documentos originales y l
 planilla no se publican como archivos descargables del sitio; sus mediciones sí
 se incluyen en el CSV y JSON que ofrece la web.
 
-## Rescate automático desde KoboToolbox
+## Integración automática con KoboToolbox
 
-El workflow [Rescatar datos de KoboToolbox](.github/workflows/kobo.yml) descarga
-los registros del proyecto compartido de Zoe en el servidor europeo:
+La web combina la planilla histórica con las mediciones descargadas del proyecto
+compartido de Zoe. Los datos de Kobo quedan versionados en
+[data/kobo/measurements.json](data/kobo/measurements.json), junto con un
+[README de integración](data/kobo/README.md) que explica campos, estaciones,
+lecturas, permisos, ejecución y reglas de combinación.
 
-- Servidor: `https://eu.kobotoolbox.org`.
-- Proyecto: `aMh8DJzqhNkKhKNt3GDSiS`.
-- Ejecución: diaria a las **10:23 UTC**, o manual mediante **Run workflow**.
-  GitHub puede retrasar las ejecuciones programadas; el workflow debe estar en
-  la rama predeterminada para que funcione el horario.
+- El workflow [Kobo](.github/workflows/kobo.yml) descarga los registros cada día
+  a las **10:23 UTC**, o manualmente desde **Run workflow**.
+- Usa el secreto `KOBO_API_TOKEN`; la clave y la respuesta íntegra de la API no
+  se guardan en Git. El respaldo versionado contiene solo mediciones e
+  identificadores técnicos, sin usuarios, comentarios ni adjuntos.
+- Las lecturas repetidas de Kobo se promedian. Si ya hay un registro de la misma
+  estación y fecha en el Excel, se conserva el del Excel sin modificarlo.
+- Después de verificar los datos, Actions guarda los cambios del JSON con un
+  commit y llama a Pages para publicar la web desde el commit verificado.
+- El respaldo inicial contiene **77 registros**, de enero a noviembre de 2026.
+  Todos coinciden con fechas y estaciones del Excel: el total unificado sigue
+  siendo **394 mediciones**, sin duplicar los envíos de Kobo. Las próximas combinaciones nuevas
+  se incorporarán a gráficos, mapa, estadísticas y descargas.
 
-Para activarlo después de subir los cambios al repositorio:
-
-1. Regenera la clave que se compartió en la conversación, desde **KoboToolbox →
-   Account Settings → Security → Regenerate key**.
-2. En GitHub, abre **Settings → Secrets and variables → Actions → New repository
-   secret**. Usa el nombre `KOBO_API_TOKEN` y guarda la nueva API key como valor.
-3. Verifica que Zoe haya concedido a tu usuario del mismo servidor el permiso
-   **View submissions / Ver envíos**, con alcance a todos los registros necesarios.
-4. En **Actions → Rescatar datos de KoboToolbox → Run workflow**, ejecuta una
-   descarga inicial. En la ejecución terminada, descarga el artifact
-   `kobo-submissions-…`.
-
-El script [fetch_kobo_data.py](scripts/fetch_kobo_data.py) consulta la
-[API v2 oficial](https://support.kobotoolbox.org/api.html), recorre todas las
-páginas accesibles para tu cuenta y guarda `.kobo/submissions.json` con el
-identificador del proyecto, servidor, cantidad y registros originales. El token
-se lee del entorno y no se escribe en el respaldo ni en los logs. Las respuestas
-de error detienen la ejecución; no se sustituyen por una descarga vacía exitosa.
-
-El artifact se conserva **7 días**; es un respaldo temporal, no un archivo
-histórico permanente. Puede contener datos personales de los formularios y debe
-tratarse como tal: los artifacts requieren autenticación y permiso de lectura
-del repositorio, por lo que en un repositorio público no son exclusivos del
-equipo. `.kobo/` está excluido de Git y el workflow no publica esos registros en
-Pages, no modifica el Excel ni descarga los archivos adjuntos. Recupera todos
-los registros visibles para la cuenta, incluidos los distintos estados de
-validación; no aplica una selección para publicación.
-
-**Siguiente paso para actualizar los gráficos:** revisar los campos reales del
-formulario, mapear fecha, estación y parámetros, definir unidades y reglas para
-duplicados frente al Excel histórico, y seleccionar los registros y campos que
-pueden publicarse. Hasta completar esa integración, Pages continúa usando la
-planilla. Este workflow automatiza el rescate; no actualiza todavía los gráficos.
-La conexión no se ha probado contra la cuenta real ni se ha configurado el secreto
-remoto desde esta revisión.
-
-Pruebas locales del descargador, sin credenciales ni acceso a Kobo:
-
-```sh
-python3 -m unittest discover -s scripts -p 'test_fetch_kobo_data.py'
-```
+La primera descarga autenticada se verificó en Actions. La nueva integración se
+comprobó localmente con ese respaldo; requiere subir estos cambios y ejecutar el
+workflow actualizado para verificar el guardado y despliegue automáticos.
+El repositorio conserva la última copia normalizada y Git registra sus cambios;
+los artifacts adicionales de Actions caducan a los siete días.
 
 ## Qué se quería construir
 
@@ -208,6 +185,10 @@ ventana de aceptación. El texto completo y su estado se registran en
 - `scripts/build_site_data.py`: convierte la planilla XLSX a JSON y prepara
   copias web de las fotos.
 - `.github/workflows/pages.yml`: publicación automática con GitHub Pages.
+- `.github/workflows/kobo.yml`: descarga diaria, commit de mediciones y publicación.
+- `scripts/kobo_data.py`: mapeo de campos y unión con el Excel.
+- `scripts/fetch_kobo_data.py`: descarga autenticada con paginación.
+- `data/kobo/`: respaldo normalizado de mediciones y README de integración.
 - `Sitio web Voluntarios por el Agua2026.docx`: descripción más reciente de las
   secciones, visualizaciones, datos, contenido del proyecto y coordenadas en la
   raíz. La copia revisada con comentarios está en `cambiosv1/`.
@@ -250,9 +231,9 @@ implementadas.
   no se genera un panel vacío para 2027–2028.
 - **Actualización mensual:** acordar cómo se validan y publican los datos que
   llegan desde KoboCollect y quién los revisa antes de reemplazar o actualizar
-  la planilla pública. Ya se preparó un workflow independiente de rescate diario;
-  quedan por configurar el secreto en GitHub y el mapeo para integrar los datos
-  en los gráficos.
+  la planilla pública. El workflow ya integra el respaldo normalizado y guarda
+  sus cambios en Git; falta verificar la nueva ejecución remota y acordar la
+  revisión científica de los registros sin validar.
 - **Fotos:** las galerías incluyen Guayacán, San Gabriel, Baños Morales y resúmenes en Otros. Queda pendiente asociar cada foto con una fecha verificada y acordar la carga mensual.
 - **Adjuntos faltantes:** recibir los originales de las dos nuevas fotos de
   Guayacán y los nuevos resúmenes independientes de San Gabriel y Baños Morales.
@@ -267,7 +248,7 @@ implementadas.
 
 ## Cambios aplicados en v1
 
-Cambios aplicados en `docs/` y el generador, sin conexión a KoboCollect:
+Cambios aplicados en `docs/`, el generador y GitHub Actions:
 
 - Logo original visible en cabecera, portada y pie; imágenes de instrumentos y del equipo.
 - Guayacán reemplaza a El Manzano en nombres públicos, dos hojas de la planilla y carpeta de fotos. Los valores y el formato de la planilla se conservan.
@@ -278,6 +259,9 @@ Cambios aplicados en `docs/` y el generador, sin conexión a KoboCollect:
   La ampliación del aviso y la descarga por sitio siguen pendientes.
 - Footer con webmaster Alejandro Rebolledo, correo clickeable
   `arebolledo@udd.cl` y etiqueta de versión v1, con ajuste para pantallas móviles.
+- Integración de Kobo con el historial, respaldo de mediciones versionado y
+  workflow para sincronizar, guardar y publicar. Detalles en
+  [data/kobo/README.md](data/kobo/README.md).
 - Documentación de cambios completada con los requisitos omitidos del Word y su
   estado real, conservando los mensajes originales.
 

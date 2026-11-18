@@ -10,6 +10,8 @@ import zipfile
 from datetime import datetime, timedelta
 from pathlib import Path
 
+from kobo_data import KOBO_FILE, merge
+
 ROOT = Path(__file__).resolve().parents[1]
 WORKBOOK = ROOT / "abril2022anov2026_VPA.xlsx"
 SITE = ROOT / "docs"
@@ -203,7 +205,7 @@ def build_photo_index():
 
 def main():
     DATA_DIR.mkdir(parents=True, exist_ok=True)
-    measurements = parse_workbook()
+    measurements = merge(parse_workbook(), json.loads(KOBO_FILE.read_text(encoding="utf-8")))
     photos = build_photo_index()
     (DATA_DIR / "measurements.json").write_text(
         json.dumps(measurements, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
@@ -212,6 +214,7 @@ def main():
         json.dumps(photos, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
     )
     print(f"Estaciones: {len(measurements['stations'])}; mediciones: {len(measurements['records'])}")
+    print(f"Integración Kobo: {measurements['integration']}")
     print(f"Fotografías listas para la web: {len(photos)}")
     if measurements["records"]:
         print(f"Rango de fechas: {measurements['records'][0]['date']} a {measurements['records'][-1]['date']}")

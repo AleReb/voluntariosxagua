@@ -6,7 +6,9 @@ on:
     - cron: "23 10 * * *"
 
 permissions:
-  contents: read
+  contents: write
+  pages: write
+  id-token: write
 
 concurrency:
   group: kobo-download
@@ -16,9 +18,15 @@ jobs:
   download:
     runs-on: ubuntu-latest
     timeout-minutes: 20
+    permissions:
+      contents: write
+    outputs:
+      commit: ${{ steps.commit.outputs.sha }}
     steps:
       - name: Obtener el proyecto
         uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.repository.default_branch }}
       - name: Preparar Python
         uses: actions/setup-python@v5
         with:
@@ -27,11 +35,52 @@ jobs:
         env:
           KOBO_API_TOKEN: ${{ secrets.KOBO_API_TOKEN }}
         run: python scripts/fetch_kobo_data.py
+      - name: Verificar integración y generar la web
+        run: |
+          python -m unittest discover -s scripts -p 'test_*.py'
+          python scripts/build_site_data.py
+      - name: Mostrar resultado de la sincronización
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+          data = json.loads(Path("docs/data/measurements.json").read_text())
+          info = data["integration"]
+          summary = (
+              "## Sincronización Kobo\n\n"
+              f"- Envíos descargados: **{info['koboRecords']}**\n"
+              f"- Envíos elegibles para la web: **{info['koboEligible']}**\n"
+              f"- Nuevas combinaciones de estación y fecha: **{info['koboAdded']}**\n"
+              f"- Registros totales de la web: **{len(data['records'])}**\n\n"
+              "Los registros históricos tienen prioridad. El respaldo normalizado "
+              "se guarda en `data/kobo/measurements.json`.\n"
+          )
+          with open(os.environ["GITHUB_STEP_SUMMARY"], "a") as output:
+              output.write(summary)
+          PY
+      - name: Guardar mediciones en el repositorio
+        id: commit
+        env:
+          SYNC_BRANCH: ${{ github.event.repository.default_branch }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/kobo/measurements.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Actualizar mediciones desde KoboToolbox"
+            git push origin "HEAD:$SYNC_BRANCH"
+          fi
+          echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
       - name: Guardar respaldo temporal en Actions
         uses: actions/upload-artifact@v4
         with:
           name: kobo-submissions-${{ github.run_id }}-${{ github.run_attempt }}
-          path: .kobo/submissions.json
-          include-hidden-files: true
+          path: data/kobo/measurements.json
           if-no-files-found: error
           retention-days: 7
+  publish:
+    needs: download
+    uses: ./.github/workflows/pages.yml
+    with:
+      ref: ${{ needs.download.outputs.commit }}

@@ -46,7 +46,7 @@ se hayan completado todos los requisitos del Word.
 - Las dos fotos individuales de Guayacán anunciadas en el mensaje no aparecen como adjuntos independientes. El resumen recibido sí incluye octubre y noviembre; faltan los originales individuales. No se recibieron nuevos resúmenes independientes de San Gabriel y Baños Morales: se mantienen los disponibles.
 - Se incorporan las imágenes de instrumentos y del equipo; se usa la versión de mayor resolución de la foto de marzo de 2025.
 - Si una foto no carga, se retira su tarjeta completa y la galería se reordena sin huecos. El contador se actualiza y las fotos fallidas no reaparecen al cambiar de sector durante esa visita. Las fotos del proyecto también se omiten si fallan.
-- La conexión con KoboCollect queda para la siguiente etapa.
+- Se integra la descarga de KoboToolbox con el historial del Excel y se guarda una copia normalizada de las mediciones en `data/kobo/measurements.json`. Actions queda preparado para sincronizar, confirmar cambios y publicar. El respaldo inicial contiene 77 envíos que ya coinciden con registros del Excel; se conservan las 394 filas históricas. El mapeo y la verificación remota pendiente se documentan en [el README de integración](../data/kobo/README.md). Las fotos de Kobo no se descargan.
 
 ## Verificación
 
