@@ -1,4 +1,46 @@
-const COLORS = ["#a9603e", "#4b8c81", "#bf9a45", "#6576a0", "#8a6487", "#638047", "#c3755d"];
+// IPCC AR6 line palette adapted for white backgrounds; seventh hue is an extension.
+// Keys make the encoding independent of station ordering or future data sources.
+const STATION_STYLES = {
+  "canelo-maipo": { color: "#000000", dash: "" },
+  "guayacan-maipo": { color: "#477fab", dash: "8 3" },
+  "san-gabriel-maipo": { color: "#a86a00", dash: "2 4" },
+  "guayacan-colorado": { color: "#767676", dash: "10 3 2 3" },
+  "san-gabriel-yeso": { color: "#003466", dash: "12 4" },
+  "banos-morales-volcan": { color: "#004f00", dash: "5 3" },
+  "banos-morales-estero": { color: "#882255", dash: "2 3 8 3" },
+};
+const stationStyle = (station) => STATION_STYLES[station.id];
+const isMaipo = (station) => station.river === "Maipo";
+function stationPoint(station, x, y, size, title = "") {
+  const attributes = `class="chart-point" fill="${stationStyle(station).color}"`;
+  const label = title ? `<title>${escapeHtml(title)}</title>` : "";
+  return isMaipo(station)
+    ? `<path ${attributes} d="M${x},${y - size} L${x + size},${y + size} L${x - size},${y + size} Z">${label}</path>`
+    : `<circle ${attributes} cx="${x}" cy="${y}" r="${size}">${label}</circle>`;
+}
+function stationKey(station) {
+  const style = stationStyle(station);
+  return `<svg class="station-key" viewBox="0 0 32 18" aria-hidden="true">
+    <path d="M1 9H31" fill="none" stroke="${style.color}" stroke-width="2" stroke-dasharray="${style.dash}"></path>
+    ${stationPoint(station, 16, 9, 4)}</svg>`;
+}
+const STATION_GROUPS = [
+  { id: "maipo", label: "Río Maipo", rivers: ["Maipo"] },
+  { id: "colorado-yeso", label: "Colorado y Yeso", rivers: ["Colorado", "Yeso"] },
+  { id: "volcan-estero", label: "Volcán y Estero Morales", rivers: ["Volcán", "Estero"] },
+];
+const groupStations = (group) => appData.stations.filter((station) => group.rivers.includes(station.river));
+function syncGroupFilters() {
+  for (const group of STATION_GROUPS) {
+    const stations = groupStations(group);
+    const count = stations.filter((station) => visibleStations.has(station.id)).length;
+    const input = document.querySelector(`[data-station-group="${group.id}"]`);
+    input.checked = count === stations.length;
+    input.indeterminate = count > 0 && count < stations.length;
+  }
+  $("#station-count").textContent = `${visibleStations.size} de ${appData.stations.length} estaciones visibles`;
+}
+
 const MONTHS = ["Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic", "Ene", "Feb", "Mar"];
 const YEAR_LABEL = (year) => `${year}–${String(year + 1).slice(-2)}`;
 const numberFormat = new Intl.NumberFormat("es-CL", { maximumFractionDigits: 2 });
@@ -6,6 +48,7 @@ let appData;
 let visibleStations = new Set();
 let selectedMapStation = null;
 let mapPeriod = "all";
+const unavailablePhotos = new Set();
 
 const $ = (selector) => document.querySelector(selector);
 const escapeHtml = (value) => String(value).replace(/[&<>"']/g, (char) => ({
@@ -40,6 +83,11 @@ const stationById = (id) => appData.stations.find((station) => station.id === id
 const parameterById = (id) => appData.parameters.find((parameter) => parameter.id === id);
 
 function populateSelects() {
+  $("#station-groups").innerHTML = STATION_GROUPS.map((group) => `
+    <label class="group-option">
+      <input type="checkbox" data-station-group="${group.id}">
+      ${escapeHtml(group.label)} <span>(${groupStations(group).length})</span>
+    </label>`).join("");
   const options = appData.parameters.map((parameter) =>
     `<option value="${parameter.id}">${escapeHtml(parameter.label)}</option>`).join("");
   $("#parameter-select").innerHTML = options;
@@ -51,16 +99,17 @@ function populateSelects() {
   $("#map-year").innerHTML = `<option value="all">Todos los años</option>${years.map((year) =>
     `<option value="${year}">${YEAR_LABEL(year)}</option>`).join("")}`;
 
-  const locations = [...new Set(appData.stations.map((station) => station.site))];
+  const locations = [...new Set(appData.photos.map((photo) => photo.location))];
   $("#photo-location").innerHTML = `<option value="all">Todos los sectores</option>${locations.map((location) =>
     `<option value="${escapeHtml(location)}">${escapeHtml(location)}</option>`).join("")}`;
 }
 
 function renderFilters() {
-  $("#station-filters").querySelector(".filter-options").innerHTML = appData.stations.map((station, index) => `
+  syncGroupFilters();
+  $("#station-filters").innerHTML = appData.stations.map((station) => `
     <label class="filter-option">
       <input type="checkbox" value="${station.id}" ${visibleStations.has(station.id) ? "checked" : ""}>
-      <span class="filter-dot" style="background:${COLORS[index]}"></span>
+      ${stationKey(station)}
       ${escapeHtml(station.site)} · ${escapeHtml(station.river)}
     </label>`).join("");
 }
@@ -100,7 +149,7 @@ function renderCharts() {
       return `<text class="chart-axis-label" x="${x}" y="${height - 7}" text-anchor="middle">${month}</text>`;
     }).join("");
     const paths = series.map(({ station, records: stationRecords }) => {
-      const stationIndex = appData.stations.findIndex((entry) => entry.id === station.id);
+      const style = stationStyle(station);
       const pointList = stationRecords.map((record) => {
         const month = Number(record.date.slice(5, 7));
         const monthIndex = month >= 4 ? month - 4 : month + 8;
@@ -109,10 +158,9 @@ function renderCharts() {
       });
       if (!pointList.length) return "";
       const line = pointList.map((point, index) => `${index ? "L" : "M"}${point.x.toFixed(1)},${point.y.toFixed(1)}`).join(" ");
-      const points = pointList.map((point) => `<circle class="chart-point" cx="${point.x}" cy="${point.y}" r="3.5" fill="${COLORS[stationIndex]}">
-        <title>${escapeHtml(station.site)} · ${escapeHtml(station.river)} — ${point.date}: ${formatValue(point.value)} ${escapeHtml(parameter.unit)}</title>
-      </circle>`).join("");
-      return `<path class="chart-line" d="${line}" stroke="${COLORS[stationIndex]}">${escapeHtml(station.site)} · ${escapeHtml(station.river)}</path>${points}`;
+      const points = pointList.map((point) => stationPoint(station, point.x, point.y, 4,
+        `${station.site} · ${station.river} — ${point.date}: ${formatValue(point.value)} ${parameter.unit}`)).join("");
+      return `<path class="chart-line" d="${line}" stroke="${style.color}" stroke-dasharray="${style.dash}"></path>${points}`;
     }).join("");
     return `<article class="chart-card">
       <h3>Año hídrico ${YEAR_LABEL(year)}</h3>
@@ -130,9 +178,8 @@ function renderSummary(parameter) {
   $("#summary-title").textContent = `Estadísticas · ${parameter.label}`;
   $("#summary-cards").innerHTML = stations.map((station) => {
     const result = stats(filteredRecords(station.id, parameter.id), parameter.id);
-    const index = appData.stations.findIndex((entry) => entry.id === station.id);
     return `<article class="summary-card">
-      <h4><span class="filter-dot" style="background:${COLORS[index]}"></span>${escapeHtml(station.site)} · ${escapeHtml(station.river)}</h4>
+      <h4>${stationKey(station)}${escapeHtml(station.site)} · ${escapeHtml(station.river)}</h4>
       <dl><dt>Promedio</dt><dd>${formatValue(result?.average)} ${escapeHtml(parameter.unit)}</dd>
         <dt>Mínimo</dt><dd>${formatValue(result?.min)} ${escapeHtml(parameter.unit)}</dd>
         <dt>Máximo</dt><dd>${formatValue(result?.max)} ${escapeHtml(parameter.unit)}</dd></dl>
@@ -178,9 +225,8 @@ function renderMap() {
   $("#station-map").innerHTML = `<svg viewBox="0 0 ${width} ${height}" aria-hidden="true">${grid}${markers}</svg>`;
 
   $("#station-list").innerHTML = appData.stations.map((station) => {
-    const index = appData.stations.findIndex((entry) => entry.id === station.id);
     return `<button class="station-button" type="button" data-station="${station.id}" aria-pressed="${selectedMapStation === station.id}">
-      <span class="filter-dot" style="background:${COLORS[index]}"></span>
+      ${stationKey(station)}
       <span><strong>${escapeHtml(station.site)}</strong><small>Río ${escapeHtml(station.river)}</small></span>
     </button>`;
   }).join("");
@@ -214,9 +260,19 @@ function photoDate(filename) {
   return match ? match[0] : "";
 }
 
+function updatePhotoCount() {
+  const grid = $("#photo-grid");
+  const count = grid.querySelectorAll(".photo-card").length;
+  $("#photo-count").textContent = `${count} fotografías`;
+  if (!count && !grid.querySelector(".photo-empty")) {
+    grid.innerHTML = '<p class="photo-empty">No hay fotografías disponibles para este sector.</p>';
+  }
+}
+
 function renderPhotos() {
   const location = $("#photo-location").value;
-  const images = appData.photos.filter((photo) => location === "all" || photo.location === location);
+  const images = appData.photos.filter((photo) => !unavailablePhotos.has(photo.path)
+    && (location === "all" || photo.location === location));
   $("#photo-count").textContent = `${images.length} fotografías`;
   $("#photo-grid").innerHTML = images.length ? images.map((photo) => `
     <button class="photo-card" type="button" data-photo="${escapeHtml(photo.path)}" data-caption="${escapeHtml(photo.filename)}">
@@ -254,13 +310,51 @@ function downloadCsv() {
 }
 
 function attachEvents() {
+  // Capture image errors because they do not bubble. Remove the whole card
+  // so CSS Grid places subsequent photographs without leaving a gap.
+  const omitUnavailableImage = (image) => {
+    if (!(image instanceof HTMLImageElement)) return;
+    const card = image.closest(".photo-card");
+    if (card && card.isConnected) {
+      unavailablePhotos.add(card.dataset.photo);
+      card.remove();
+      updatePhotoCount();
+      return;
+    }
+    image.closest(".project-gallery figure")?.remove();
+  };
+  document.addEventListener("error", (event) => omitUnavailableImage(event.target), true);
+  // Static project images can fail before the data finish loading.
+  document.querySelectorAll(".photo-card img, .project-gallery img").forEach((image) => {
+    if (image.complete && image.naturalWidth === 0) omitUnavailableImage(image);
+  });
   $("#parameter-select").addEventListener("change", renderCharts);
   $("#station-filters").addEventListener("change", (event) => {
     if (event.target.matches("input[type=checkbox]")) {
       if (event.target.checked) visibleStations.add(event.target.value);
       else visibleStations.delete(event.target.value);
+      syncGroupFilters();
       renderCharts();
     }
+  });
+  $("#station-groups").addEventListener("change", (event) => {
+    const group = STATION_GROUPS.find((entry) => entry.id === event.target.dataset.stationGroup);
+    if (!group) return;
+    for (const station of groupStations(group)) {
+      if (event.target.checked) visibleStations.add(station.id);
+      else visibleStations.delete(station.id);
+    }
+    renderFilters();
+    renderCharts();
+  });
+  document.querySelectorAll("[data-station-preset]").forEach((button) => {
+    button.addEventListener("click", () => {
+      const preset = button.dataset.stationPreset;
+      visibleStations = new Set(appData.stations.filter((station) =>
+        preset === "all" || (preset === "maipo" && isMaipo(station))).map((station) => station.id));
+      renderFilters();
+      renderCharts();
+    });
   });
   $("#map-parameter").addEventListener("change", renderMapSummary);
   $("#map-year").addEventListener("change", (event) => {
@@ -293,7 +387,7 @@ async function start() {
     if (!measurementResponse.ok || !photoResponse.ok) throw new Error("No se pudieron cargar los archivos de datos del sitio.");
     const [measurements, photos] = await Promise.all([measurementResponse.json(), photoResponse.json()]);
     appData = { ...measurements, photos };
-    visibleStations = new Set(appData.stations.map((station) => station.id));
+    visibleStations = new Set(appData.stations.filter(isMaipo).map((station) => station.id));
     populateSelects();
     renderFilters();
     renderCharts();

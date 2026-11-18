@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#f5f5ee">
+    <meta name="theme-color" content="#f3faf8">
     <meta name="description" content="Datos abiertos de monitoreo voluntario de ríos del Cajón del Maipo.">
     <title>Voluntarios por el Agua | Cajón del Maipo</title>
     <link rel="stylesheet" href="styles.css">
@@ -12,8 +12,7 @@
   <body>
     <header class="site-header">
       <a class="brand" href="#inicio" aria-label="Voluntarios por el Agua, inicio">
-        <span class="brand-mark" aria-hidden="true">V<span>×</span>A</span>
-        <span>Voluntarios<br>por el Agua</span>
+        <img class="brand-logo" src="assets/logo.jpg" alt="Logo de Voluntarios por el Agua" width="1930" height="2976">
       </a>
       <button id="menu-toggle" class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menú</button>
       <nav id="site-nav" class="site-nav" aria-label="Navegación principal">
@@ -26,23 +25,12 @@
 
     <main>
       <section class="hero" id="inicio">
+        <div class="hero-logo"><img src="assets/logo.jpg" alt="Voluntarios por el Agua" width="1930" height="2976"></div>
         <div class="hero-copy">
           <p class="eyebrow">Ciencia ciudadana · Cajón del Maipo</p>
           <h1>Los ríos cuentan.<br><em>Los medimos juntos.</em></h1>
           <p class="hero-intro">Seguimos mes a mes los signos vitales de los ríos del Cajón del Maipo. Explora las mediciones, conoce los lugares y descarga los datos.</p>
           <a class="button button-light" href="#datos">Explorar los datos <span aria-hidden="true">↓</span></a>
-        </div>
-        <div class="hero-art" aria-hidden="true">
-          <div class="sun"></div>
-          <svg viewBox="0 0 640 430" role="presentation">
-            <path class="mountain mountain-back" d="M0 235 121 88l69 93 98-140 121 161 66-74 165 174v98H0Z"></path>
-            <path class="mountain mountain-front" d="m0 282 103-101 82 73 101-121 94 102 74-54 186 147v102H0Z"></path>
-            <path class="river" d="M0 355c110-48 185 36 288-10s160-47 352 0v85H0Z"></path>
-            <path class="river-highlight" d="M0 380c111-48 180 34 286-12s161-45 354 2"></path>
-            <circle class="river-dot" cx="215" cy="369" r="7"></circle>
-            <circle class="river-dot" cx="406" cy="361" r="7"></circle>
-          </svg>
-          <span class="hero-caption">Cuenca del río Maipo</span>
         </div>
         <div class="hero-bottom">
           <span>Monitoreo mensual desde abril de 2022</span>
@@ -69,6 +57,15 @@
         </div>
         <fieldset class="station-filters">
           <legend>Estaciones visibles</legend>
+          <div class="station-presets" role="group" aria-label="Selección rápida de estaciones">
+            <button class="button button-outline" type="button" data-station-preset="all">Todas</button>
+            <button class="button button-outline" type="button" data-station-preset="maipo">Solo río Maipo</button>
+            <button class="button button-outline" type="button" data-station-preset="none">Ninguna</button>
+          </div>
+          <p class="group-hint">Combina grupos para verlos juntos o selecciona Todas. También puedes ajustar cada estación por separado.</p>
+          <div id="station-groups" class="station-groups" role="group" aria-label="Grupos de estaciones combinables"></div>
+          <p id="station-count" class="station-count" role="status"></p>
+          <p class="legend-note">▲ Río Maipo · ● Otros ríos y estero. Marca o desmarca estaciones para comparar solo las que te interesan; cada una conserva su color y trazo.</p>
           <div id="station-filters" class="filter-options"></div>
         </fieldset>
         <div id="chart-grid" class="chart-grid" aria-live="polite">
@@ -126,7 +123,7 @@
             <p class="eyebrow">03 / El paisaje</p>
             <h2>Un mismo lugar, mes a mes</h2>
           </div>
-          <p class="section-note">Las fotografías repetitivas muestran cómo cambia el entorno a lo largo del tiempo.</p>
+          <p class="section-note">Guayacán, San Gabriel y Baños Morales: fotografías mensuales y resúmenes de cómo cambia el entorno.</p>
         </div>
         <div class="photo-controls">
           <label>Sector
@@ -167,13 +164,18 @@
             <a href="https://www.youtube.com/watch?v=FytVjKgSr1k&t=2s" target="_blank" rel="noreferrer">Mira otro registro <span aria-hidden="true">↗</span></a>
           </div>
         </div>
+        <div class="project-gallery">
+          <figure><img src="assets/instrumentos.jpg" alt="Instrumentos utilizados para el monitoreo de calidad del agua" loading="lazy" width="1623" height="797"><figcaption>Los instrumentos con los que medimos los signos vitales del río.</figcaption></figure>
+          <figure><img src="assets/jornada-marzo2025.jpg" alt="Registro de la jornada de monitoreo de marzo de 2025" loading="lazy" width="1600" height="1200"><figcaption>Una jornada por el agua · marzo de 2025.</figcaption></figure>
+          <figure><img src="assets/equipo-cordillera.jpg" alt="Grupo de voluntarios en una jornada de monitoreo en la cordillera" loading="lazy" width="821" height="547"><figcaption>Ciencia ciudadana en la cuenca del Maipo.</figcaption></figure>
+          <figure><img src="assets/equipo-monitoreo.jpg" alt="Integrantes de Voluntarios por el Agua durante el monitoreo" loading="lazy" width="769" height="432"><figcaption>Una comunidad por el agua.</figcaption></figure>
+        </div>
       </section>
     </main>
 
     <footer class="site-footer">
       <a class="brand brand-footer" href="#inicio">
-        <span class="brand-mark" aria-hidden="true">V<span>×</span>A</span>
-        <span>Voluntarios<br>por el Agua</span>
+        <img class="brand-logo" src="assets/logo.jpg" alt="Logo de Voluntarios por el Agua" width="1930" height="2976">
       </a>
       <p>Datos para conocer y cuidar los ríos del Cajón del Maipo.</p>
       <a href="#inicio">Volver arriba ↑</a>

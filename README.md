@@ -74,7 +74,7 @@ El sitio se organizaría en cuatro secciones:
 3. **Fotografías repetitivas**
    - Presentar las fotografías comparables tomadas periódicamente en un mismo
      lugar.
-   - La propuesta inicial contempla galerías para El Manzano, San Gabriel y
+   - La propuesta inicial contempla galerías para Guayacán, San Gabriel y
      Baños Morales. La carga automática quedó para una etapa posterior; por ahora
      las fotos se entregarían manualmente.
 
@@ -103,8 +103,8 @@ estos puntos:
 | Sector | Río / punto según la planilla |
 |---|---|
 | Canelo | Maipo |
-| El Manzano | Maipo |
-| El Manzano | Colorado |
+| Guayacán | Maipo |
+| Guayacán | Colorado |
 | San Gabriel | Maipo |
 | San Gabriel | Yeso |
 | Baños Morales | Estero |
@@ -149,7 +149,7 @@ su fuente deben confirmarse antes de presentarlas como tales.
 
 - **Coordenadas y mapa:** confirmar el sistema de referencia de las coordenadas
   UTM y validar las ubicaciones. En el documento hay una coordenada repetida para
-  El Manzano en los ríos Maipo y Colorado, además de valores con formato ambiguo
+  Guayacán en los ríos Maipo y Colorado, además de valores con formato ambiguo
   para Canelo y Baños Morales. También hay coordenadas geográficas de puntos de
   encuentro, que no necesariamente identifican cada estación de muestreo.
 - **Estaciones visibles:** aclarar si el mapa y las series incluirán todas las
@@ -167,7 +167,19 @@ su fuente deben confirmarse antes de presentarlas como tales.
 - **Actualización mensual:** acordar cómo se validan y publican los datos que
   llegan desde KoboCollect y quién los revisa antes de reemplazar o actualizar
   la planilla pública.
-- **Fotos:** acordar el alcance de las galerías, cómo asociar fotos con estación
-  y fecha, y el proceso manual inicial.
+- **Fotos:** las galerías incluyen Guayacán, San Gabriel, Baños Morales y resúmenes en Otros. Queda pendiente asociar cada foto con una fecha verificada y acordar la carga mensual.
 - **Contacto:** el documento propone un formulario al correo del equipo e
   Instagram `@voluntariosxelagua`; confirmar el canal público definitivo.
+
+
+## Revisión visual de cambiosv1
+
+Cambios aplicados en `docs/` y el generador, sin conexión a KoboCollect:
+
+- Logo original visible en cabecera, portada y pie; imágenes de instrumentos y del equipo.
+- Guayacán reemplaza a El Manzano en nombres públicos, dos hojas de la planilla y carpeta de fotos. Los valores y el formato de la planilla se conservan.
+- Siete estaciones con colores y trazos estables; triángulos para las tres del Maipo, círculos para las otras cuatro. La vista inicial muestra las tres del Maipo. Se pueden sumar los grupos Maipo, Colorado y Yeso, y Volcán y Estero Morales; las casillas y botones Todas / Solo río Maipo / Ninguna controlan gráficos y estadísticas.
+- Fotografías repetitivas solo de Guayacán, San Gabriel y Baños Morales; resúmenes en Otros. Se conserva el material fuente de los demás sectores sin publicarlo.
+- Se incorpora el resumen de Guayacán hasta noviembre de 2026 del Word revisado. Las dos fotos individuales nuevas mencionadas en el mensaje no vienen como archivos separados: aparecen en el resumen, no se reconstruyeron desde él. Los otros dos resúmenes disponibles siguen siendo los originales recibidos en `fotos/`.
+
+Los criterios y las adaptaciones de colores están documentados en [cambiosv1/revision-aplicada.md](cambiosv1/revision-aplicada.md).

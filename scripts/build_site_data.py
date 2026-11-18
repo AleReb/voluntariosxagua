@@ -24,8 +24,8 @@ NS = {"main": MAIN_NS, "rel": REL_NS}
 
 SHEET_STATIONS = {
     "Canelo_Maipo": ("canelo-maipo", "Canelo", "Maipo", -33.576468, -70.452054),
-    "El Manzano_Maipo": ("manzano-maipo", "El Manzano", "Maipo", -33.601013, -70.359791),
-    "El Manzano_Colorado": ("manzano-colorado", "El Manzano", "Colorado", -33.601013, -70.359791),
+    "Guayacan_Maipo": ("guayacan-maipo", "Guayacán", "Maipo", -33.601013, -70.359791),
+    "Guayacan_Colorado": ("guayacan-colorado", "Guayacán", "Colorado", -33.601013, -70.359791),
     "SanGab_Maipo": ("san-gabriel-maipo", "San Gabriel", "Maipo", -33.786392, -70.229894),
     "San Gab_Yeso": ("san-gabriel-yeso", "San Gabriel", "Yeso", -33.786392, -70.229894),
     "BM_estero": ("banos-morales-estero", "Baños Morales", "Estero", -33.826691, -70.064452),
@@ -154,7 +154,9 @@ def parse_workbook():
             raise ValueError(f"Faltan hojas esperadas en la planilla: {', '.join(sorted(missing))}")
 
     records.sort(key=lambda record: (record["date"], record["stationId"]))
-    stations.sort(key=lambda station: station["id"])
+    # Keep the same station order in legends, charts and map details.
+    order = {entry[0]: index for index, entry in enumerate(SHEET_STATIONS.values())}
+    stations.sort(key=lambda station: order[station["id"]])
     return {
         "source": WORKBOOK.name,
         "parameters": PARAMETERS,
@@ -180,12 +182,15 @@ def build_photo_index():
             skipped.append(image.relative_to(ROOT).as_posix())
             continue
         relative = image.relative_to(PHOTO_SOURCE)
+        # Only the three continuous photographic monitoring sectors are public.
+        if len(relative.parts) > 1 and relative.parts[0] not in {"Guayacan", "San Gabriel", "Baños Morales"}:
+            continue
         target = PHOTO_OUTPUT / relative
         target.parent.mkdir(parents=True, exist_ok=True)
         shutil.copy2(image, target)
         photos.append({
-            "location": relative.parts[0] if len(relative.parts) > 1 else "Otros",
-            "filename": image.name,
+            "location": ("Guayacán" if relative.parts[0] == "Guayacan" else relative.parts[0]) if len(relative.parts) > 1 else "Otros",
+            "filename": image.name.replace("Manzano", "Guayacán"),
             "path": (Path("fotos") / relative).as_posix(),
         })
 
