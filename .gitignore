@@ -4,3 +4,5 @@
 /docs/data/measurements.json
 /docs/data/photos.json
 /docs/fotos/
+/.kobo/
+__pycache__/

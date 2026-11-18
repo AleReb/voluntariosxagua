@@ -1,0 +1,37 @@
+name: Rescatar datos de KoboToolbox
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "23 10 * * *"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: kobo-download
+  cancel-in-progress: false
+
+jobs:
+  download:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Obtener el proyecto
+        uses: actions/checkout@v4
+      - name: Preparar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - name: Descargar todos los registros (con paginación)
+        env:
+          KOBO_API_TOKEN: ${{ secrets.KOBO_API_TOKEN }}
+        run: python scripts/fetch_kobo_data.py
+      - name: Guardar respaldo temporal en Actions
+        uses: actions/upload-artifact@v4
+        with:
+          name: kobo-submissions-${{ github.run_id }}-${{ github.run_attempt }}
+          path: .kobo/submissions.json
+          include-hidden-files: true
+          if-no-files-found: error
+          retention-days: 7
