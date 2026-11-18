@@ -14,9 +14,16 @@ publicarse con GitHub Pages y lee los datos de la planilla y las fotografías
 mediante un generador local, sin depender de un servidor o base de datos.
 
 Esta versión inicial implementa las cuatro secciones descritas abajo. Las
-coordenadas del mapa son aproximadas y los valores son los de la planilla
-disponible; revisa las decisiones pendientes antes de tratar la visualización
-como una publicación validada.
+coordenadas del mapa se convierten desde las UTM del documento suponiendo zona
+19 sur y datum WGS 84; esa referencia y las ubicaciones requieren validación.
+Los valores proceden de la planilla disponible.
+
+La versión indicada en el footer es **v1**. El pie incluye **Webmaster: Alejandro
+Rebolledo**, con enlace de correo a [arebolledo@udd.cl](mailto:arebolledo@udd.cl).
+Este correo corresponde al webmaster; el contacto del proyecto continúa en
+Instagram. La etiqueta v1 es informativa y no cambia automáticamente al editar
+el sitio. Los cambios de esta revisión están en el repositorio local; este
+documento no acredita un despliegue remoto.
 
 ## Probar y publicar
 
@@ -93,7 +100,8 @@ El sitio se organizaría en cuatro secciones:
 - Los parámetros descritos para el sitio son temperatura del agua, pH,
   conductividad, sólidos disueltos, salinidad, ORP, dureza y alcalinidad.
 - La planilla disponible agrega también turbidez. Conviene acordar si este
-  parámetro debe incluirse en los gráficos y filtros del sitio.
+  parámetro se mantendrá en la selección final; actualmente está disponible en
+  los gráficos y filtros del sitio.
 - Cada registro debe conservar al menos la fecha, la estación y los valores
   medidos. Se mencionan fotos repetitivas para tres lugares.
 
@@ -116,7 +124,11 @@ faltantes, las unidades y la consistencia de las mediciones.
 
 ## Descarga y uso responsable
 
-El sitio debe dejar los datos mensuales descargables por punto. Las mediciones
+Actualmente los botones CSV y JSON descargan todos los registros, sin aplicar
+los filtros visibles de estaciones o parámetros. La descarga por sitio
+solicitada en el Word todavía está pendiente.
+
+Las mediciones
 son realizadas por voluntarios con instrumentos calibrados por ellos mismos;
 buscan la mayor precisión posible con los recursos disponibles, pero los
 instrumentos no están certificados por la DGA. Se propone seguir protocolos de
@@ -128,6 +140,14 @@ por el Agua**. Los valores de pH y conductividad mencionados en los documentos
 son referencias a mostrar, no una evaluación regulatoria completa; las normas y
 su fuente deben confirmarse antes de presentarlas como tales.
 
+El aviso «Sobre los datos» de la web recoge parte de este contenido. Falta
+completarlo con la hora como contexto de interpretación, el esfuerzo por obtener
+la mayor precisión posible y la intención de seguir los protocolos de datos
+abiertos de UNESCO. Esa intención no equivale a una certificación. También falta
+hacer accesible el aviso junto a los botones de descarga; no se ha solicitado una
+ventana de aceptación. El texto completo y su estado se registran en
+[cambiosv1.md](cambiosv1/cambiosv1.md#disclaimer-y-descarga-de-datos).
+
 ## Archivos y fuentes
 
 - `docs/`: código de la web estática (HTML, CSS y JavaScript) y salida para
@@ -136,43 +156,61 @@ su fuente deben confirmarse antes de presentarlas como tales.
   copias web de las fotos.
 - `.github/workflows/pages.yml`: publicación automática con GitHub Pages.
 - `Sitio web Voluntarios por el Agua2026.docx`: descripción más reciente de las
-  secciones, visualizaciones, datos, contenido del proyecto y coordenadas.
+  secciones, visualizaciones, datos, contenido del proyecto y coordenadas en la
+  raíz. La copia revisada con comentarios está en `cambiosv1/`.
+- [cambiosv1/cambiosv1.md](cambiosv1/cambiosv1.md): requisitos consolidados del
+  Word y los mensajes originales, con estado aplicado, parcial o pendiente.
+- [cambiosv1/revision-aplicada.md](cambiosv1/revision-aplicada.md): detalle de la
+  implementación, criterios visuales y verificaciones previas.
 - `Base de Datos Voluntarios por el Agua2026.docx`: antecedentes sobre la pérdida
   del acceso a ArcGIS, la estructura de datos y la propuesta inicial.
 - `abril2022anov2026_VPA.xlsx`: datos históricos en siete hojas.
 - `antecedentes.txt`: mensaje con la idea general y las referencias de inspiración.
 - `fotos/`: fotografías organizadas por carpetas. Además de los tres lugares
-  prioritarios, hay carpetas para Canelo, Puente Alto y San Alfonso; confirmar
-  cuáles deben aparecer en la primera versión.
+  publicados, se conservan fuentes de Canelo, Puente Alto y San Alfonso que se
+  excluyen de las galerías públicas.
 
-## Decisiones pendientes antes de implementar
+## Pendientes y propuestas para la siguiente revisión
 
+Prioridad propuesta: completar primero el aviso y aclarar las descargas;
+después validar ubicaciones y referencias; finalmente ampliar las funciones de
+contacto, navegación temporal y actualización. Estas propuestas no se consideran
+implementadas.
+
+- **Disclaimer y descargas:** incorporar el texto completo documentado, vincularlo
+  desde los botones e indicar que la descarga actual contiene todos los registros.
+  Agregar una opción explícita de descarga por sitio, conservando la descarga
+  completa.
 - **Coordenadas y mapa:** confirmar el sistema de referencia de las coordenadas
   UTM y validar las ubicaciones. En el documento hay una coordenada repetida para
   Guayacán en los ríos Maipo y Colorado, además de valores con formato ambiguo
   para Canelo y Baños Morales. También hay coordenadas geográficas de puntos de
   encuentro, que no necesariamente identifican cada estación de muestreo.
-- **Estaciones visibles:** aclarar si el mapa y las series incluirán todas las
-  siete estaciones, dado que un documento anterior dice explícitamente que el
-  mapa sería sin San Alfonso y otro posterior especifica siete estaciones con
-  nombres de ríos.
-- **Ubicaciones en el mapa:** hasta recibir coordenadas confirmadas para cada
-  punto de muestreo, el mapa agrupa las estaciones en ubicaciones de referencia
-  por sector. No se deben interpretar como ubicaciones exactas.
-- **Parámetros y normas:** resolver si se mostrará turbidez y documentar las
+- **Puntos de encuentro:** incorporar los cuatro sectores con coordenadas y
+  altitud después de validar la notación del Word. Se deben distinguir de los
+  puntos de muestreo. Guayacán reemplaza a El Manzano también en esta sección.
+- **Parámetros y normas:** confirmar si se mantiene turbidez y documentar las
   unidades, límites, fuente y alcance de cada norma o referencia.
-- **Años y gráficos:** confirmar el diseño final de las series. La lista define
-  cinco años hasta 2026–2027, mientras que un boceto menciona seis paneles; conviene
-  que la vista se adapte al historial disponible.
+- **Navegación temporal del mapa:** agregar la línea de tiempo solicitada para
+  explorar mediciones por fecha. Actualmente se filtra por año hídrico mediante
+  un selector. Los gráficos ya se adaptan a los años presentes en los registros;
+  no se genera un panel vacío para 2027–2028.
 - **Actualización mensual:** acordar cómo se validan y publican los datos que
   llegan desde KoboCollect y quién los revisa antes de reemplazar o actualizar
   la planilla pública.
 - **Fotos:** las galerías incluyen Guayacán, San Gabriel, Baños Morales y resúmenes en Otros. Queda pendiente asociar cada foto con una fecha verificada y acordar la carga mensual.
-- **Contacto:** el documento propone un formulario al correo del equipo e
-  Instagram `@voluntariosxelagua`; confirmar el canal público definitivo.
+- **Adjuntos faltantes:** recibir los originales de las dos nuevas fotos de
+  Guayacán y los nuevos resúmenes independientes de San Gabriel y Baños Morales.
+- **Contacto del proyecto:** implementar el formulario solicitado, dirigido a
+  `zoefleming24@gmail.com`, y acordar su mecanismo de envío. Actualmente está
+  disponible Instagram `@voluntariosxelagua`; el correo del footer es del webmaster.
+- **Video de Vimeo:** obtener la URL del video mencionado desde el minuto 20.
+  El informe del primer año y los dos videos de YouTube ya están enlazados.
+- **Frecuencia de monitoreo:** precisar en el texto público que la jornada
+  mensual normalmente se realiza el primer domingo, como indica el Word.
 
 
-## Revisión visual de cambiosv1
+## Cambios aplicados en v1
 
 Cambios aplicados en `docs/` y el generador, sin conexión a KoboCollect:
 
@@ -181,6 +219,12 @@ Cambios aplicados en `docs/` y el generador, sin conexión a KoboCollect:
 - Siete estaciones con colores y trazos estables; triángulos para las tres del Maipo, círculos para las otras cuatro. La vista inicial muestra las tres del Maipo. Se pueden sumar los grupos Maipo, Colorado y Yeso, y Volcán y Estero Morales; las casillas y botones Todas / Solo río Maipo / Ninguna controlan gráficos y estadísticas.
 - Fotografías repetitivas solo de Guayacán, San Gabriel y Baños Morales; resúmenes en Otros. Se conserva el material fuente de los demás sectores sin publicarlo.
 - Se incorpora el resumen de Guayacán hasta noviembre de 2026 del Word revisado. Las dos fotos individuales nuevas mencionadas en el mensaje no vienen como archivos separados: aparecen en el resumen, no se reconstruyeron desde él. Los otros dos resúmenes disponibles siguen siendo los originales recibidos en `fotos/`.
+- Disclaimer abreviado al final de Mediciones; CSV y JSON con todos los registros.
+  La ampliación del aviso y la descarga por sitio siguen pendientes.
+- Footer con webmaster Alejandro Rebolledo, correo clickeable
+  `arebolledo@udd.cl` y etiqueta de versión v1, con ajuste para pantallas móviles.
+- Documentación de cambios completada con los requisitos omitidos del Word y su
+  estado real, conservando los mensajes originales.
 
 Los criterios de diseño están documentados en [cambiosv1/revision-aplicada.md](cambiosv1/revision-aplicada.md).
 
